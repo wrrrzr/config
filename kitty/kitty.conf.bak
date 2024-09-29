@@ -1,6 +1,0 @@
-include font.conf
-
-# BEGIN_KITTY_THEME
-# Apprentice
-include current-theme.conf
-# END_KITTY_THEME
