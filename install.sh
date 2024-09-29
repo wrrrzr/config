@@ -4,11 +4,11 @@ set -e
 
 which wget systemctl
 
-rm -rf ~/.config/sway ~/.config/foot ~/.config/nvim
+rm -rf ~/.config/sway ~/.config/kitty ~/.config/nvim
 
 cp -r sway ~/.config/sway
 cp -r nvim ~/.config/nvim
-cp -r foot ~/.config/foot
+cp -r kitty ~/.config/kitty
 cp .bashrc ~/.bashrc
 
 cp spoofdpi.service ~/.config/systemd/user/spoofdpi.service
