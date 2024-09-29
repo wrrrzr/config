@@ -1,0 +1,11 @@
+[Unit]
+Description=dpi spoofer
+After=network.target
+
+[Service]
+ExecStart=%h/spoofdpi
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=default.target
