@@ -25,7 +25,6 @@ require("lazy").setup({
 	{ "hrsh7th/nvim-cmp" },
 	{ "stevearc/conform.nvim" },
 	{ "Mofiqul/vscode.nvim" },
-	{ "joshdick/onedark.vim" },
 	{
 		"ThePrimeagen/refactoring.nvim",
 		dependencies = {
@@ -36,15 +35,10 @@ require("lazy").setup({
 			require("refactoring").setup()
 		end,
 	},
-	{ "Mofiqul/vscode.nvim" },
-	{ "edluffy/hologram.nvim" },
 })
 require("mason").setup()
 require("lualine").setup({
 	options = {
 		theme = "vscode",
 	},
-})
-require("hologram").setup({
-	auto_display = true,
 })
