@@ -16,7 +16,7 @@ require("lazy").setup({
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "stevearc/oil.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
-	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason.nvim", config = true },
 	{ "neovim/nvim-lspconfig" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
@@ -35,8 +35,8 @@ require("lazy").setup({
 			require("refactoring").setup()
 		end,
 	},
+	{ "lewis6991/gitsigns.nvim", config = true },
 })
-require("mason").setup()
 require("lualine").setup({
 	options = {
 		theme = "vscode",
