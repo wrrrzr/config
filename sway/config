@@ -7,7 +7,7 @@ set $right l
 
 set $term kitty
 
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu wmenu-run
 
 xwayland enable
 
@@ -107,7 +107,7 @@ bindsym $mod+r mode "resize"
 bar {
     position top
 
-    status_command while echo `bat && date +'%Y-%m-%d %X'`; do sleep 1; done
+    status_command while $HOME/.local/bin/sway-status; do sleep 1; done
 
     colors {
         statusline #ffffff
