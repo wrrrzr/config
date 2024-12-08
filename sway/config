@@ -139,3 +139,6 @@ bindsym $mod+minus scratchpad show
 bindsym Print exec grim - | wl-copy
 
 output * background ~/wallpaper.jpg fill
+
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
