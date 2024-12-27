@@ -1,13 +1,15 @@
-vim.keymap.set("n", "-", ":Oil<CR>")
-vim.keymap.set("n", "<C-x>", ":BufferLineCloseOthers<CR>")
-vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
-vim.keymap.set("n", "<s-Tab>", ":BufferLineCyclePrev<CR>")
+local map = vim.keymap.set
+
+map("n", "-", ":Oil<CR>")
+map("n", "<C-x>", ":BufferLineCloseOthers<CR>")
+map("n", "<Tab>", ":BufferLineCycleNext<CR>")
+map("n", "<s-Tab>", ":BufferLineCyclePrev<CR>")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		local bufmap = function(mode, lhs, rhs)
 			local opts = { buffer = event.buf, noremap = true, silent = true }
-			vim.keymap.set(mode, lhs, rhs, opts)
+			map(mode, lhs, rhs, opts)
 		end
 		bufmap("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
 		bufmap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>")
@@ -16,12 +18,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.keymap.set("n", "<Up>", "<nop>")
-vim.keymap.set("n", "<Down>", "<nop>")
-vim.keymap.set("n", "<Left>", "<nop>")
-vim.keymap.set("n", "<Right>", "<nop>")
+map("n", "<Up>", "<nop>")
+map("n", "<Down>", "<nop>")
+map("n", "<Left>", "<nop>")
+map("n", "<Right>", "<nop>")
 
-vim.keymap.set("i", "<Up>", "<nop>")
-vim.keymap.set("i", "<Down>", "<nop>")
-vim.keymap.set("i", "<Left>", "<nop>")
-vim.keymap.set("i", "<Right>", "<nop>")
+map("i", "<Up>", "<nop>")
+map("i", "<Down>", "<nop>")
+map("i", "<Left>", "<nop>")
+map("i", "<Right>", "<nop>")
