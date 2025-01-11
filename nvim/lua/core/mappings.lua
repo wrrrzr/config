@@ -19,12 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-map("n", "<Up>", "<nop>")
-map("n", "<Down>", "<nop>")
-map("n", "<Left>", "<nop>")
-map("n", "<Right>", "<nop>")
-
-map("i", "<Up>", "<nop>")
-map("i", "<Down>", "<nop>")
-map("i", "<Left>", "<nop>")
-map("i", "<Right>", "<nop>")
+map({ "n", "i", "v" }, "<Up>", "<nop>")
+map({ "n", "i", "v" }, "<Down>", "<nop>")
+map({ "n", "i", "v" }, "<Left>", "<nop>")
+map({ "n", "i", "v" }, "<Right>", "<nop>")
