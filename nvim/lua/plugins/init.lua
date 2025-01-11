@@ -41,4 +41,5 @@ return {
   },
   { "folke/which-key.nvim", enabled = false },
   { "nvim-tree/nvim-tree.lua", enabled = false },
+  { "Mofiqul/vscode.nvim" },
 }
