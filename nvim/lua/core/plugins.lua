@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter" },
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
-	{ "stevearc/oil.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+	{ "stevearc/oil.nvim", dependencies = { "nvim-tree/nvim-web-devicons" }, lazy = false },
 	{ "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
 	{ "neovim/nvim-lspconfig" },
 	{ "hrsh7th/cmp-nvim-lsp" },
@@ -34,7 +34,7 @@ require("lazy").setup({
 			require("refactoring").setup()
 		end,
 	},
-	{ "lewis6991/gitsigns.nvim", config = true },
+	{ "lewis6991/gitsigns.nvim", config = true, lazy = false },
 	{
 		"ThePrimeagen/refactoring.nvim",
 		dependencies = {
@@ -46,7 +46,8 @@ require("lazy").setup({
 			require("refactoring").setup()
 		end,
 	},
-})
+}, { defaults = { lazy = true } })
+
 require("lualine").setup({
 	options = {
 		theme = "vscode",
