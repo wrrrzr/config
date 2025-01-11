@@ -1,12 +1,12 @@
 local options = {
   formatters_by_ft = {
-		lua = { "stylua" },
-		python = { "autoflake", "black", "isort" },
+    lua = { "stylua" },
+    python = { "autoflake", "black", "isort" },
   },
 
   format_on_save = {
-      timeout_ms = 500,
-      lsp_fallback = true,
+    timeout_ms = 5000,
+    lsp_fallback = true,
   },
 }
 
