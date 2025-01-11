@@ -46,7 +46,7 @@ require("lazy").setup({
 			require("refactoring").setup()
 		end,
 	},
-}, { defaults = { lazy = true } })
+})
 
 require("lualine").setup({
 	options = {
