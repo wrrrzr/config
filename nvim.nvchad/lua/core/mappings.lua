@@ -11,11 +11,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			local opts = { buffer = event.buf, noremap = true, silent = true }
 			map(mode, lhs, rhs, opts)
 		end
-		bufmap("n", "gd", vim.lsp.buf.definition)
-		bufmap("n", "gD", vim.lsp.buf.declaration)
-		bufmap("n", "gi", vim.lsp.buf.implementation)
-		bufmap("n", "gr", vim.lsp.buf.references)
-		bufmap("n", "grn", vim.lsp.buf.rename)
+		bufmap("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
+		bufmap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>")
+		bufmap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>")
+		bufmap("n", "gr", ":lua vim.lsp.buf.references()<CR>")
 	end,
 })
 

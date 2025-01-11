@@ -1,10 +1,10 @@
 require("conform").setup({
 	formatters_by_ft = {
-		--lua = { "stylua" },
+		lua = { "stylua" },
 		python = { "autoflake", "black", "isort" },
 	},
 	format_on_save = {
-		timeout_ms = 5000,
+		timeout_ms = 1000,
 		lsp_fallback = true,
 	},
 })
