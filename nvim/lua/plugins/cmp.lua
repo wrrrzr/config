@@ -3,7 +3,10 @@ local cmp = require("cmp")
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
+			local func = vim.fn["vsnip#anonymous"]
+			if func ~= nil then
+				func(args.body)
+			end
 		end,
 	},
 	window = {
