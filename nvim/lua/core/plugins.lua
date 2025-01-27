@@ -50,6 +50,7 @@ require("lazy").setup({
 			require("refactoring").setup()
 		end,
 	},
+	{ "tpope/vim-fugitive" },
 })
 
 require("lualine").setup({
