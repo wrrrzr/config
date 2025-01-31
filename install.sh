@@ -9,3 +9,6 @@ cp -r swaylock ~/.config/swaylock
 cp -r nvim ~/.config/nvim
 cp -r kitty ~/.config/kitty
 cp .bashrc ~/.bashrc
+
+mkdir -p ~/.local/bin
+cp bin/sway-status ~/.local/bin
