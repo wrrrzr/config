@@ -54,7 +54,7 @@ require("lazy").setup({
     {
         "David-Kunz/gen.nvim",
         opts = {
-            model = "deepseek-coder:1.3b",
+            model = "qwen2.5-coder:3b",
             quit_map = "q",
             retry_map = "<c-r>",
             accept_map = "<c-cr>",
