@@ -58,7 +58,7 @@ require("lazy").setup({
             quit_map = "q",
             retry_map = "<c-r>",
             accept_map = "<c-cr>",
-            host = "neo",
+            host = "localhost",
             port = "11434",
             display_mode = "split",
             show_prompt = false,
