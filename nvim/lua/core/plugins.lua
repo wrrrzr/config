@@ -58,7 +58,7 @@ require("lazy").setup({
             quit_map = "q",
             retry_map = "<c-r>",
             accept_map = "<c-cr>",
-            host = "localhost",
+            host = "neo",
             port = "11434",
             display_mode = "split",
             show_prompt = false,
@@ -74,11 +74,5 @@ require("lazy").setup({
             result_filetype = "markdown",
             debug = false
         }
-    },
-})
-
-require("lualine").setup({
-    options = {
-        theme = "vscode",
     },
 })
