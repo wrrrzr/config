@@ -23,3 +23,8 @@ map({ "n", "i", "v" }, "<Up>", "<nop>")
 map({ "n", "i", "v" }, "<Down>", "<nop>")
 map({ "n", "i", "v" }, "<Left>", "<nop>")
 map({ "n", "i", "v" }, "<Right>", "<nop>")
+
+map("v", "<C-]>", ":Gen Complete<CR>")
+map("n", "[", function()
+	require("gen").select_model()
+end)
