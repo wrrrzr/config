@@ -1,6 +1,9 @@
 local cmp = require("cmp")
 
 cmp.setup({
+	experimental = {
+		ghost_text = true,
+	},
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
