@@ -1,0 +1,7 @@
+require("plg.lsp")
+require("plg.ts")
+require("plg.cmp")
+require("plg.buff")
+require("plg.oil")
+require("plg.conform")
+require("plg.lualine")
