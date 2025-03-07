@@ -1,7 +1,0 @@
-require("plugins.lsp")
-require("plugins.ts")
-require("plugins.cmp")
-require("plugins.buff")
-require("plugins.oil")
-require("plugins.conform")
-require("plugins.lualine")
