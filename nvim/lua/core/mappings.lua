@@ -4,6 +4,7 @@ map("n", "-", ":Oil<CR>")
 map("n", "<C-x>", ":BufferLineCloseOthers<CR>")
 map("n", "<Tab>", ":BufferLineCycleNext<CR>")
 map("n", "<s-Tab>", ":BufferLineCyclePrev<CR>")
+map("n", "<C-n>", ":GitConflictNextConflict<CR>")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
@@ -16,6 +17,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		bufmap("n", "gi", vim.lsp.buf.implementation)
 		bufmap("n", "gr", vim.lsp.buf.references)
 		bufmap("n", "grn", vim.lsp.buf.rename)
+		bufmap({ "n", "v" }, "<C-a>", vim.lsp.buf.hover)
 	end,
 })
 
