@@ -34,6 +34,10 @@ return {
 					Lua = {},
 				},
 			})
+			lspconfig.cmake.setup({})
+			lspconfig.gopls.setup({})
+			lspconfig.rust_analyzer.setup({})
+			lspconfig.jsonls.setup({})
 		end,
 	},
 }

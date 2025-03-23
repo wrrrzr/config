@@ -23,11 +23,21 @@ return {
 						-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 					end,
 				},
+
+				performance = {
+					-- It is recommended to increase the timeout duration due to
+					-- the typically slower response speed of LLMs compared to
+					-- other completion sources. This is not needed when you only
+					-- need manual completion.
+					fetching_timeout = 2000,
+				},
+
 				window = {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
+					["<C-y>"] = require("minuet").make_cmp_map(),
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
@@ -49,10 +59,9 @@ return {
 					end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "copilot" },
-					{ name = "codecompanion" },
+					{ name = "minuet" },
 					{ name = "nvim_lsp" },
-					{ name = "vsnip" }, -- For vsnip users.
+					{ name = "vsnip" },
 				}, { { name = "buffer" }, { name = "nvim_lsp_signature_help" } }),
 			})
 
