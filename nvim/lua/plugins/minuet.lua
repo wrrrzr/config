@@ -16,7 +16,7 @@ return {
 						},
 					},
 					provider = "openai_fim_compatible",
-					n_completions = 2,
+					n_completions = 1,
 					context_window = 512,
 					provider_options = {
 						openai_fim_compatible = {
