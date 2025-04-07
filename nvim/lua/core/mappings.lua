@@ -15,8 +15,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		bufmap("n", "gd", vim.lsp.buf.definition)
 		bufmap("n", "gD", vim.lsp.buf.declaration)
 		bufmap("n", "gi", vim.lsp.buf.implementation)
-		bufmap("n", "gr", vim.lsp.buf.references)
-		bufmap("n", "grn", vim.lsp.buf.rename)
+		bufmap("n", "gr", vim.lsp.buf.rename)
 		bufmap({ "n", "v" }, "<C-a>", vim.lsp.buf.hover)
 	end,
 })
