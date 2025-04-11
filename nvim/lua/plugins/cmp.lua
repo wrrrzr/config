@@ -59,6 +59,7 @@ return {
 					end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
+					--{ name = "copilot" },
 					{ name = "minuet" },
 					{ name = "nvim_lsp" },
 					{ name = "vsnip" },
