@@ -25,6 +25,23 @@
       10.0.0.5 rpi
     '';
 
+  networking.wg-quick.interfaces = {
+    wg0 = {
+      address = [ "10.0.0.2" ];
+      dns = [ "8.8.8.8" ];
+      privateKeyFile = "/root/wireguardkey";
+
+      peers = [
+        {
+          publicKey = "b7junNwKwlw/0i5GbQ/SXdZKMcwYcMcUGCCnAt1Yyk8=";
+          allowedIPs = [ "10.0.0.0/24" ];
+          endpoint = "tgbots:51820";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
+
 
   time.timeZone = "Europe/Moscow";
 
