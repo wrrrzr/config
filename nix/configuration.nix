@@ -17,6 +17,15 @@
   networking.hostName = "mypc";
   networking.networkmanager.enable = true;
 
+  networking.extraHosts =
+    ''
+      217.114.2.138 tgbots
+      10.0.0.3 neo
+      10.0.0.4 veryoldideapad
+      10.0.0.5 rpi
+    '';
+
+
   time.timeZone = "Europe/Moscow";
 
   services.pipewire = {
