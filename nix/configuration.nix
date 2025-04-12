@@ -99,6 +99,8 @@
 
   services.tlp.enable = true;
 
+  services.ollama.enable = true;
+
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
 
