@@ -103,8 +103,11 @@
       pkgs.pulseaudio
       pkgs.grim
       pkgs.swaylock
+      pkgs.swaynotificationcenter
     ];
   };
+
+  systemd.user.units.swaync.enable = true;
 
   services.postgresql.enable = true;
 
