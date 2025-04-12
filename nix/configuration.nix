@@ -95,6 +95,11 @@
     python3
   ];
 
+  services.tlp.enable = true;
+
+  zramSwap.enable = true;
+  zramSwap.memoryPercent = 100;
+
   system.stateVersion = "24.11";
 }
 
