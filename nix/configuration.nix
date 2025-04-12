@@ -92,6 +92,7 @@
     git
     gnumake
     gcc
+    python3
   ];
 
   system.stateVersion = "24.11";
