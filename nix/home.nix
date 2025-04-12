@@ -6,12 +6,15 @@
 
   home.stateVersion = "24.11";
 
+  nixpkgs.config.allowUnfree = true;
+
   home.packages = [
     pkgs.hello
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.telegram-desktop
     pkgs.kitty
     pkgs.luanti
+    pkgs.code-cursor
   ];
 
   home.sessionVariables = {
