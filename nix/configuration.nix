@@ -93,6 +93,8 @@
     gnumake
     gcc
     python3
+    cargo
+    rustc
   ];
 
   services.postgresql.enable = true;
