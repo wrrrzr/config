@@ -12,6 +12,7 @@
     pkgs.telegram-desktop
     pkgs.neovim
     pkgs.kitty
+    pkgs.luanti
   ];
 
   home.sessionVariables = {
