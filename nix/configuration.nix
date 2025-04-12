@@ -54,9 +54,6 @@
 
   services.xserver = {
     enable = true;
-    desktopManager = {
-      xfce.enable = true;
-    };
     xkb = {
       layout = "us,ru";
       options = "grp:win_space_toggle";
@@ -96,6 +93,18 @@
     cargo
     rustc
   ];
+
+  programs.sway = {
+    enable = true;
+    extraPackages = [
+      pkgs.wmenu
+      pkgs.playerctl
+      pkgs.brightnessctl
+      pkgs.pulseaudio
+      pkgs.grim
+      pkgs.swaylock
+    ];
+  };
 
   services.postgresql.enable = true;
 
