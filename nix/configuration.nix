@@ -95,6 +95,8 @@
     python3
   ];
 
+  services.postgresql.enable = true;
+
   services.tlp.enable = true;
 
   zramSwap.enable = true;
