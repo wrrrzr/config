@@ -18,6 +18,16 @@
     EDITOR = "vim";
   };
 
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      pysrc = "source venv/bin/activate";
+      senv = "source .env";
+      neo = "ssh neo@neo";
+      neos = "scp -r src/ neo@neo:/home/neo/tgsd/";
+    };
+  };
+
   home.pointerCursor = {
     package = pkgs.adwaita-icon-theme;
     name = "Adwaita";
