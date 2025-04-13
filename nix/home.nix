@@ -17,6 +17,7 @@
     pkgs.code-cursor
     pkgs.neovim
     pkgs.file
+    pkgs.gimp
 
     pkgs.lua-language-server
     pkgs.python313Packages.python-lsp-server
