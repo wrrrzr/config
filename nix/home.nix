@@ -31,6 +31,7 @@
     pkgs.python313Packages.autoflake
     pkgs.isort
 
+    pkgs.luarocks
     pkgs.ripgrep
     pkgs.wl-clipboard
     pkgs.xclip
