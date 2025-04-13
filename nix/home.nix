@@ -18,6 +18,8 @@
     pkgs.neovim
     pkgs.file
     pkgs.gimp
+    pkgs.gh
+    pkgs.keepassxc
 
     pkgs.lua-language-server
     pkgs.python313Packages.python-lsp-server
