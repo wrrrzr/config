@@ -34,6 +34,9 @@
     pkgs.python313Packages.autoflake
     pkgs.isort
 
+    pkgs.tree-sitter
+    pkgs.lua
+    pkgs.nodejs
     pkgs.luarocks
     pkgs.ripgrep
     pkgs.wl-clipboard
