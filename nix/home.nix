@@ -16,6 +16,7 @@
     pkgs.luanti
     pkgs.code-cursor
     pkgs.neovim
+    pkgs.file
 
     pkgs.lua-language-server
     pkgs.python313Packages.python-lsp-server
