@@ -104,6 +104,7 @@
       pkgs.grim
       pkgs.swaylock
       pkgs.swaynotificationcenter
+      pkgs.imv
     ];
   };
 
