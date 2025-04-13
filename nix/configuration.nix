@@ -92,6 +92,8 @@
     python3
     cargo
     rustc
+    htop
+    ffmpeg-full
   ];
 
   programs.sway = {
@@ -105,6 +107,7 @@
       pkgs.swaylock
       pkgs.swaynotificationcenter
       pkgs.imv
+      pkgs.mpv
     ];
   };
 
