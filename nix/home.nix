@@ -24,6 +24,7 @@
     pkgs.rust-analyzer
     pkgs.cmake-language-server
     pkgs.gopls
+    pkgs.python313Packages.flake8
 
     pkgs.stylua
     pkgs.black
