@@ -94,6 +94,7 @@
     rustc
     htop
     ffmpeg-full
+    neofetch
   ];
 
   programs.sway = {
