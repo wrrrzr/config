@@ -101,6 +101,7 @@
     home-manager
     git
     gnumake
+    cmake
     gcc
     python3
     cargo
