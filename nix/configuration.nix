@@ -13,6 +13,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "mypc";
   networking.networkmanager.enable = true;
@@ -136,6 +137,8 @@
 
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
+
+  programs.steam.enable = true;
 
   system.stateVersion = "24.11";
 }
