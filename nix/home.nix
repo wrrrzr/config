@@ -30,6 +30,7 @@
     pkgs.gopls
     pkgs.python313Packages.flake8
 
+    pkgs.nixfmt-classic
     pkgs.stylua
     pkgs.black
     pkgs.python313Packages.autoflake
