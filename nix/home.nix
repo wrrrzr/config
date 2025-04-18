@@ -20,6 +20,7 @@
     pkgs.gimp
     pkgs.gh
     pkgs.keepassxc
+    pkgs.pavucontrol
 
     pkgs.lua-language-server
     pkgs.python313Packages.python-lsp-server
