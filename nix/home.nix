@@ -21,6 +21,7 @@
     pkgs.gh
     pkgs.keepassxc
     pkgs.pavucontrol
+    pkgs.pidgin
 
     pkgs.lua-language-server
     pkgs.python313Packages.python-lsp-server
@@ -45,9 +46,7 @@
     pkgs.xclip
   ];
 
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
+  home.sessionVariables = { EDITOR = "vim"; };
 
   programs.bash = {
     enable = true;
