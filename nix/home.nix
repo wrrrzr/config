@@ -24,17 +24,17 @@
     pkgs.pidgin
 
     pkgs.lua-language-server
-    pkgs.python313Packages.python-lsp-server
+    pkgs.python3Packages.python-lsp-server
     pkgs.clang-tools
     pkgs.rust-analyzer
     pkgs.cmake-language-server
     pkgs.gopls
-    pkgs.python313Packages.flake8
+    pkgs.python3Packages.flake8
 
     pkgs.nixfmt-classic
     pkgs.stylua
     pkgs.black
-    pkgs.python313Packages.autoflake
+    pkgs.python3Packages.autoflake
     pkgs.isort
 
     pkgs.tree-sitter
