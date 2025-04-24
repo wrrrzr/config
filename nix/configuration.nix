@@ -104,6 +104,7 @@
     htop
     ffmpeg-full
     neofetch
+    alsa-utils
   ];
 
   programs.sway = {
