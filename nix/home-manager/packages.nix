@@ -17,6 +17,7 @@
     pkgs.keepassxc
     pkgs.pavucontrol
     pkgs.pidgin
+    pkgs.espeak-classic
 
     pkgs.lua-language-server
     pkgs.clang-tools
