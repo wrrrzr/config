@@ -19,17 +19,14 @@
     pkgs.pidgin
 
     pkgs.lua-language-server
-    pkgs.python3Packages.python-lsp-server
     pkgs.clang-tools
     pkgs.rust-analyzer
     pkgs.cmake-language-server
     pkgs.gopls
-    pkgs.python3Packages.flake8
 
     pkgs.nixfmt-classic
     pkgs.stylua
     pkgs.black
-    pkgs.python3Packages.autoflake
     pkgs.isort
 
     pkgs.tree-sitter
@@ -39,5 +36,16 @@
     pkgs.ripgrep
     pkgs.wl-clipboard
     pkgs.xclip
+
+    (pkgs.python3.withPackages (p:
+      with p; [
+        python-lsp-server
+        pylsp-rope
+        pylsp-mypy
+        pyls-flake8
+
+        flake8
+        autoflake
+      ]))
   ];
 }
