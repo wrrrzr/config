@@ -135,5 +135,7 @@
 
   programs.steam.enable = true;
 
+  programs.adb.enable = true;
+
   system.stateVersion = "24.11";
 }
