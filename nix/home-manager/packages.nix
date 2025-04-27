@@ -18,6 +18,9 @@
     pkgs.pavucontrol
     pkgs.pidgin
     pkgs.espeak
+    pkgs.jdk17
+    pkgs.unzip
+    pkgs.ninja
 
     pkgs.lua-language-server
     pkgs.clang-tools
