@@ -21,6 +21,7 @@
     pkgs.jdk17
     pkgs.unzip
     pkgs.ninja
+    pkgs.android-studio
 
     pkgs.lua-language-server
     pkgs.clang-tools
