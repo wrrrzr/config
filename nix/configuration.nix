@@ -105,6 +105,7 @@
     ffmpeg-full
     neofetch
     alsa-utils
+    gettext
   ];
 
   programs.sway = {
