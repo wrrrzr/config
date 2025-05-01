@@ -22,6 +22,7 @@
     pkgs.unzip
     pkgs.ninja
     pkgs.android-studio
+    pkgs.fzf
 
     pkgs.lua-language-server
     pkgs.clang-tools
