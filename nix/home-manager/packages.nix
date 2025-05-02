@@ -23,6 +23,7 @@
     pkgs.ninja
     pkgs.android-studio
     pkgs.fzf
+    pkgs.kdePackages.kdenlive
 
     pkgs.lua-language-server
     pkgs.clang-tools
