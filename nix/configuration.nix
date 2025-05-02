@@ -86,7 +86,7 @@
 
   users.users.me = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -139,6 +139,12 @@
   programs.adb.enable = true;
 
   programs.nix-ld.enable = true;
+
+  programs.virt-manager.enable = true;
+
+  virtualisation.libvirtd.enable = true;
+
+  virtualisation.spiceUSBRedirection.enable = true;
 
   system.stateVersion = "24.11";
 }
