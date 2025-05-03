@@ -25,6 +25,7 @@
     pkgs.fzf
     pkgs.kdePackages.kdenlive
     pkgs.blender
+    pkgs.nmap
 
     pkgs.lua-language-server
     pkgs.clang-tools
