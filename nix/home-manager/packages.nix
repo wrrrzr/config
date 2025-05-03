@@ -24,6 +24,7 @@
     pkgs.android-studio
     pkgs.fzf
     pkgs.kdePackages.kdenlive
+    pkgs.blender
 
     pkgs.lua-language-server
     pkgs.clang-tools
