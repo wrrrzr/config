@@ -13,7 +13,7 @@
   outputs = { self, nixpkgs, home-manager }: {
     nixosConfigurations.mypc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./configuration.nix ];
+      modules = [ ./nixos ];
     };
     homeConfigurations.me = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
