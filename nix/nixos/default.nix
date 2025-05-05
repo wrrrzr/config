@@ -55,5 +55,7 @@
 
   virtualisation.spiceUSBRedirection.enable = true;
 
+  hardware.bluetooth.enable = true;
+
   system.stateVersion = "24.11";
 }
