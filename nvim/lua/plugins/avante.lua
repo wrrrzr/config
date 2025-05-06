@@ -4,9 +4,15 @@ return {
 		event = "VeryLazy",
 		version = false,
 		opts = {
-			provider = "ollama",
-			ollama = {
-				model = "qwen3:0.6b",
+			provider = "openrouter",
+			vendors = {
+				openrouter = {
+					__inherited_from = "openai",
+					endpoint = "https://openrouter.ai/api/v1",
+					api_key_name = "OPENROUTER_API_KEY",
+					model = "qwen/qwen-2.5-coder-32b-instruct:free",
+					disable_tools = true,
+				},
 			},
 		},
 		build = "make",
