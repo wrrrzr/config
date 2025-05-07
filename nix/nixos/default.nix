@@ -51,6 +51,8 @@
 
   programs.virt-manager.enable = true;
 
+  programs.kdeconnect.enable = true;
+
   virtualisation.libvirtd.enable = true;
 
   virtualisation.spiceUSBRedirection.enable = true;
