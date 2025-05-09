@@ -26,6 +26,7 @@
     pkgs.kdePackages.kdenlive
     pkgs.blender
     pkgs.nmap
+    pkgs.helvum
 
     pkgs.lua-language-server
     pkgs.clang-tools
