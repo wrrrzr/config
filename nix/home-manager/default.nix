@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./packages.nix ./bash.nix ./git.nix ./theme.nix ];
+  imports = [ ./packages.nix ./bash.nix ./git.nix ./theme.nix ./gnome.nix ];
   home.username = "me";
   home.homeDirectory = "/home/me";
 
