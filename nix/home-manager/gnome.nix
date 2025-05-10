@@ -19,5 +19,8 @@
       switch-to-workspace-9 = [ "<Alt>9" ];
     };
     "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
+    "org/gnome/desktop/peripherals/touchpad" = {
+      disable-while-typing = false;
+    };
   };
 }
