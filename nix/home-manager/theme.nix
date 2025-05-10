@@ -14,4 +14,7 @@
       name = "Dracula";
     };
   };
+
+  xdg.configFile."gtk-4.0/settings.ini".source = ./gtk4-settings.ini;
+  xdg.configFile."gtk-4.0/gtk.css".source = ./gtk4-gtk.css;
 }
