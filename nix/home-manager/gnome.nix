@@ -18,5 +18,6 @@
       switch-to-workspace-8 = [ "<Alt>8" ];
       switch-to-workspace-9 = [ "<Alt>9" ];
     };
+    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
   };
 }
