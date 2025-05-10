@@ -7,8 +7,8 @@
     ./networking.nix
     ./users.nix
     ./packages.nix
-    ./sway.nix
     ./bash.nix
+    ./gnome.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -35,8 +35,6 @@
   };
 
   services.postgresql.enable = true;
-
-  services.tlp.enable = true;
 
   services.ollama.enable = true;
 
