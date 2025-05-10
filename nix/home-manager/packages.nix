@@ -27,6 +27,7 @@
     pkgs.blender
     pkgs.nmap
     pkgs.helvum
+    pkgs.alpaca
 
     pkgs.lua-language-server
     pkgs.clang-tools
