@@ -18,6 +18,16 @@
       switch-to-workspace-8 = [ "<Alt>8" ];
       switch-to-workspace-9 = [ "<Alt>9" ];
     };
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/kitty/"
+      ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/kitty" = {
+      name = "kitty";
+      command = "kitty";
+      binding = "<Alt><Shift>Return";
+    };
     "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
     "org/gnome/desktop/peripherals/touchpad" = {
       disable-while-typing = false;
