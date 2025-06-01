@@ -28,6 +28,8 @@
     pkgs.nmap
     pkgs.helvum
     pkgs.alpaca
+    pkgs.obs-studio
+    pkgs.cloc
 
     pkgs.lua-language-server
     pkgs.clang-tools
