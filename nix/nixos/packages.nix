@@ -18,5 +18,9 @@
     neofetch
     alsa-utils
     gettext
+    autoconf
+    automake
+    libtool
+    pkg-config
   ];
 }
