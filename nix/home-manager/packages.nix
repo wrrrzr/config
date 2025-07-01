@@ -30,6 +30,8 @@
     pkgs.alpaca
     pkgs.obs-studio
     pkgs.cloc
+    pkgs.superTux
+    pkgs.superTuxKart
 
     pkgs.lua-language-server
     pkgs.clang-tools
