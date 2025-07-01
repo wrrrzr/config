@@ -6,8 +6,7 @@
 
   networking.firewall.enable = false;
 
-  networking.nameservers =
-    [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
   services.resolved = {
     enable = true;
