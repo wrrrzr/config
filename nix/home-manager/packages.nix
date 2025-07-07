@@ -27,7 +27,6 @@
     pkgs.blender
     pkgs.nmap
     pkgs.helvum
-    pkgs.alpaca
     pkgs.obs-studio
     pkgs.cloc
     pkgs.superTux

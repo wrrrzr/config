@@ -36,24 +36,12 @@
 
   services.postgresql.enable = true;
 
-  services.ollama.enable = true;
-
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
-
-  programs.steam.enable = true;
 
   programs.adb.enable = true;
 
   programs.nix-ld.enable = true;
-
-  programs.virt-manager.enable = true;
-
-  programs.kdeconnect.enable = true;
-
-  virtualisation.libvirtd.enable = true;
-
-  virtualisation.spiceUSBRedirection.enable = true;
 
   hardware.bluetooth.enable = true;
 
