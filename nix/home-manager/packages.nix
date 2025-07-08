@@ -32,6 +32,7 @@
     pkgs.superTux
     pkgs.superTuxKart
     pkgs.dino
+    pkgs.mpv
 
     pkgs.lua-language-server
     pkgs.clang-tools
