@@ -22,5 +22,6 @@
     automake
     libtool
     pkg-config
+    gdb
   ];
 }
