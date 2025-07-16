@@ -7,7 +7,10 @@
 
   home.stateVersion = "24.11";
 
-  home.sessionVariables = { EDITOR = "vim"; };
+  home.sessionVariables = {
+    EDITOR = "vim";
+    NIX_SHELL_PRESERVE_PROMPT = 1;
+  };
 
   fonts.fontconfig.enable = true;
 
