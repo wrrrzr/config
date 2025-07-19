@@ -3,6 +3,6 @@
 {
   users.users.me = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" ];
   };
 }
