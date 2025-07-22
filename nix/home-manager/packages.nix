@@ -33,6 +33,7 @@
     pkgs.superTuxKart
     pkgs.dino
     pkgs.mpv
+    pkgs.glow
 
     pkgs.lua-language-server
     pkgs.clang-tools
