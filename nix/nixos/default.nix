@@ -9,6 +9,7 @@
     ./packages.nix
     ./bash.nix
     ./gnome.nix
+    ./virt.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
