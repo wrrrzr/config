@@ -10,7 +10,6 @@
     pkgs.kitty
     pkgs.luanti
     pkgs.code-cursor
-    pkgs.neovim
     pkgs.file
     pkgs.gimp
     pkgs.gh
@@ -35,12 +34,6 @@
     pkgs.mpv
     pkgs.glow
 
-    pkgs.lua-language-server
-    pkgs.clang-tools
-    pkgs.rust-analyzer
-    pkgs.cmake-language-server
-    pkgs.gopls
-
     pkgs.nixfmt-classic
     pkgs.stylua
     pkgs.black
@@ -54,15 +47,6 @@
     pkgs.wl-clipboard
     pkgs.xclip
 
-    (pkgs.python3.withPackages (p:
-      with p; [
-        python-lsp-server
-        pylsp-rope
-        pylsp-mypy
-        pyls-flake8
-
-        flake8
-        autoflake
-      ]))
+    (pkgs.python3.withPackages (p: with p; [ flake8 autoflake ]))
   ];
 }
