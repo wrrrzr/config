@@ -33,6 +33,7 @@
     pkgs.dino
     pkgs.mpv
     pkgs.glow
+    pkgs.yt-dlp
 
     pkgs.nixfmt-classic
     pkgs.stylua
