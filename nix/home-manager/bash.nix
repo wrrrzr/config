@@ -8,6 +8,7 @@
       senv = "source .env";
       neo = "ssh neo@neo";
       neos = "scp -r src/ neo@neo:/home/neo/aichat/";
+      curd = "$EDITOR save/mm/daily/$(date '+%Y-%m-%d'.txt)";
     };
   };
 }
