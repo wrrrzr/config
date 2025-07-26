@@ -23,5 +23,8 @@
     libtool
     pkg-config
     gdb
+    tree
+    lm_sensors
+    smartmontools
   ];
 }
