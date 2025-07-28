@@ -37,4 +37,31 @@
   environment.enableAllTerminfo = true;
 
   services.openssh.enable = true;
+
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      global = {
+        "workgroup" = "WORKGROUP";
+        "server string" = "smbnix";
+        "netbios name" = "smbnix";
+        "security" = "user";
+        "hosts allow" = "10.0.0. 127.0.0.1 localhost";
+        "hosts deny" = "0.0.0.0/0";
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
+      };
+      "notes" = {
+        "path" = "/srv/smb/notes";
+        "browseable" = "no";
+        "read only" = "no";
+        "guest ok" = "no";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "smbnix";
+        "force group" = "smbnix";
+      };
+    };
+  };
 }
