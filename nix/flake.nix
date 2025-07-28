@@ -13,16 +13,34 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim }: {
-    nixosConfigurations.mypc = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [ ./nixos ];
+  outputs = { self, nixpkgs, home-manager, nixvim, nixos-hardware }:
+    let
+      makeSystem = { hostname, system, extraModules ? [ ] }:
+        nixpkgs.lib.nixosSystem {
+          system = system;
+          specialArgs = { inherit hostname; };
+
+          modules = [ ./hosts/${hostname} ./nixos ] ++ extraModules;
+        };
+    in {
+      nixosConfigurations = {
+        mypc = makeSystem {
+          hostname = "mypc";
+          system = "x86_64-linux";
+        };
+        rpi4 = makeSystem {
+          hostname = "rpi4";
+          system = "aarch64-linux";
+          extraModules = [ nixos-hardware.nixosModules.raspberry-pi-4 ];
+        };
+      };
+      homeConfigurations.me = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        modules = [ ./home-manager nixvim.homeManagerModules.nixvim ];
+      };
     };
-    homeConfigurations.me = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages."x86_64-linux";
-      modules = [ ./home-manager nixvim.homeManagerModules.nixvim ];
-    };
-  };
 }

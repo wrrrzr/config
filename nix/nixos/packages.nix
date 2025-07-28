@@ -4,25 +4,10 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    firefox
     home-manager
-    git
-    gnumake
-    cmake
-    gcc
-    python3
-    cargo
-    rustc
     htop
-    ffmpeg-full
     neofetch
-    alsa-utils
     gettext
-    autoconf
-    automake
-    libtool
-    pkg-config
-    gdb
     tree
     lm_sensors
     smartmontools

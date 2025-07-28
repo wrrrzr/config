@@ -3,51 +3,62 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  home.packages = [
-    pkgs.hello
-    pkgs.nerd-fonts.jetbrains-mono
-    pkgs.telegram-desktop
-    pkgs.kitty
-    pkgs.luanti
-    pkgs.code-cursor
-    pkgs.file
-    pkgs.gimp
-    pkgs.gh
-    pkgs.keepassxc
-    pkgs.pavucontrol
-    pkgs.pidgin
-    pkgs.espeak
-    pkgs.jdk17
-    pkgs.unzip
-    pkgs.ninja
-    pkgs.android-studio
-    pkgs.fzf
-    pkgs.kdePackages.kdenlive
-    pkgs.blender
-    pkgs.nmap
-    pkgs.helvum
-    pkgs.obs-studio
-    pkgs.cloc
-    pkgs.superTux
-    pkgs.superTuxKart
-    pkgs.dino
-    pkgs.mpv
-    pkgs.glow
-    pkgs.yt-dlp
+  home.packages = with pkgs; [
+    hello
+    nerd-fonts.jetbrains-mono
+    telegram-desktop
+    kitty
+    luanti
+    code-cursor
+    file
+    gimp
+    gh
+    keepassxc
+    pavucontrol
+    pidgin
+    espeak
+    jdk17
+    unzip
+    ninja
+    android-studio
+    nmap
+    helvum
+    obs-studio
+    cloc
+    superTux
+    superTuxKart
+    dino
+    mpv
+    glow
+    yt-dlp
+    firefox
 
-    pkgs.nixfmt-classic
-    pkgs.stylua
-    pkgs.black
-    pkgs.isort
+    cargo
+    rustc
+    ffmpeg-full
+    alsa-utils
+    gdb
+    gnumake
+    cmake
+    gcc
+    autoconf
+    automake
+    libtool
+    pkg-config
 
-    pkgs.tree-sitter
-    pkgs.lua
-    pkgs.nodejs
-    pkgs.luarocks
-    pkgs.ripgrep
-    pkgs.wl-clipboard
-    pkgs.xclip
+    nixfmt-classic
+    stylua
+    black
+    isort
 
-    (pkgs.python3.withPackages (p: with p; [ flake8 autoflake ]))
+    tree-sitter
+    lua
+    nodejs
+    luarocks
+    ripgrep
+    wl-clipboard
+    xclip
+
+    (python3.withPackages (p: with p; [ flake8 autoflake ]))
   ];
 }
