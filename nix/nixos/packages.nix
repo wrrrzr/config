@@ -17,5 +17,6 @@ in {
     tree
     lm_sensors
     smartmontools
+    git
   ];
 }
