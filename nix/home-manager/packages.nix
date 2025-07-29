@@ -32,6 +32,7 @@
     glow
     yt-dlp
     firefox
+    nicotine-plus
 
     cargo
     rustc
