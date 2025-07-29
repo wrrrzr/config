@@ -11,8 +11,8 @@
     };
     initExtra = ''
       curd() {
-          local d=save/mm/daily/$(date '+%Y-%m-%d'.md)
-          [[ -s $d ]] || cp save/mm/templates/daily.md $d
+          local d=~/mm/daily/$(date '+%Y-%m-%d'.md)
+          [[ -s $d ]] || cp ~/mm/templates/daily.md $d
           $EDITOR $d
       }
     '';
