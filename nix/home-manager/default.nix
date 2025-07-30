@@ -1,8 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ ./packages.nix ./bash.nix ./git.nix ./theme.nix ./gnome.nix ./nixvim ];
+  imports = [
+    ./packages.nix
+    ./bash.nix
+    ./git.nix
+    ./theme.nix
+    ./gnome.nix
+    ./sway.nix
+    ./nixvim
+  ];
   home.username = "me";
   home.homeDirectory = "/home/me";
 
