@@ -115,4 +115,5 @@ in {
     grim
     wl-clipboard
   ];
+  services.swaync.enable = true;
 }
