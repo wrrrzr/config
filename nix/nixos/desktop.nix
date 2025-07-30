@@ -4,10 +4,8 @@ let cfg = config.module.desktop;
 in {
   options.module.desktop = { enable = lib.mkEnableOption "Desktop things"; };
   config = lib.mkIf cfg.enable {
-    services.displayManager.gdm.enable = true;
-    services.desktopManager.gnome.enable = true;
-
     security.rtkit.enable = true;
+    security.polkit.enable = true;
     services.pipewire = {
       enable = true;
       alsa.enable = true;
@@ -19,6 +17,7 @@ in {
 
     services.xserver = {
       enable = true;
+      displayManager.lightdm.enable = false;
       xkb = {
         layout = "us,ru";
         options = "grp:win_space_toggle";
