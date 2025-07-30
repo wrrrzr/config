@@ -26,6 +26,8 @@ in {
         "type:keyboard" = {
           xkb_layout = "us,ru";
           xkb_options = "grp:win_space_toggle";
+          repeat_delay = "500";
+          repeat_rate = "30";
         };
         "type:touchpad" = {
           dwt = "disabled";
