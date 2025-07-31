@@ -9,6 +9,7 @@
     ./zram.nix
     ./desktop.nix
     ./printers.nix
+    ./smb.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
