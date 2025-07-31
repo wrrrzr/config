@@ -5,6 +5,7 @@ let
   resize = "10px";
   barcmd = pkgs.writeShellScriptBin "barcmd" ''
     echo $(cat /sys/class/power_supply/BAT1/capacity)"%" "|" $(date "+%a %F %R")'';
+  wallpaper = ./wallpaper.png;
   switchWorkspaceBind = num: "workspace number ${num}";
 
   moveToWorkspaceBind = num: "move container to workspace number ${num}";
@@ -36,6 +37,7 @@ in {
           middle_emulation = "enabled";
         };
       };
+      output = { "*" = { bg = "${wallpaper} fill"; }; };
       keybindings = {
         "${mod}+Shift+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${mod}+Shift+c" = "kill";
