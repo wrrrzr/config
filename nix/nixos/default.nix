@@ -8,6 +8,7 @@
     ./virt.nix
     ./zram.nix
     ./desktop.nix
+    ./printers.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
