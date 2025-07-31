@@ -41,15 +41,16 @@
     cmp = {
       enable = true;
       settings = {
+        experimental.ghost_text = true;
         sources = [ { name = "nvim_lsp"; } { name = "vsnip"; } ];
         mapping = {
           "<C-Space>" = "cmp.mapping.complete()";
           "<C-e>" = "cmp.mapping.abort()";
           "<CR>" = "cmp.mapping.confirm({ select = true })";
           "<Tab>" =
-            "cmp.mapping(cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}), {'i', 's'})";
+            "cmp.mapping(cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}), {'i', 's'})";
           "<S-Tab>" =
-            "cmp.mapping(cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}), {'i', 's'})";
+            "cmp.mapping(cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Insert}), {'i', 's'})";
         };
         window = {
           completion.border = "rounded";
