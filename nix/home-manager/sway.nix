@@ -42,6 +42,7 @@ in {
         "${mod}+Shift+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${mod}+Shift+c" = "kill";
         "${mod}+p" = "exec ${pkgs.wmenu}/bin/wmenu-run";
+        "${mod}+l" = "exec ${pkgs.swaylock}/bin/swaylock";
         "${mod}+Left" = "focus left";
         "${mod}+Down" = "focus down";
         "${mod}+Up" = "focus up";
@@ -106,11 +107,14 @@ in {
       default_floating_border none
       titlebar_padding 1
       titlebar_border_thickness 0
+
+      bindswitch lid:on exec swaylock
     '';
   };
   home.packages = with pkgs; [
     kitty
     wmenu
+    swaylock
     pulseaudio
     playerctl
     brightnessctl

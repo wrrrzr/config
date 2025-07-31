@@ -12,6 +12,7 @@ in {
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    security.pam.services.swaylock = { };
 
     services.libinput.enable = true;
 
