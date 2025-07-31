@@ -33,6 +33,7 @@
     yt-dlp
     firefox
     nicotine-plus
+    blueman
 
     cargo
     rustc
