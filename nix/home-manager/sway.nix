@@ -32,6 +32,7 @@ in {
         };
         "type:touchpad" = {
           dwt = "disabled";
+          drag_lock = "disabled";
           tap = "enabled";
           natural_scroll = "enabled";
           middle_emulation = "enabled";
