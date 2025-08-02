@@ -10,9 +10,15 @@
 
   module = {
     desktop.enable = true;
-    smbmount.enable = true;
+    # smbmount.enable = true;
     virt.enable = true;
     network.wg.address = "10.0.0.2";
+  };
+
+  services.byedpi = {
+    enable = true;
+    params =
+      "--split 1 --disorder 3+s --mod-http=h,d --auto=torst --tlsrec 1+s";
   };
 
   services.postgresql.enable = true;
