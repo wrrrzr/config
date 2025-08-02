@@ -10,6 +10,7 @@
     ./desktop.nix
     ./printers.nix
     ./smb.nix
+    ./byedpi.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
