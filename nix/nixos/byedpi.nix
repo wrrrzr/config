@@ -6,9 +6,8 @@ in {
     enable = lib.mkEnableOption "the ByeDPI service";
     package = lib.mkPackageOption pkgs "byedpi" { };
     params = lib.mkOption {
-      default = "";
       type = lib.types.str;
-      example =
+      default =
         "--split 1 --disorder 3+s --mod-http=h,d --auto=torst --tlsrec 1+s";
       description = "Specify the bypass parameters for ByeDPI binary.";
     };
