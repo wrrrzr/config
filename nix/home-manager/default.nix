@@ -19,5 +19,11 @@
 
   fonts.fontconfig.enable = true;
 
+  programs.readline = {
+    enable = true;
+    bindings = { "\\C-H" = "backward-kill-word"; };
+    variables = { mark-symlinked-directories = true; };
+  };
+
   programs.home-manager.enable = true;
 }
