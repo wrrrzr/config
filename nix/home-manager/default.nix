@@ -8,6 +8,7 @@
     ./theme.nix
     ./gnome.nix
     ./sway.nix
+    ./kitty.nix
     ./nixvim
   ];
   home.username = "me";
