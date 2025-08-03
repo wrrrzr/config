@@ -6,9 +6,6 @@ let
   barcmd = pkgs.writeShellScriptBin "barcmd" ''
     echo $(cat /sys/class/power_supply/BAT1/capacity)"%" "|" $(date "+%a %F %R")'';
   wallpaper = ./wallpaper.png;
-  switchWorkspaceBind = num: "workspace number ${num}";
-
-  moveToWorkspaceBind = num: "move container to workspace number ${num}";
 in {
   wayland.windowManager.sway = {
     enable = true;
@@ -122,5 +119,12 @@ in {
     grim
     wl-clipboard
   ];
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      ignore-empty-password = true;
+      image = "${wallpaper}";
+    };
+  };
   services.swaync.enable = true;
 }
