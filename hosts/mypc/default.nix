@@ -3,6 +3,8 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ./boot.nix ];
 
+  boot.kernel.sysctl = { "net.ipv4.ip_unprivileged_port_start" = 0; };
+
   users.users.me = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
@@ -32,6 +34,13 @@
   hardware.bluetooth.enable = true;
 
   networking.networkmanager.enable = true;
+
+  services.forgejo = {
+    enable = true;
+    database.type = "sqlite3";
+    lfs.enable = true;
+    settings.server.HTTP_PORT = 80;
+  };
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "rtsx_usb_sdmmc" ];
   boot.initrd.kernelModules = [ ];
