@@ -34,6 +34,7 @@
     firefox
     nicotine-plus
     blueman
+    cmatrix
 
     cargo
     rustc
