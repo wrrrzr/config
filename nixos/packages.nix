@@ -12,7 +12,6 @@ in {
     wget
     home-manager
     htop
-    neofetch
     gettext
     tree
     lm_sensors
