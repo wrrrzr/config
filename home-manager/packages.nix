@@ -35,6 +35,8 @@
     nicotine-plus
     blueman
     cmatrix
+    acpi
+    hollywood
 
     cargo
     rustc
