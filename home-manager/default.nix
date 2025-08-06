@@ -27,5 +27,10 @@
     variables = { mark-symlinked-directories = true; };
   };
 
+  programs.go = {
+    enable = true;
+    goPath = ".go";
+  };
+
   programs.home-manager.enable = true;
 }
