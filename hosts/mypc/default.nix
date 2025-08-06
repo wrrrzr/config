@@ -20,7 +20,7 @@
   services.byedpi = {
     enable = true;
     params =
-      "--split 1 --disorder 3+s --mod-http=h,d --auto=torst --tlsrec 1+s";
+      "--split 1 --disorder 3+s --mod-http=h,d --auto=torst --tlsrec 1+s --ip 127.0.0.1";
   };
 
   environment.systemPackages = with pkgs; [ python3Packages.argostranslate ];
