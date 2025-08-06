@@ -75,10 +75,7 @@
     treesitter = {
       enable = true;
 
-      settings = {
-        indent.enable = true;
-        highlight.enable = true;
-      };
+      settings.highlight.enable = true;
     };
     lsp = {
       enable = true;
