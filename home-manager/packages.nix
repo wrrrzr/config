@@ -1,47 +1,14 @@
 { config, pkgs, ... }:
 
-{
-  nixpkgs.config.allowUnfree = true;
-
-  home.packages = with pkgs; [
-    hello
-    nerd-fonts.jetbrains-mono
-    telegram-desktop
-    kitty
-    luanti
+let
+  packages-dev = with pkgs; [
     code-cursor
-    file
-    gimp
     gh
-    keepassxc
-    pavucontrol
-    pidgin
-    espeak
     jdk17
-    unzip
     ninja
     android-studio
-    nmap
-    helvum
-    obs-studio
-    cloc
-    superTux
-    superTuxKart
-    dino
-    mpv
-    glow
-    yt-dlp
-    firefox
-    nicotine-plus
-    blueman
-    cmatrix
-    acpi
-    hollywood
-
     cargo
     rustc
-    ffmpeg-full
-    alsa-utils
     gdb
     gnumake
     cmake
@@ -50,20 +17,54 @@
     automake
     libtool
     pkg-config
-
     nixfmt-classic
     stylua
     black
     isort
-
     tree-sitter
     lua
-    nodejs
     luarocks
+    go
+    (python3.withPackages (p: with p; [ flake8 autoflake ]))
+  ];
+  packages-cli = with pkgs; [
+    file
+    nmap
+    cloc
+    glow
+    acpi
+    hollywood
+    ffmpeg-full
+    alsa-utils
     ripgrep
     wl-clipboard
     xclip
-
-    (python3.withPackages (p: with p; [ flake8 autoflake ]))
+    unzip
+    yt-dlp
+    espeak
   ];
+  packages-gui = with pkgs; [
+    telegram-desktop
+    kitty
+    luanti
+    gimp
+    keepassxc
+    pavucontrol
+    pidgin
+    helvum
+    obs-studio
+    superTux
+    superTuxKart
+    firefox
+    nicotine-plus
+    blueman
+    dino
+    mpv
+  ];
+  packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
+in {
+  nixpkgs.config.allowUnfree = true;
+
+  home.packages = packages-dev ++ packages-cli ++ packages-gui
+    ++ packages-fonts;
 }
