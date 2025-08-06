@@ -5,5 +5,6 @@
     enable = true;
     userEmail = "wozrer@proton.me";
     userName = "wrrrzr";
+    extraConfig = { init.defaultBranch = "master"; };
   };
 }
