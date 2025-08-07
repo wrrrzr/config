@@ -4,6 +4,7 @@ let
   myvim = (pkgs.vim-full.customize {
     vimrcConfig.customRC = ''
       set mouse=
+      syntax on
     '';
   });
 in {
