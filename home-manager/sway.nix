@@ -118,6 +118,7 @@ in {
     brightnessctl
     grim
     wl-clipboard
+    imv
   ];
   programs.swaylock = {
     enable = true;
