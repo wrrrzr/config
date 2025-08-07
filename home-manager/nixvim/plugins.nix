@@ -106,6 +106,11 @@
         lua_ls.enable = true;
         cmake.enable = true;
         jsonls.enable = true;
+        rust_analyzer = {
+          enable = true;
+          installCargo = true;
+          installRustc = true;
+        };
       };
     };
     avante = {
