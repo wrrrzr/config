@@ -10,6 +10,7 @@
     ./sway.nix
     ./kitty.nix
     ./fastfetch.nix
+    ./mpv.nix
     ./nixvim
   ];
   home.username = "me";
