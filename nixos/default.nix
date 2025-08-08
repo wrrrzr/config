@@ -16,6 +16,7 @@
     ./printers.nix
     ./smb.nix
     ./byedpi.nix
+    ./forgejo.nix
   ];
 
   nix.settings.experimental-features = [
