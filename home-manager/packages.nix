@@ -17,7 +17,7 @@ let
     automake
     libtool
     pkg-config
-    nixfmt-classic
+    nixfmt-rfc-style
     stylua
     black
     isort
