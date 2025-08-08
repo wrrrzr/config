@@ -1,5 +1,7 @@
 {
   programs.nixvim = {
-    diagnostic.settings = { virtual_lines.current_line = true; };
+    diagnostic.settings = {
+      virtual_lines.current_line = true;
+    };
   };
 }

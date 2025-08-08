@@ -1,8 +1,12 @@
 { lib, config, ... }:
 
-let cfg = config.module.desktop;
-in {
-  options.module.desktop = { enable = lib.mkEnableOption "Desktop things"; };
+let
+  cfg = config.module.desktop;
+in
+{
+  options.module.desktop = {
+    enable = lib.mkEnableOption "Desktop things";
+  };
   config = lib.mkIf cfg.enable {
     security.rtkit.enable = true;
     security.polkit.enable = true;

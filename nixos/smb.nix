@@ -1,7 +1,9 @@
 { lib, config, ... }:
 
-let cfg = config.module.smbmount;
-in {
+let
+  cfg = config.module.smbmount;
+in
+{
   options.module.smbmount = {
     enable = lib.mkEnableOption "Mount smb mount in me dir";
   };

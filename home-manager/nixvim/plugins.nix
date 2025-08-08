@@ -29,7 +29,11 @@
       settings = {
         formatters_by_ft = {
           lua = [ "stylua" ];
-          python = [ "autoflake" "black" "isort" ];
+          python = [
+            "autoflake"
+            "black"
+            "isort"
+          ];
           nix = [ "nixfmt" ];
         };
         format_on_save = {
@@ -42,7 +46,10 @@
       enable = true;
       settings = {
         experimental.ghost_text = true;
-        sources = [ { name = "nvim_lsp"; } { name = "vsnip"; } ];
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "vsnip"; }
+        ];
         mapping = {
           "<C-Space>" = "cmp.mapping.complete()";
           "<C-e>" = "cmp.mapping.abort()";
@@ -60,15 +67,18 @@
       cmdline = {
         "/" = {
           mapping.__raw = "cmp.mapping.preset.cmdline()";
-          sources = [{ name = "buffer"; }];
+          sources = [ { name = "buffer"; } ];
         };
         "?" = {
           mapping.__raw = "cmp.mapping.preset.cmdline()";
-          sources = [{ name = "buffer"; }];
+          sources = [ { name = "buffer"; } ];
         };
         ":" = {
           mapping.__raw = "cmp.mapping.preset.cmdline()";
-          sources = [ { name = "path"; } { name = "cmdline"; } ];
+          sources = [
+            { name = "path"; }
+            { name = "cmdline"; }
+          ];
         };
       };
     };

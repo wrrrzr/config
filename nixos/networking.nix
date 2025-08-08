@@ -1,7 +1,15 @@
-{ config, lib, pkgs, hostname, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  hostname,
+  ...
+}:
 
-let cfg = config.module.network;
-in {
+let
+  cfg = config.module.network;
+in
+{
   options.module.network = {
     wg = {
       address = lib.mkOption {
@@ -15,13 +23,19 @@ in {
 
     networking.firewall.enable = false;
 
-    networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
+    networking.nameservers = [
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
 
     services.resolved = {
       enable = true;
       dnssec = "true";
       domains = [ "~." ];
-      fallbackDns = [ "8.8.8.8" "8.8.4.4" ];
+      fallbackDns = [
+        "8.8.8.8"
+        "8.8.4.4"
+      ];
       dnsovertls = "true";
     };
 
@@ -38,12 +52,14 @@ in {
         dns = [ "8.8.8.8" ];
         privateKeyFile = "/root/wireguardkey";
 
-        peers = [{
-          publicKey = "b7junNwKwlw/0i5GbQ/SXdZKMcwYcMcUGCCnAt1Yyk8=";
-          allowedIPs = [ "10.0.0.0/24" ];
-          endpoint = "tgbots:51820";
-          persistentKeepalive = 25;
-        }];
+        peers = [
+          {
+            publicKey = "b7junNwKwlw/0i5GbQ/SXdZKMcwYcMcUGCCnAt1Yyk8=";
+            allowedIPs = [ "10.0.0.0/24" ];
+            endpoint = "tgbots:51820";
+            persistentKeepalive = 25;
+          }
+        ];
       };
     };
   };

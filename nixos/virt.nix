@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.module.virt;
   emulate = [ "aarch64-linux" ];
-in {
+in
+{
   options.module.virt = {
     enable = lib.mkEnableOption "Virt manager and emulate arm64";
   };

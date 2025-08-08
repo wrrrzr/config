@@ -4,8 +4,11 @@
 
   dconf.settings = {
     "org/gnome/shell" = {
-      favorite-apps =
-        [ "firefox.desktop" "kitty.desktop" "im.dino.Dino.desktop" ];
+      favorite-apps = [
+        "firefox.desktop"
+        "kitty.desktop"
+        "im.dino.Dino.desktop"
+      ];
     };
     "org/gnome/desktop/wm/keybindings" = {
       switch-to-workspace-1 = [ "<Alt>1" ];
@@ -28,7 +31,9 @@
       command = "kitty";
       binding = "<Alt><Shift>Return";
     };
-    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
     "org/gnome/desktop/peripherals/touchpad" = {
       disable-while-typing = false;
     };
