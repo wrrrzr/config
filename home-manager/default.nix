@@ -17,14 +17,20 @@
 
   home.stateVersion = "24.11";
 
-  home.sessionVariables = { NIX_SHELL_PRESERVE_PROMPT = 1; };
+  home.sessionVariables = {
+    NIX_SHELL_PRESERVE_PROMPT = 1;
+  };
 
   fonts.fontconfig.enable = true;
 
   programs.readline = {
     enable = true;
-    bindings = { "\\C-H" = "backward-kill-word"; };
-    variables = { mark-symlinked-directories = true; };
+    bindings = {
+      "\\C-H" = "backward-kill-word";
+    };
+    variables = {
+      mark-symlinked-directories = true;
+    };
   };
 
   programs.go = {

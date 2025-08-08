@@ -17,16 +17,33 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, nixos-hardware }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixvim,
+      nixos-hardware,
+    }:
     let
-      makeSystem = { hostname, system, extraModules ? [ ] }:
+      makeSystem =
+        {
+          hostname,
+          system,
+          extraModules ? [ ],
+        }:
         nixpkgs.lib.nixosSystem {
           system = system;
           specialArgs = { inherit hostname; };
 
-          modules = [ ./hosts/${hostname} ./nixos ] ++ extraModules;
+          modules = [
+            ./hosts/${hostname}
+            ./nixos
+          ]
+          ++ extraModules;
         };
-    in {
+    in
+    {
       nixosConfigurations = {
         mypc = makeSystem {
           hostname = "mypc";
@@ -40,7 +57,10 @@
       };
       homeConfigurations.me = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        modules = [ ./home-manager nixvim.homeManagerModules.nixvim ];
+        modules = [
+          ./home-manager
+          nixvim.homeManagerModules.nixvim
+        ];
       };
     };
 }

@@ -1,14 +1,20 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
-let cfg = config.services.byedpi;
-in {
+let
+  cfg = config.services.byedpi;
+in
+{
   options.services.byedpi = {
     enable = lib.mkEnableOption "the ByeDPI service";
     package = lib.mkPackageOption pkgs "byedpi" { };
     params = lib.mkOption {
       type = lib.types.str;
-      default =
-        "--split 1 --disorder 3+s --mod-http=h,d --auto=torst --tlsrec 1+s";
+      default = "--split 1 --disorder 3+s --mod-http=h,d --auto=torst --tlsrec 1+s";
       description = "Specify the bypass parameters for ByeDPI binary.";
     };
   };
@@ -17,7 +23,10 @@ in {
       description = "ByeDPI";
       wantedBy = [ "default.target" ];
       wants = [ "network-online.target" ];
-      after = [ "network-online.target" "nss-lookup.target" ];
+      after = [
+        "network-online.target"
+        "nss-lookup.target"
+      ];
       serviceConfig = {
         ExecStart = "${cfg.package}/bin/ciadpi ${cfg.params}";
         NoNewPrivileges = "yes";

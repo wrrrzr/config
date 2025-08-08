@@ -1,25 +1,32 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   mod = "Mod1";
   resize = "10px";
-  barcmd = pkgs.writeShellScriptBin "barcmd" ''
-    echo $(cat /sys/class/power_supply/BAT1/capacity)"%" "|" $(date "+%a %F %R")'';
+  barcmd = pkgs.writeShellScriptBin "barcmd" ''echo $(cat /sys/class/power_supply/BAT1/capacity)"%" "|" $(date "+%a %F %R")'';
   wallpaper = ./wallpaper.png;
-in {
+in
+{
   wayland.windowManager.sway = {
     enable = true;
     xwayland = true;
     systemd.enable = true;
     config = {
-      bars = [{
-        position = "top";
-        colors = {
-          statusline = "#ffffff";
-          background = "#323232";
-        };
-        statusCommand = "while ${barcmd}/bin/barcmd; do sleep 1; done";
-      }];
+      bars = [
+        {
+          position = "top";
+          colors = {
+            statusline = "#ffffff";
+            background = "#323232";
+          };
+          statusCommand = "while ${barcmd}/bin/barcmd; do sleep 1; done";
+        }
+      ];
       input = {
         "type:keyboard" = {
           xkb_layout = "us,ru";
@@ -35,7 +42,11 @@ in {
           middle_emulation = "enabled";
         };
       };
-      output = { "*" = { bg = "${wallpaper} fill"; }; };
+      output = {
+        "*" = {
+          bg = "${wallpaper} fill";
+        };
+      };
       keybindings = {
         "${mod}+Shift+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${mod}+Shift+c" = "kill";
@@ -56,22 +67,16 @@ in {
         "${mod}+v" = "splitv";
         "${mod}+f" = "fullscreen";
         "${mod}+r" = "resize";
-        "XF86AudioRaiseVolume" =
-          "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
-        "XF86AudioLowerVolume" =
-          "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
-        "XF86AudioMute" =
-          "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
+        "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
+        "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
+        "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "XF86AudioPause" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
-        "XF86MonBrightnessUp" =
-          "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%+";
-        "XF86MonBrightnessDown" =
-          "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
+        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%+";
+        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
         "${mod}+Shift+minus" = "move scratchpad";
         "${mod}+minus" = "scratchpad show";
-        "Print" =
-          "exec ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy";
+        "Print" = "exec ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy";
         "${mod}+1" = "workspace number 1";
         "${mod}+2" = "workspace number 2";
         "${mod}+3" = "workspace number 3";

@@ -1,4 +1,10 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}:
 
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
@@ -8,7 +14,9 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  module = { network.wg.address = "10.0.0.5"; };
+  module = {
+    network.wg.address = "10.0.0.5";
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";
@@ -22,7 +30,11 @@
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
   networking.wireless.enable = true;
-  networking.wireless.networks = { "marinad 5G" = { psk = "13031991"; }; };
+  networking.wireless.networks = {
+    "marinad 5G" = {
+      psk = "13031991";
+    };
+  };
 
   hardware.raspberry-pi."4".leds = {
     pwr.disable = true;

@@ -1,13 +1,21 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
-  myvim = (pkgs.vim-full.customize {
-    vimrcConfig.customRC = ''
-      set mouse=
-      syntax on
-    '';
-  });
-in {
+  myvim = (
+    pkgs.vim-full.customize {
+      vimrcConfig.customRC = ''
+        set mouse=
+        syntax on
+      '';
+    }
+  );
+in
+{
   environment.systemPackages = with pkgs; [
     myvim
     wget

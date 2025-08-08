@@ -25,7 +25,12 @@ let
     lua
     luarocks
     go
-    (python3.withPackages (p: with p; [ flake8 autoflake ]))
+    (python3.withPackages (
+      p: with p; [
+        flake8
+        autoflake
+      ]
+    ))
   ];
   packages-cli = with pkgs; [
     file
@@ -62,9 +67,9 @@ let
     mpv
   ];
   packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
-in {
+in
+{
   nixpkgs.config.allowUnfree = true;
 
-  home.packages = packages-dev ++ packages-cli ++ packages-gui
-    ++ packages-fonts;
+  home.packages = packages-dev ++ packages-cli ++ packages-gui ++ packages-fonts;
 }
