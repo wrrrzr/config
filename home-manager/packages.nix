@@ -64,7 +64,6 @@ let
     nicotine-plus
     blueman
     dino
-    mpv
   ];
   packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
 in
