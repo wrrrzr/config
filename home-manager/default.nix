@@ -6,7 +6,6 @@
     ./bash.nix
     ./git.nix
     ./theme.nix
-    ./gnome.nix
     ./sway.nix
     ./kitty.nix
     ./fastfetch.nix
