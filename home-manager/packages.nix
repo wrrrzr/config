@@ -47,6 +47,7 @@ let
     unzip
     yt-dlp
     espeak
+    senpai
   ];
   packages-gui = with pkgs; [
     telegram-desktop
@@ -55,7 +56,6 @@ let
     gimp
     keepassxc
     pavucontrol
-    pidgin
     helvum
     obs-studio
     superTux
