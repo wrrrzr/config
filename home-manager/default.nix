@@ -10,6 +10,7 @@
     ./kitty.nix
     ./fastfetch.nix
     ./mpv.nix
+    ./readline.nix
     ./nixvim
   ];
   home.username = "me";
@@ -22,16 +23,6 @@
   };
 
   fonts.fontconfig.enable = true;
-
-  programs.readline = {
-    enable = true;
-    bindings = {
-      "\\C-H" = "backward-kill-word";
-    };
-    variables = {
-      mark-symlinked-directories = true;
-    };
-  };
 
   programs.go = {
     enable = true;
