@@ -23,7 +23,7 @@
   module = {
     desktop.enable = true;
     smbmount.enable = true;
-    virt.enable = true;
+    emulate.enable = true;
     network.wg.address = "10.0.0.2";
   };
 
