@@ -131,8 +131,11 @@
           __inherited_from = "openai";
           endpoint = "https://openrouter.ai/api/v1";
           api_key_name = "OPENROUTER_API_KEY";
-          model = "qwen/qwen3-coder:free";
-          extra_request_body.reasoning_effort = "low";
+          model = "openai/gpt-oss-20b:free";
+          disable_tools = true;
+          extra_request_body = {
+            reasoning_effort = "low";
+          };
         };
       };
     };
