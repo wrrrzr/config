@@ -11,6 +11,7 @@
     ./packages.nix
     ./bash.nix
     ./virt.nix
+    ./emulate.nix
     ./zram.nix
     ./desktop.nix
     ./printers.nix
