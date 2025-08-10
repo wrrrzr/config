@@ -150,5 +150,6 @@
     lualine.enable = true;
     gitsigns.enable = true;
     git-conflict.enable = true;
+    fugitive.enable = true;
   };
 }
