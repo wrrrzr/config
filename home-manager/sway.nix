@@ -133,4 +133,5 @@ in
     };
   };
   services.swaync.enable = true;
+  services.batsignal.enable = true;
 }
