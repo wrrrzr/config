@@ -87,42 +87,6 @@
 
       settings.highlight.enable = true;
     };
-    lsp = {
-      enable = true;
-      inlayHints = true;
-      keymaps.lspBuf = {
-        "K" = "hover";
-        "gD" = "declaration";
-        "gd" = "definition";
-        "gr" = "references";
-        "gI" = "implementation";
-        "gy" = "type_definition";
-        "gca" = "code_action";
-        "gcr" = "rename";
-        "gwl" = "list_workspace_folders";
-        "gwr" = "remove_workspace_folder";
-        "gwa" = "add_workspace_folder";
-      };
-      servers = {
-        pylsp = {
-          enable = true;
-          settings.plugins = {
-            rope.enable = true;
-            mypy.enable = true;
-            flake8.enable = true;
-          };
-        };
-        clangd.enable = true;
-        lua_ls.enable = true;
-        cmake.enable = true;
-        jsonls.enable = true;
-        rust_analyzer = {
-          enable = true;
-          installCargo = true;
-          installRustc = true;
-        };
-      };
-    };
     avante = {
       enable = true;
       settings = {

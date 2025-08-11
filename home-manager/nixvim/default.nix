@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -6,6 +6,7 @@
     ./plugins.nix
     ./mappings.nix
     ./diagnostic.nix
+    ./lsp.nix
   ];
   programs.nixvim = {
     enable = true;
