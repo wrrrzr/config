@@ -24,7 +24,6 @@
     "nix-command"
     "flakes"
   ];
-  nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Europe/Moscow";
 

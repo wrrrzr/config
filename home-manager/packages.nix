@@ -2,11 +2,9 @@
 
 let
   packages-dev = with pkgs; [
-    code-cursor
     gh
     jdk17
     ninja
-    android-studio
     cargo
     rustc
     gdb
@@ -68,7 +66,5 @@ let
   packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
 in
 {
-  nixpkgs.config.allowUnfree = true;
-
   home.packages = packages-dev ++ packages-cli ++ packages-gui ++ packages-fonts;
 }
