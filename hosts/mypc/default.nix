@@ -34,6 +34,8 @@
 
   services.postgresql.enable = true;
 
+  services.tlp.enable = true;
+
   programs.adb.enable = true;
 
   programs.nix-ld.enable = true;
