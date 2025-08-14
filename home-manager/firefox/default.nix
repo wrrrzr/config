@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  firefox-addons,
+  system,
+  ...
+}:
 
 {
   programs.firefox = {
@@ -23,6 +28,10 @@
         icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
         definedAliases = [ "@nixpkgs" ];
       };
+      extensions.packages = with firefox-addons.packages.${system}; [
+        multi-account-containers
+        darkreader
+      ];
     };
     policies = {
       DisableTelemetry = true;
