@@ -58,7 +58,6 @@ let
     obs-studio
     superTux
     superTuxKart
-    firefox
     nicotine-plus
     blueman
     dino
