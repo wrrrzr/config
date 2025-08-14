@@ -60,6 +60,16 @@
           system = "aarch64-linux";
           extraModules = [ nixos-hardware.nixosModules.raspberry-pi-4 ];
         };
+        installer =
+          let
+            system = "x86_64-linux";
+          in
+          nixpkgs.lib.nixosSystem {
+            specialArgs = { inherit system; };
+            modules = [
+              ./installer
+            ];
+          };
       };
       homeConfigurations.me =
         let
