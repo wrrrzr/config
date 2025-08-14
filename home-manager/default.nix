@@ -12,6 +12,7 @@
     ./mpv.nix
     ./readline.nix
     ./nixvim
+    ./firefox
   ];
   home.username = "me";
   home.homeDirectory = "/home/me";
