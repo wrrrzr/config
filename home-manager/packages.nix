@@ -60,7 +60,7 @@ let
     superTuxKart
     nicotine-plus
     blueman
-    dino
+    gajim
   ];
   packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
 in
