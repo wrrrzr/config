@@ -50,7 +50,7 @@ in
       wg0 = {
         address = [ cfg.wg.address ];
         dns = [ "8.8.8.8" ];
-        privateKeyFile = "/root/wireguardkey";
+        privateKeyFile = "/etc/nixos/wireguardkey";
 
         peers = [
           {
