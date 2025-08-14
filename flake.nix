@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
@@ -23,6 +28,7 @@
       nixpkgs,
       home-manager,
       nixvim,
+      firefox-addons,
       nixos-hardware,
     }:
     let
@@ -55,12 +61,19 @@
           extraModules = [ nixos-hardware.nixosModules.raspberry-pi-4 ];
         };
       };
-      homeConfigurations.me = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        modules = [
-          ./home-manager
-          nixvim.homeManagerModules.nixvim
-        ];
-      };
+      homeConfigurations.me =
+        let
+          system = "x86_64-linux";
+        in
+        home-manager.lib.homeManagerConfiguration {
+          extraSpecialArgs = {
+            inherit firefox-addons system;
+          };
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = [
+            ./home-manager
+            nixvim.homeManagerModules.nixvim
+          ];
+        };
     };
 }
