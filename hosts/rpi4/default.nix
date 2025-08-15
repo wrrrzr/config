@@ -15,6 +15,10 @@
   boot.extraModulePackages = [ ];
 
   module = {
+    emulate = {
+      enable = true;
+      platforms = [ "x86_64-linux" ];
+    };
     network.wg.address = "10.0.0.5";
   };
 
