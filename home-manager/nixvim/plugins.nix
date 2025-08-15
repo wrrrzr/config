@@ -49,6 +49,7 @@
         sources = [
           { name = "nvim_lsp"; }
           { name = "vsnip"; }
+          { name = "path"; }
         ];
         mapping = {
           "<C-Space>" = "cmp.mapping.complete()";
