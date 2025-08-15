@@ -20,6 +20,11 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -30,6 +35,7 @@
       nixvim,
       firefox-addons,
       nixos-hardware,
+      nixos-generators,
     }:
     let
       makeSystem =
@@ -60,16 +66,11 @@
           system = "aarch64-linux";
           extraModules = [ nixos-hardware.nixosModules.raspberry-pi-4 ];
         };
-        installer =
-          let
-            system = "x86_64-linux";
-          in
-          nixpkgs.lib.nixosSystem {
-            specialArgs = { inherit system; };
-            modules = [
-              ./installer
-            ];
-          };
+        installer = nixos-generators.nixosGenerate {
+          system = "x86_64-linux";
+          format = "iso";
+          modules = [ ./installer ];
+        };
       };
       homeConfigurations.me =
         let

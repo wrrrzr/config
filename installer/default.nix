@@ -1,7 +1,6 @@
 {
   pkgs,
   modulesPath,
-  system,
   ...
 }:
 
@@ -19,5 +18,12 @@
     "flakes"
   ];
 
-  nixpkgs.hostPlatform = system;
+  users.users.installer = {
+    password = "install";
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
+
+  networking.firewall.enable = false;
+  services.openssh.enable = true;
 }
