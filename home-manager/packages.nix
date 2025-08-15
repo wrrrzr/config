@@ -46,6 +46,7 @@ let
     yt-dlp
     espeak
     senpai
+    screen
   ];
   packages-gui = with pkgs; [
     telegram-desktop
