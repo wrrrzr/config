@@ -22,7 +22,10 @@
 
   module = {
     desktop.enable = true;
-    emulate.enable = true;
+    emulate = {
+      enable = true;
+      platforms = [ "aarch64-linux" ];
+    };
     network.wg.address = "10.0.0.2";
   };
 

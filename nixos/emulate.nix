@@ -1,20 +1,23 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
 let
   cfg = config.module.emulate;
-  emulate = [ "aarch64-linux" ];
 in
 {
   options.module.emulate = {
     enable = lib.mkEnableOption "Emulate arm64 system";
+    platforms = lib.mkOption {
+      type = with lib.types; listOf str;
+      example = [ "aarch64-linux" ];
+      description = "Platforms to emulate";
+    };
   };
   config = lib.mkIf cfg.enable {
-    boot.binfmt.emulatedSystems = emulate;
-    nix.settings.extra-platforms = emulate;
+    boot.binfmt.emulatedSystems = cfg.platforms;
+    nix.settings.extra-platforms = cfg.platforms;
   };
 }
