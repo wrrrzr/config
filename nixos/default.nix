@@ -16,7 +16,6 @@
     ./zram.nix
     ./desktop.nix
     ./printers.nix
-    ./smb.nix
     ./byedpi.nix
     ./forgejo.nix
   ];
