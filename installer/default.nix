@@ -24,6 +24,10 @@
     extraGroups = [ "wheel" ];
   };
 
+  environment.enableAllTerminfo = true;
+
+  security.sudo.wheelNeedsPassword = false;
+
   networking.firewall.enable = false;
   services.openssh.enable = true;
 }
