@@ -11,6 +11,7 @@
     ./fastfetch.nix
     ./mpv.nix
     ./readline.nix
+    ./xdg.nix
     ./nixvim
     ./firefox
   ];
