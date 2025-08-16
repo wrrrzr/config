@@ -48,6 +48,24 @@
           ]
           ++ extraModules;
         };
+      makeHome =
+        {
+          username,
+          system,
+          extraModules ? [ ],
+        }:
+        home-manager.lib.homeManagerConfiguration {
+          extraSpecialArgs = {
+            inherit firefox-addons system;
+          };
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = [
+            ./home/${username}
+            ./home/modules
+            nixvim.homeManagerModules.nixvim
+          ]
+          ++ extraModules;
+        };
     in
     {
       nixosConfigurations = {
@@ -61,19 +79,11 @@
           extraModules = [ nixos-hardware.nixosModules.raspberry-pi-4 ];
         };
       };
-      homeConfigurations.me =
-        let
+      homeConfigurations = {
+        me = makeHome {
+          username = "me";
           system = "x86_64-linux";
-        in
-        home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = {
-            inherit firefox-addons system;
-          };
-          pkgs = nixpkgs.legacyPackages.${system};
-          modules = [
-            ./home-manager
-            nixvim.homeManagerModules.nixvim
-          ];
         };
+      };
     };
 }
