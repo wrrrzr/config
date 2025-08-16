@@ -12,6 +12,7 @@
     ./mpv.nix
     ./readline.nix
     ./xdg.nix
+    ./mpd.nix
     ./firefox
   ];
   home.username = "me";

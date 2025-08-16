@@ -52,6 +52,7 @@ in
         "${mod}+Shift+c" = "kill";
         "${mod}+p" = "exec ${pkgs.wmenu}/bin/wmenu-run";
         "${mod}+l" = "exec ${pkgs.swaylock}/bin/swaylock";
+        "${mod}+m" = "exec ${pkgs.mpc}/bin/mpc toggle";
         "${mod}+Left" = "focus left";
         "${mod}+Down" = "focus down";
         "${mod}+Up" = "focus up";
