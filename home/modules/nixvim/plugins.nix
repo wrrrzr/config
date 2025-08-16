@@ -125,6 +125,7 @@ in
       gitsigns.enable = true;
       git-conflict.enable = true;
       fugitive.enable = true;
+      render-markdown.enable = true;
     };
   };
 }
