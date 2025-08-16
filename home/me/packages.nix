@@ -47,6 +47,7 @@ let
     espeak
     senpai
     screen
+    bluetui
   ];
   packages-gui = with pkgs; [
     telegram-desktop
@@ -60,7 +61,6 @@ let
     superTux
     superTuxKart
     nicotine-plus
-    blueman
     gajim
   ];
   packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
