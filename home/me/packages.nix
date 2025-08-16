@@ -48,6 +48,7 @@ let
     senpai
     screen
     bluetui
+    libnotify
   ];
   packages-gui = with pkgs; [
     telegram-desktop
