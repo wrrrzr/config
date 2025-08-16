@@ -45,6 +45,28 @@
           };
           definedAliases = [ "@mwmbl" ];
         };
+        "Github" = {
+          urls = [
+            {
+              template = "https://github.com/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+                {
+                  name = "type";
+                  value = "code";
+                }
+              ];
+            }
+          ];
+          icon = pkgs.fetchurl {
+            url = "https://github.com/favicon.ico";
+            sha256 = "LuQyN9GWEAIQ8Xhue3O1fNFA9gE8Byxw29/9npvGlfg=";
+          };
+          definedAliases = [ "@github" ];
+        };
       };
     };
   };
