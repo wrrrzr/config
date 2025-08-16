@@ -12,7 +12,6 @@
     ./mpv.nix
     ./readline.nix
     ./xdg.nix
-    ./nixvim
     ./firefox
   ];
   home.username = "me";
@@ -29,6 +28,10 @@
   programs.go = {
     enable = true;
     goPath = ".go";
+  };
+
+  module = {
+    nixvim.enable = true;
   };
 
   programs.home-manager.enable = true;
