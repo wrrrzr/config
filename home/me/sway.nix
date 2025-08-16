@@ -137,4 +137,5 @@ in
   };
   services.swaync.enable = true;
   services.batsignal.enable = true;
+  services.gnome-keyring.enable = true;
 }

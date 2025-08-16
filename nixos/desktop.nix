@@ -17,6 +17,7 @@ in
       pulse.enable = true;
     };
     security.pam.services.swaylock = { };
+    programs.dconf.enable = true;
 
     services.libinput.enable = true;
 
