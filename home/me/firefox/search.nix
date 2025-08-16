@@ -6,6 +6,7 @@
 {
   programs.firefox = {
     profiles.me = {
+      search.force = true;
       search.engines = {
         "Nix Packages" = {
           urls = [
