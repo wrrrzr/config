@@ -20,6 +20,11 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -30,6 +35,7 @@
       nixvim,
       firefox-addons,
       nixos-hardware,
+      nixos-generators,
     }:
     let
       makeSystem =
@@ -84,6 +90,11 @@
           username = "me";
           system = "x86_64-linux";
         };
+      };
+      packages.x86_64-linux.installer = nixos-generators.nixosGenerate {
+        system = "x86_64-linux";
+        format = "iso";
+        modules = [ ./installer ];
       };
     };
 }
