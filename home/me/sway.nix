@@ -9,6 +9,9 @@ let
   mod = "Mod1";
   resize = "10px";
   barcmd = pkgs.writeShellScriptBin "barcmd" ''echo $(cat /sys/class/power_supply/BAT1/capacity)"%" "|" $(date "+%a %F %R")'';
+  mpcswitch = pkgs.writeShellScriptBin "mpcswitch" ''
+    ${pkgs.mpc}/bin/mpc $1
+    ${pkgs.libnotify}/bin/notify-send "Now playing" "$(${pkgs.mpc}/bin/mpc | head -n1)"'';
   wallpaper = ./wallpaper.png;
 in
 {
@@ -53,6 +56,8 @@ in
         "${mod}+p" = "exec ${pkgs.wmenu}/bin/wmenu-run";
         "${mod}+l" = "exec ${pkgs.swaylock}/bin/swaylock";
         "${mod}+m" = "exec ${pkgs.mpc}/bin/mpc toggle";
+        "${mod}+ctrl+Right" = "exec ${mpcswitch}/bin/mpcswitch next";
+        "${mod}+ctrl+Left" = "exec ${mpcswitch}/bin/mpcswitch prev";
         "${mod}+Left" = "focus left";
         "${mod}+Down" = "focus down";
         "${mod}+Up" = "focus up";
