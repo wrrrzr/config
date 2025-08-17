@@ -13,6 +13,7 @@
       extensions.packages = with firefox-addons.packages.${system}; [
         multi-account-containers
         darkreader
+        vimium
       ];
     };
     policies = {
