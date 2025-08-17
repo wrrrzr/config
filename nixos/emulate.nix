@@ -9,7 +9,7 @@ let
 in
 {
   options.module.emulate = {
-    enable = lib.mkEnableOption "Emulate arm64 system";
+    enable = lib.mkEnableOption "Emulate other platforms";
     platforms = lib.mkOption {
       type = with lib.types; listOf str;
       example = [ "aarch64-linux" ];
