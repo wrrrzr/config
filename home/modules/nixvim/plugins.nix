@@ -97,18 +97,40 @@ in
 
         settings.highlight.enable = true;
       };
-      avante = {
+      codecompanion = {
         enable = true;
+
         settings = {
-          provider = "openrouter";
-          providers.openrouter = {
-            __inherited_from = "openai";
-            endpoint = "https://openrouter.ai/api/v1";
-            api_key_name = "OPENROUTER_API_KEY";
-            model = "openai/gpt-oss-20b:free";
-            disable_tools = true;
-            extra_request_body = {
-              reasoning_effort = "low";
+          adapters = {
+            openrouter = {
+              __raw = ''
+                function()
+                  return require("codecompanion.adapters").extend("openai_compatible", {
+                      env = {
+                          url       = "https://openrouter.ai/api",
+                          api_key   = "OPENROUTER_API_KEY",
+                          chat_url  = "/v1/chat/completions",
+                      },
+                      schema = {
+                          model = {
+                              default = "openai/gpt-oss-20b:free",
+                          },
+                      },
+                  })
+                end
+              '';
+            };
+          };
+
+          strategies = {
+            agent = {
+              adapter = "openrouter";
+            };
+            chat = {
+              adapter = "openrouter";
+            };
+            inline = {
+              adapter = "openrouter";
             };
           };
         };
@@ -125,7 +147,15 @@ in
       gitsigns.enable = true;
       git-conflict.enable = true;
       fugitive.enable = true;
-      render-markdown.enable = true;
+      render-markdown = {
+        enable = true;
+        settings = {
+          file_types = [
+            "markdown"
+            "codecompanion"
+          ];
+        };
+      };
     };
   };
 }
