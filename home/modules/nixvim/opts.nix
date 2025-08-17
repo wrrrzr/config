@@ -16,7 +16,6 @@ in
         smarttab = true;
         expandtab = true;
         termguicolors = true;
-        mouse = "";
       };
       clipboard = {
         register = "unnamedplus";
