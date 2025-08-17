@@ -62,7 +62,7 @@
           modules = [
             ./home/${username}
             ./home/modules
-            nixvim.homeManagerModules.nixvim
+            nixvim.homeModules.nixvim
           ]
           ++ extraModules;
         };
