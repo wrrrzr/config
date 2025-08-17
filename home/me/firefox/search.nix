@@ -25,7 +25,10 @@
             }
           ];
           icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "@nixpkgs" ];
+          definedAliases = [
+            "@nixpkgs"
+            "@nix"
+          ];
         };
         "Mwmbl" = {
           urls = [
@@ -43,7 +46,10 @@
             url = "https://mwmbl.org/static/images/logo.svg";
             sha256 = "YqhPROWFxaZs+YXmXsUaEt8/fzx+VUJLb4tRc9qik0s=";
           };
-          definedAliases = [ "@mwmbl" ];
+          definedAliases = [
+            "@mwmbl"
+            "@mw"
+          ];
         };
         "Github" = {
           urls = [
@@ -65,7 +71,10 @@
             url = "https://github.com/favicon.ico";
             sha256 = "LuQyN9GWEAIQ8Xhue3O1fNFA9gE8Byxw29/9npvGlfg=";
           };
-          definedAliases = [ "@github" ];
+          definedAliases = [
+            "@github"
+            "@gh"
+          ];
         };
         "Youtube" = {
           urls = [
