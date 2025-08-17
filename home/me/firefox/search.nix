@@ -67,6 +67,23 @@
           };
           definedAliases = [ "@github" ];
         };
+        "Youtube" = {
+          urls = [
+            {
+              template = "https://youtube.com/results";
+              params = [
+                {
+                  name = "search_query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+          definedAliases = [
+            "@youtube"
+            "@yt"
+          ];
+        };
       };
     };
   };
