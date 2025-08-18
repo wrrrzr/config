@@ -1,8 +1,15 @@
 {
-  pkgs,
   ...
 }:
 
+let
+  icons = {
+    nixPackages = ./icons/nix-packages.svg;
+    mwmbl = ./icons/mwmbl.svg;
+    github = ./icons/github.ico;
+    youtube = ./icons/youtube.ico;
+  };
+in
 {
   programs.firefox = {
     profiles.me = {
@@ -24,7 +31,7 @@
               ];
             }
           ];
-          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          icon = icons.nixPackages;
           definedAliases = [
             "@nixpkgs"
             "@nix"
@@ -42,10 +49,7 @@
               ];
             }
           ];
-          icon = pkgs.fetchurl {
-            url = "https://mwmbl.org/static/images/logo.svg";
-            sha256 = "YqhPROWFxaZs+YXmXsUaEt8/fzx+VUJLb4tRc9qik0s=";
-          };
+          icon = icons.mwmbl;
           definedAliases = [
             "@mwmbl"
             "@mw"
@@ -67,10 +71,7 @@
               ];
             }
           ];
-          icon = pkgs.fetchurl {
-            url = "https://github.com/favicon.ico";
-            sha256 = "LuQyN9GWEAIQ8Xhue3O1fNFA9gE8Byxw29/9npvGlfg=";
-          };
+          icon = icons.github;
           definedAliases = [
             "@github"
             "@gh"
@@ -88,6 +89,7 @@
               ];
             }
           ];
+          icon = icons.youtube;
           definedAliases = [
             "@youtube"
             "@yt"
