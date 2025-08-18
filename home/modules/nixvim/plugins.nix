@@ -113,7 +113,7 @@ in
                       },
                       schema = {
                           model = {
-                              default = "openai/gpt-oss-20b:free",
+                              default = "qwen/qwen3-coder:free",
                           },
                       },
                   })
