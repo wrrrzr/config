@@ -27,6 +27,7 @@ in
             statusline = "#ffffff";
             background = "#323232";
           };
+          trayOutput = "none";
           statusCommand = "while ${barcmd}/bin/barcmd; do sleep 1; done";
         }
       ];
