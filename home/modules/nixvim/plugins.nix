@@ -57,7 +57,6 @@ in
           experimental.ghost_text = true;
           sources = [
             { name = "nvim_lsp"; }
-            { name = "vsnip"; }
             { name = "path"; }
           ];
           mapping = {
@@ -140,7 +139,6 @@ in
       cmp-buffer.enable = true;
       cmp-path.enable = true;
       cmp-cmdline.enable = true;
-      cmp-vsnip.enable = true;
 
       web-devicons.enable = true;
       lualine.enable = true;
