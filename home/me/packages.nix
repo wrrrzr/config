@@ -63,6 +63,7 @@ let
     superTuxKart
     nicotine-plus
     gajim
+    evince
   ];
   packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
 in
