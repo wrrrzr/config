@@ -112,7 +112,7 @@ in
                       },
                       schema = {
                           model = {
-                              default = "qwen/qwen3-coder:free",
+                              default = "mistralai/mistral-small-3.2-24b-instruct:free",
                           },
                       },
                   })
