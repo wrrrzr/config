@@ -12,6 +12,7 @@ in
       enable = true;
       defaultEditor = true;
       colorschemes.vscode.enable = true;
+      plugins.lz-n.enable = true;
     };
   };
 }
