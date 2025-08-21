@@ -29,13 +29,13 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       nixvim,
       firefox-addons,
       nixos-hardware,
       nixos-generators,
+      ...
     }:
     let
       makeSystem =
