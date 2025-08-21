@@ -62,8 +62,7 @@ in
         "${mod}+Down" = "focus down";
         "${mod}+Up" = "focus up";
         "${mod}+Right" = "focus right";
-        "${mod}+Shift+q" =
-          "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
+        "${mod}+Shift+q" = "exec swaymsg exit";
         "${mod}+Shift+e" = "reload";
         "${mod}+Shift+Left" = "move left";
         "${mod}+Shift+Down" = "move down";
