@@ -12,6 +12,12 @@ let
     ${pkgs.mpc}/bin/mpc $1
     ${pkgs.libnotify}/bin/notify-send -r 1 "Now playing" "$(${pkgs.mpc}/bin/mpc | head -n1)"'';
   wallpaper = ./wallpaper.png;
+  vimkeys = {
+    left = "h";
+    down = "j";
+    up = "k";
+    right = "l";
+  };
 in
 {
   wayland.windowManager.sway = {
@@ -54,20 +60,31 @@ in
         "${mod}+Shift+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${mod}+Shift+c" = "kill";
         "${mod}+p" = "exec ${pkgs.wmenu}/bin/wmenu-run";
-        "${mod}+l" = "exec ${pkgs.swaylock}/bin/swaylock";
+        "${mod}+ctrl+l" = "exec ${pkgs.swaylock}/bin/swaylock";
         "${mod}+m" = "exec ${pkgs.mpc}/bin/mpc toggle";
         "${mod}+ctrl+Right" = "exec ${mpcswitch}/bin/mpcswitch next";
         "${mod}+ctrl+Left" = "exec ${mpcswitch}/bin/mpcswitch prev";
+
         "${mod}+Left" = "focus left";
         "${mod}+Down" = "focus down";
         "${mod}+Up" = "focus up";
         "${mod}+Right" = "focus right";
-        "${mod}+Shift+q" = "exec swaymsg exit";
-        "${mod}+Shift+e" = "reload";
+        "${mod}+${vimkeys.left}" = "focus left";
+        "${mod}+${vimkeys.down}" = "focus down";
+        "${mod}+${vimkeys.up}" = "focus up";
+        "${mod}+${vimkeys.right}" = "focus right";
+
         "${mod}+Shift+Left" = "move left";
         "${mod}+Shift+Down" = "move down";
         "${mod}+Shift+Up" = "move up";
         "${mod}+Shift+Right" = "move right";
+        "${mod}+Shift+${vimkeys.left}" = "move left";
+        "${mod}+Shift+${vimkeys.down}" = "move down";
+        "${mod}+Shift+${vimkeys.up}" = "move up";
+        "${mod}+Shift+${vimkeys.right}" = "move right";
+
+        "${mod}+Shift+q" = "exec swaymsg exit";
+        "${mod}+Shift+e" = "reload";
         "${mod}+b" = "splith";
         "${mod}+v" = "splitv";
         "${mod}+f" = "fullscreen";
@@ -107,6 +124,11 @@ in
           "Down" = "resize grow height ${resize}";
           "Up" = "resize shrink height ${resize}";
           "Right" = "resize grow width ${resize}";
+
+          "${vimkeys.left}" = "resize shrink width ${resize}";
+          "${vimkeys.down}" = "resize grow height ${resize}";
+          "${vimkeys.up}" = "resize shrink height ${resize}";
+          "${vimkeys.right}" = "resize grow width ${resize}";
 
           "Return" = "mode default";
           "Escape" = "mode default";
