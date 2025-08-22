@@ -51,7 +51,6 @@ let
     libnotify
   ];
   packages-gui = with pkgs; [
-    telegram-desktop
     kitty
     luanti
     gimp
