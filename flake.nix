@@ -49,7 +49,7 @@
           specialArgs = { inherit hostname; };
 
           modules = [
-            ./hosts/${hostname}
+            ./machines/${hostname}
             ./nixos
           ]
           ++ extraModules;
