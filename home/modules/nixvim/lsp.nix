@@ -37,6 +37,7 @@ in
           cmake.enable = true;
           jsonls.enable = true;
           nixd.enable = true;
+          ts_ls.enable = true;
         };
       };
       fidget.enable = true;
