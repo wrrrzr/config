@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   modulesPath,
   ...
@@ -11,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
 
   module = {
     emulate = {
@@ -38,9 +40,12 @@
     };
   };
 
-  hardware.raspberry-pi."4".leds = {
-    pwr.disable = true;
-    act.disable = true;
+  hardware.raspberry-pi."4" = {
+    pwm0.enable = true;
+    leds = {
+      pwr.disable = true;
+      act.disable = true;
+    };
   };
 
   users.users.tux = {
