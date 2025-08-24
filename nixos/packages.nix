@@ -8,6 +8,7 @@ let
     pkgs.vim-full.customize {
       vimrcConfig.customRC = ''
         set mouse=
+        set number
         syntax on
       '';
     }
