@@ -49,6 +49,7 @@ let
     screen
     bluetui
     libnotify
+    aichat
   ];
   packages-gui = with pkgs; [
     kitty
