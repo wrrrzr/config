@@ -1,13 +1,7 @@
 { config, lib, ... }:
 
-let
-  cfg = config.module.nixvim-opts;
-in
 {
-  options.module.nixvim-opts = {
-    enable = lib.mkEnableOption "Nixvim opts";
-  };
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.module.nixvim.enable {
     programs.nixvim = {
       opts = {
         number = true;

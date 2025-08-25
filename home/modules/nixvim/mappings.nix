@@ -1,13 +1,7 @@
 { config, lib, ... }:
 
-let
-  cfg = config.module.nixvim-mappings;
-in
 {
-  options.module.nixvim-mappings = {
-    enable = lib.mkEnableOption "Nixvim mappings";
-  };
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.module.nixvim.enable {
     programs.nixvim.keymaps = [
       {
         key = "-";

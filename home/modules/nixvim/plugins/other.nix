@@ -1,13 +1,7 @@
 { config, lib, ... }:
 
-let
-  cfg = config.module.nixvim-plugins;
-in
 {
-  options.module.nixvim-plugins = {
-    enable = lib.mkEnableOption "Nixvim plugins";
-  };
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.module.nixvim.enable {
     programs.nixvim.plugins = {
       oil = {
         enable = true;
@@ -48,46 +42,6 @@ in
           format_on_save = {
             timeout_ms = 5000;
             lsp_fallback = true;
-          };
-        };
-      };
-      cmp = {
-        enable = true;
-        settings = {
-          experimental.ghost_text = true;
-          sources = [
-            { name = "nvim_lsp"; }
-            { name = "path"; }
-          ];
-          mapping = {
-            "<C-Space>" = "cmp.mapping.complete()";
-            "<C-e>" = "cmp.mapping.abort()";
-            "<CR>" = "cmp.mapping.confirm({ select = true })";
-            "<Tab>" =
-              "cmp.mapping(cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}), {'i', 's'})";
-            "<S-Tab>" =
-              "cmp.mapping(cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Insert}), {'i', 's'})";
-          };
-          window = {
-            completion.border = "rounded";
-            documentation.border = "rounded";
-          };
-        };
-        cmdline = {
-          "/" = {
-            mapping.__raw = "cmp.mapping.preset.cmdline()";
-            sources = [ { name = "buffer"; } ];
-          };
-          "?" = {
-            mapping.__raw = "cmp.mapping.preset.cmdline()";
-            sources = [ { name = "buffer"; } ];
-          };
-          ":" = {
-            mapping.__raw = "cmp.mapping.preset.cmdline()";
-            sources = [
-              { name = "path"; }
-              { name = "cmdline"; }
-            ];
           };
         };
       };
@@ -134,11 +88,6 @@ in
           };
         };
       };
-
-      cmp-nvim-lsp.enable = true;
-      cmp-buffer.enable = true;
-      cmp-path.enable = true;
-      cmp-cmdline.enable = true;
 
       web-devicons.enable = true;
       lualine.enable = true;

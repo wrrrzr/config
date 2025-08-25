@@ -1,13 +1,7 @@
 { config, lib, ... }:
 
-let
-  cfg = config.module.nixvim-diagnostic;
-in
 {
-  options.module.nixvim-diagnostic = {
-    enable = lib.mkEnableOption "Nixvim diagnostic";
-  };
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.module.nixvim.enable {
     programs.nixvim = {
       diagnostic.settings = {
         virtual_text = {
