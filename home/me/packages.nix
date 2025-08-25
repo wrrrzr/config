@@ -50,6 +50,8 @@ let
     bluetui
     libnotify
     aichat
+    bc
+    lolcat
   ];
   packages-gui = with pkgs; [
     kitty
