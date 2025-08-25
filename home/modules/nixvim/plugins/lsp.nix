@@ -1,13 +1,7 @@
 { config, lib, ... }:
 
-let
-  cfg = config.module.nixvim-lsp;
-in
 {
-  options.module.nixvim-lsp = {
-    enable = lib.mkEnableOption "Nixvim lsp";
-  };
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.module.nixvim.enable {
     programs.nixvim.plugins = {
       lsp = {
         enable = true;
