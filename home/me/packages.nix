@@ -47,7 +47,6 @@ let
     espeak
     senpai
     screen
-    bluetui
     libnotify
     aichat
     bc
@@ -66,6 +65,7 @@ let
     nicotine-plus
     gajim
     evince
+    blueman
   ];
   packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
 in

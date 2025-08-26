@@ -31,6 +31,8 @@
     goPath = ".go";
   };
 
+  services.blueman-applet.enable = true;
+
   module = {
     nixvim.enable = true;
   };
