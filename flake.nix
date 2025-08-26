@@ -25,6 +25,11 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -35,6 +40,7 @@
       firefox-addons,
       nixos-hardware,
       nixos-generators,
+      disko,
       ...
     }:
     let
@@ -78,6 +84,7 @@
         mypc = makeSystem {
           hostname = "mypc";
           system = "x86_64-linux";
+          extraModules = [ disko.nixosModules.disko ];
         };
         rpi4 = makeSystem {
           hostname = "rpi4";

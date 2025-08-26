@@ -9,6 +9,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./boot.nix
+    ./disks.nix
   ];
 
   users.users.me = {
@@ -53,20 +54,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/87cb5ee8-9e76-42bd-a347-ce4f890139d9";
-    fsType = "ext4";
-  };
-
-  fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-uuid/1AC0-4B9C";
-    fsType = "vfat";
-    options = [
-      "fmask=0022"
-      "dmask=0022"
-    ];
-  };
 
   networking.useDHCP = lib.mkDefault true;
 

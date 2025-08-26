@@ -17,6 +17,8 @@
     ./forgejo.nix
   ];
 
+  users.users.root.initialPassword = "toor";
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
