@@ -1,43 +1,36 @@
-{ config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
+let
+  avante-package = pkgs.vimPlugins.avante-nvim.overrideAttrs {
+    version = "0.0.25";
+    src = pkgs.fetchFromGitHub {
+      owner = "yetone";
+      repo = "avante.nvim";
+      tag = "v0.0.25";
+      sha256 = "lmyooXvQ+Cqv/6iMVlwToJZMFePSWoVzuGVV7jsSOZc=";
+    };
+  };
+  avante-model = "qwen/qwen3-235b-a22b:free";
+in
 {
   config = lib.mkIf config.module.nixvim.enable {
     programs.nixvim.plugins = {
-      codecompanion = {
+      avante = {
         enable = true;
-
+        package = avante-package;
         settings = {
-          adapters = {
-            openrouter = {
-              __raw = ''
-                function()
-                  return require("codecompanion.adapters").extend("openai_compatible", {
-                      env = {
-                          url       = "https://openrouter.ai/api",
-                          api_key   = "OPENROUTER_API_KEY",
-                          chat_url  = "/v1/chat/completions",
-                      },
-                      schema = {
-                          model = {
-                              default = "mistralai/mistral-small-3.2-24b-instruct:free",
-                          },
-                      },
-                  })
-                end
-              '';
-            };
-          };
-
-          strategies = {
-            agent = {
-              adapter = "openrouter";
-            };
-            chat = {
-              adapter = "openrouter";
-            };
-            inline = {
-              adapter = "openrouter";
-            };
+          provider = "openrouter";
+          providers.openrouter = {
+            __inherited_from = "openai";
+            endpoint = "https://openrouter.ai/api/v1";
+            api_key_name = "OPENROUTER_API_KEY";
+            model = avante-model;
+            extra_request_body.reasoning_effort = "low";
           };
         };
       };
