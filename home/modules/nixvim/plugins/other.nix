@@ -1,5 +1,11 @@
 { config, lib, ... }:
 
+let
+  render-markdown-ft = [
+    "markdown"
+    "Avante"
+  ];
+in
 {
   config = lib.mkIf config.module.nixvim.enable {
     programs.nixvim.plugins = {
@@ -57,12 +63,8 @@
       fugitive.enable = true;
       render-markdown = {
         enable = true;
-        settings = {
-          file_types = [
-            "markdown"
-            "codecompanion"
-          ];
-        };
+        settings.file_types = render-markdown-ft;
+        lazyLoad.settings.ft = render-markdown-ft;
       };
     };
   };
