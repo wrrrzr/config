@@ -32,6 +32,7 @@
   };
 
   services.blueman-applet.enable = true;
+  services.kdeconnect.enable = true;
 
   module = {
     nixvim.enable = true;
