@@ -51,6 +51,7 @@ let
     aichat
     bc
     lolcat
+    progress
   ];
   packages-gui = with pkgs; [
     kitty
