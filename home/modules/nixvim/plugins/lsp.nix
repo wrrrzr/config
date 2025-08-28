@@ -28,11 +28,8 @@
           basedpyright.enable = true;
           clangd.enable = true;
           lua_ls.enable = true;
-          cmake.enable = true;
-          jsonls.enable = true;
-          nixd.enable = true;
-          nil_ls.enable = true;
           ts_ls.enable = true;
+          nixd.enable = true;
         };
       };
       fidget.enable = true;
