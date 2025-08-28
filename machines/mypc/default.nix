@@ -31,7 +31,21 @@
 
   services.byedpi = {
     enable = true;
-    params = "--split 1 --disorder 3+s --mod-http=h,d --auto=torst --tlsrec 1+s --ip 127.0.0.1";
+    extraArgs = [
+      "-Ktls"
+      "-s1"
+      "-q1"
+      "-Y"
+      "-At"
+      "-T5"
+      "-b1000"
+      "-S"
+      "-f-1"
+      "-r1+sm"
+      "-As"
+      "--ip"
+      "127.0.0.1"
+    ];
   };
 
   services.postgresql.enable = true;

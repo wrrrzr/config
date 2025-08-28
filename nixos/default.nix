@@ -13,7 +13,6 @@
     ./zram.nix
     ./desktop.nix
     ./printers.nix
-    ./byedpi.nix
   ];
 
   users.users.root.initialPassword = "toor";
