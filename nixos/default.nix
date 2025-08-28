@@ -14,7 +14,6 @@
     ./desktop.nix
     ./printers.nix
     ./byedpi.nix
-    ./forgejo.nix
   ];
 
   users.users.root.initialPassword = "toor";
