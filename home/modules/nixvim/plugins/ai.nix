@@ -15,7 +15,7 @@ let
       sha256 = "lmyooXvQ+Cqv/6iMVlwToJZMFePSWoVzuGVV7jsSOZc=";
     };
   };
-  avante-model = "qwen/qwen3-235b-a22b:free";
+  avante-model = "x-ai/grok-code-fast-1";
 in
 {
   config = lib.mkIf config.module.nixvim.enable {
