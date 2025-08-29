@@ -30,6 +30,7 @@
           lua_ls.enable = true;
           ts_ls.enable = true;
           nixd.enable = true;
+          jsonls.enable = true;
         };
       };
       fidget.enable = true;
