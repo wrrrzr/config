@@ -32,6 +32,25 @@ in
             model = avante-model;
             extra_request_body.reasoning_effort = "low";
           };
+          behaviour = {
+            auto_approve_tool_permissions = [
+              "glob"
+              "fetch"
+              "git_diff"
+              "move_path"
+              "copy_path"
+              "read_file"
+              "create_dir"
+              "rag_search"
+              "web_search"
+              "git_commit"
+              "delete_path"
+              "create_file"
+              "search_keyword"
+              "replace_in_file"
+              "read_file_toplevel_symbols"
+            ];
+          };
         };
       };
     };
