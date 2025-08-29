@@ -29,25 +29,6 @@
     network.wg.address = "10.0.0.2";
   };
 
-  services.byedpi = {
-    enable = true;
-    extraArgs = [
-      "-Ktls"
-      "-s1"
-      "-q1"
-      "-Y"
-      "-At"
-      "-T5"
-      "-b1000"
-      "-S"
-      "-f-1"
-      "-r1+sm"
-      "-As"
-      "--ip"
-      "127.0.0.1"
-    ];
-  };
-
   services.postgresql.enable = true;
 
   services.tlp.enable = true;
