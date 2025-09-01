@@ -20,7 +20,6 @@ in
     networking.wg-quick.interfaces = {
       wg0 = {
         address = [ cfg.address ];
-        dns = [ "10.0.0.1" ];
         privateKeyFile = "/etc/nixos/wireguardkey";
 
         peers = [
