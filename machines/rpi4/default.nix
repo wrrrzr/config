@@ -35,7 +35,7 @@
 
   networking.wireless.enable = true;
   networking.wireless.networks = {
-    "marinad 5G" = {
+    "Bruno 5G" = {
       psk = "13031991";
     };
   };
