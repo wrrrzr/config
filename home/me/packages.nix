@@ -67,6 +67,7 @@ let
     gajim
     evince
     blueman
+    iwgtk
   ];
   packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
 in
