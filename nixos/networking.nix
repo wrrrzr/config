@@ -14,23 +14,7 @@ in
   };
   config = lib.mkIf cfg.enable {
     networking.hostName = hostname;
-
     networking.firewall.enable = false;
-
-    networking.nameservers = [
-      "8.8.8.8"
-      "8.8.4.4"
-    ];
-
-    services.resolved = {
-      enable = true;
-      dnssec = "true";
-      domains = [ "~." ];
-      fallbackDns = [
-        "8.8.8.8"
-        "8.8.4.4"
-      ];
-      dnsovertls = "true";
-    };
+    services.resolved.enable = true;
   };
 }

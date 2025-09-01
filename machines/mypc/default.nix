@@ -43,7 +43,10 @@
 
   hardware.bluetooth.enable = true;
 
-  networking.networkmanager.enable = true;
+  networking.wireless.iwd = {
+    enable = true;
+    settings.Settings.AutoConnect = true;
+  };
 
   boot.initrd.availableKernelModules = [
     "nvme"
