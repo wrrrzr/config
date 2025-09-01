@@ -13,6 +13,7 @@
     ./zram.nix
     ./desktop.nix
     ./printers.nix
+    ./wireguard.nix
   ];
 
   users.users.root.initialPassword = "toor";

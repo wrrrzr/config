@@ -19,7 +19,11 @@
       enable = true;
       platforms = [ "x86_64-linux" ];
     };
-    network.wg.address = "10.0.0.5";
+    network.enable = true;
+    wireguard = {
+      enable = true;
+      address = "10.0.0.5";
+    };
   };
 
   fileSystems."/" = {
