@@ -55,9 +55,18 @@
   users.users.tux = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkbZDukqSo/lPT5tHl1cUR4SXs3aUmJ+C7YTQ3ztCf1"
+    ];
+  };
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
   };
 
   environment.enableAllTerminfo = true;
-
-  services.openssh.enable = true;
 }
