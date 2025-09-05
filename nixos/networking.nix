@@ -14,7 +14,6 @@ in
   };
   config = lib.mkIf cfg.enable {
     networking.hostName = hostname;
-    networking.firewall.enable = false;
     networking.nameservers = [ "8.8.8.8" ];
     services.resolved.enable = true;
   };

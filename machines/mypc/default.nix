@@ -48,6 +48,12 @@
     settings.Settings.AutoConnect = true;
   };
 
+  networking.firewall = {
+    enable = true;
+    allowPing = false;
+    allowedUDPPorts = [ 30000 ];
+  };
+
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
