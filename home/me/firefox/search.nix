@@ -95,6 +95,39 @@ in
             "@yt"
           ];
         };
+        "Ru to En" = {
+          urls = [
+            {
+              template = "https://translate.google.com";
+              params = [
+                {
+                  name = "hl";
+                  value = "en";
+                }
+                {
+                  name = "sl";
+                  value = "ru";
+                }
+                {
+                  name = "tl";
+                  value = "en";
+                }
+                {
+                  name = "text";
+                  value = "{searchTerms}";
+                }
+                {
+                  name = "op";
+                  value = "translate";
+                }
+              ];
+            }
+          ];
+          definedAliases = [
+            "@translate"
+            "@gt"
+          ];
+        };
       };
     };
   };
