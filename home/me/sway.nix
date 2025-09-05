@@ -165,4 +165,9 @@ in
   services.swaync.enable = true;
   services.batsignal.enable = true;
   services.gnome-keyring.enable = true;
+  services.wlsunset = {
+    enable = true;
+    sunset = "21:00";
+    sunrise = "06:00";
+  };
 }
