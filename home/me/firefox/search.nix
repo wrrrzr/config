@@ -2,14 +2,6 @@
   ...
 }:
 
-let
-  icons = {
-    nixPackages = ./icons/nix-packages.svg;
-    mwmbl = ./icons/mwmbl.svg;
-    github = ./icons/github.ico;
-    youtube = ./icons/youtube.ico;
-  };
-in
 {
   programs.firefox = {
     profiles.me = {
@@ -31,7 +23,6 @@ in
               ];
             }
           ];
-          icon = icons.nixPackages;
           definedAliases = [
             "@nixpkgs"
             "@nix"
@@ -49,7 +40,6 @@ in
               ];
             }
           ];
-          icon = icons.mwmbl;
           definedAliases = [
             "@mwmbl"
             "@mw"
@@ -71,7 +61,6 @@ in
               ];
             }
           ];
-          icon = icons.github;
           definedAliases = [
             "@github"
             "@gh"
@@ -89,7 +78,6 @@ in
               ];
             }
           ];
-          icon = icons.youtube;
           definedAliases = [
             "@youtube"
             "@yt"
