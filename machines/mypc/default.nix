@@ -18,6 +18,7 @@
       "wheel"
       "networkmanager"
     ];
+    hashedPasswordFile = "/etc/secret/mepasswd";
   };
 
   module = {

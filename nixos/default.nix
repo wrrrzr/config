@@ -16,7 +16,8 @@
     ./wireguard.nix
   ];
 
-  users.users.root.initialPassword = "toor";
+  users.mutableUsers = false;
+  users.users.root.hashedPasswordFile = "/etc/secret/rootpasswd";
 
   nix.settings.experimental-features = [
     "nix-command"

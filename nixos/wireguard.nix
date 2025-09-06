@@ -20,7 +20,7 @@ in
     networking.wg-quick.interfaces = {
       wg0 = {
         address = [ cfg.address ];
-        privateKeyFile = "/etc/nixos/wireguardkey";
+        privateKeyFile = "/etc/secret/wireguardkey";
 
         peers = [
           {
