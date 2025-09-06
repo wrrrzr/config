@@ -55,6 +55,8 @@
     allowedUDPPorts = [ 30000 ];
   };
 
+  networking.interfaces.enp1s0.name = "eth0";
+
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
