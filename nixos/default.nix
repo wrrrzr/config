@@ -7,7 +7,6 @@
     ./networking.nix
     ./packages.nix
     ./bash.nix
-    ./virt.nix
     ./waydroid.nix
     ./emulate.nix
     ./zram.nix

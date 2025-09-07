@@ -52,6 +52,7 @@ let
     bc
     lolcat
     progress
+    quickemu
   ];
   packages-gui = with pkgs; [
     kitty

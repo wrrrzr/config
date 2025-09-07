@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  t = "/tmp/me-trash";
+in
 {
   xdg = {
     enable = true;
@@ -7,12 +10,12 @@
       enable = true;
       music = "$HOME/music";
       download = "$HOME/downloads";
-      videos = "/dev/null";
-      desktop = "/dev/null";
-      pictures = "/dev/null";
-      templates = "/dev/null";
-      documents = "/dev/null";
-      publicShare = "/dev/null";
+      videos = t;
+      desktop = t;
+      pictures = t;
+      templates = t;
+      documents = t;
+      publicShare = t;
     };
   };
 }
