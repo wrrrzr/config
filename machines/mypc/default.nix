@@ -8,7 +8,6 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ./boot.nix
     ./disks.nix
   ];
 
@@ -57,6 +56,8 @@
 
   networking.interfaces.enp1s0.name = "eth0";
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
