@@ -59,6 +59,7 @@ in
       keybindings = {
         "${mod}+Shift+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${mod}+Shift+c" = "kill";
+        "${mod}+b" = "bar mode toggle";
         "${mod}+p" = "exec ${pkgs.wmenu}/bin/wmenu-run";
         "${mod}+ctrl+l" = "exec ${pkgs.swaylock}/bin/swaylock";
         "${mod}+m" = "exec ${pkgs.mpc}/bin/mpc toggle";
@@ -85,8 +86,6 @@ in
 
         "${mod}+Shift+q" = "exec swaymsg exit";
         "${mod}+Shift+e" = "reload";
-        "${mod}+b" = "splith";
-        "${mod}+v" = "splitv";
         "${mod}+f" = "fullscreen";
         "${mod}+r" = "mode resize";
         "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
