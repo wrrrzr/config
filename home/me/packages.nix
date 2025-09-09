@@ -65,7 +65,7 @@ let
     superTux
     superTuxKart
     nicotine-plus
-    gajim
+    dino
     evince
     blueman
     iwgtk
