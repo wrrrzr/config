@@ -44,7 +44,6 @@ let
     xclip
     unzip
     yt-dlp
-    espeak
     senpai
     screen
     libnotify
