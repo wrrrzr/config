@@ -33,6 +33,8 @@
     };
   };
 
+  services.timesyncd.enable = false;
+
   services.postgresql.enable = true;
 
   services.tlp.enable = true;
