@@ -15,7 +15,6 @@
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "networkmanager"
     ];
     hashedPasswordFile = "/etc/secret/mepasswd";
   };
