@@ -9,6 +9,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./disks.nix
+    ./udev.nix
   ];
 
   users.users.me = {
