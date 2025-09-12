@@ -5,6 +5,7 @@
 {
   programs.firefox = {
     profiles.me = {
+      search.default = "ddg";
       search.force = true;
       search.engines = {
         "Nix Packages" = {
