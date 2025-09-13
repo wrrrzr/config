@@ -166,7 +166,7 @@ in
   services.gnome-keyring.enable = true;
   services.wlsunset = {
     enable = true;
-    sunset = "21:00";
+    sunset = "20:00";
     sunrise = "06:00";
   };
 }
