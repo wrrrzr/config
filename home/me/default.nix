@@ -8,7 +8,6 @@
     ./theme.nix
     ./sway.nix
     ./kitty.nix
-    ./fastfetch.nix
     ./mpv.nix
     ./readline.nix
     ./xdg.nix

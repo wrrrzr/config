@@ -52,6 +52,7 @@ let
     lolcat
     progress
     quickemu
+    neofetch
   ];
   packages-gui = with pkgs; [
     kitty
