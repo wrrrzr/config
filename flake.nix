@@ -56,7 +56,7 @@
 
           modules = [
             ./machines/${hostname}
-            ./nixos
+            ./nixos/modules
           ]
           ++ extraModules;
         };
