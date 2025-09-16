@@ -39,7 +39,6 @@
         {
           hostname,
           system,
-          extraModules ? [ ],
         }:
         inputs.nixpkgs.lib.nixosSystem {
           system = system;
@@ -48,8 +47,7 @@
           modules = [
             ./nixos/machines/${hostname}
             ./nixos/modules
-          ]
-          ++ extraModules;
+          ];
         };
     in
     {
@@ -57,14 +55,10 @@
         mypc = makeSystem {
           hostname = "mypc";
           system = "x86_64-linux";
-          extraModules = [
-            inputs.disko.nixosModules.disko
-          ];
         };
         rpi4 = makeSystem {
           hostname = "rpi4";
           system = "aarch64-linux";
-          extraModules = [ inputs.nixos-hardware.nixosModules.raspberry-pi-4 ];
         };
       };
       packages.x86_64-linux.installer = inputs.nixos-generators.nixosGenerate {
