@@ -48,11 +48,19 @@
     };
   };
 
-  hardware.raspberry-pi."4" = {
-    pwm0.enable = true;
-    leds = {
-      pwr.disable = true;
-      act.disable = true;
+  hardware = {
+    deviceTree = {
+      enable = true;
+      filter = lib.mkForce "*rpi-4-*.dtb";
+    };
+    raspberry-pi."4" = {
+      pwm0.enable = true;
+      fkms-3d.enable = true;
+      bluetooth.enable = true;
+      leds = {
+        pwr.disable = true;
+        act.disable = true;
+      };
     };
   };
 
