@@ -13,6 +13,7 @@
     ./desktop.nix
     ./printers.nix
     ./wireguard.nix
+    ./users.nix
   ];
 
   users.mutableUsers = false;

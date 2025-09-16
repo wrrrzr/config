@@ -1,5 +1,5 @@
 {
-  firefox-addons,
+  inputs,
   system,
   ...
 }:
@@ -10,7 +10,7 @@
   programs.firefox = {
     enable = true;
     profiles.me = {
-      extensions.packages = with firefox-addons.packages.${system}; [
+      extensions.packages = with inputs.firefox-addons.packages.${system}; [
         multi-account-containers
         darkreader
         vimium

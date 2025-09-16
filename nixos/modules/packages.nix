@@ -18,7 +18,6 @@ in
   environment.systemPackages = with pkgs; [
     myvim
     wget
-    home-manager
     htop
     gettext
     tree

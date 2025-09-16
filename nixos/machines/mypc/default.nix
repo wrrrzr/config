@@ -12,14 +12,6 @@
     ./udev.nix
   ];
 
-  users.users.me = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-    ];
-    hashedPasswordFile = "/etc/secret/mepasswd";
-  };
-
   module = {
     desktop.enable = true;
     emulate = {
@@ -30,6 +22,10 @@
     wireguard = {
       enable = true;
       address = "10.0.0.2";
+    };
+    users = {
+      enable = true;
+      users.me.enable = true;
     };
   };
 

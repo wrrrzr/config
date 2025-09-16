@@ -33,16 +33,7 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      home-manager,
-      nixvim,
-      firefox-addons,
-      nixos-hardware,
-      nixos-generators,
-      disko,
-      ...
-    }:
+    inputs:
     let
       makeSystem =
         {
@@ -50,31 +41,13 @@
           system,
           extraModules ? [ ],
         }:
-        nixpkgs.lib.nixosSystem {
+        inputs.nixpkgs.lib.nixosSystem {
           system = system;
-          specialArgs = { inherit hostname; };
+          specialArgs = { inherit hostname system inputs; };
 
           modules = [
             ./nixos/machines/${hostname}
             ./nixos/modules
-          ]
-          ++ extraModules;
-        };
-      makeHome =
-        {
-          username,
-          system,
-          extraModules ? [ ],
-        }:
-        home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = {
-            inherit firefox-addons system;
-          };
-          pkgs = nixpkgs.legacyPackages.${system};
-          modules = [
-            ./home/${username}
-            ./home/modules
-            nixvim.homeModules.nixvim
           ]
           ++ extraModules;
         };
@@ -84,21 +57,17 @@
         mypc = makeSystem {
           hostname = "mypc";
           system = "x86_64-linux";
-          extraModules = [ disko.nixosModules.disko ];
+          extraModules = [
+            inputs.disko.nixosModules.disko
+          ];
         };
         rpi4 = makeSystem {
           hostname = "rpi4";
           system = "aarch64-linux";
-          extraModules = [ nixos-hardware.nixosModules.raspberry-pi-4 ];
+          extraModules = [ inputs.nixos-hardware.nixosModules.raspberry-pi-4 ];
         };
       };
-      homeConfigurations = {
-        me = makeHome {
-          username = "me";
-          system = "x86_64-linux";
-        };
-      };
-      packages.x86_64-linux.installer = nixos-generators.nixosGenerate {
+      packages.x86_64-linux.installer = inputs.nixos-generators.nixosGenerate {
         system = "x86_64-linux";
         format = "iso";
         modules = [ ./installer ];
