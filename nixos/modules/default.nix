@@ -14,6 +14,7 @@
     ./printers.nix
     ./wireguard.nix
     ./users.nix
+    ./greetd.nix
   ];
 
   users.mutableUsers = false;

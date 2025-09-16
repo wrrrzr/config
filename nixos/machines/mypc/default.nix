@@ -14,6 +14,7 @@
 
   module = {
     desktop.enable = true;
+    greetd.enable = true;
     emulate = {
       enable = true;
       platforms = [ "aarch64-linux" ];
