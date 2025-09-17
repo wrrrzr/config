@@ -30,6 +30,13 @@
     };
   };
 
+  services.zapret = {
+    enable = true;
+    params = [
+      "--dpi-desync=syndata,multisplit --dpi-desync-split-pos=1"
+    ];
+  };
+
   services.timesyncd.enable = false;
 
   services.postgresql.enable = true;
