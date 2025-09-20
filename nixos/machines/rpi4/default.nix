@@ -48,6 +48,11 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    (libcec.override { withLibraspberrypi = true; })
+    libraspberrypi
+  ];
+
   hardware = {
     deviceTree = {
       enable = true;
@@ -62,6 +67,7 @@
         act.disable = true;
       };
     };
+    bluetooth.enable = true;
   };
 
   users.users.tux = {
