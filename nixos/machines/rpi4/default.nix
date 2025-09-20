@@ -48,8 +48,12 @@
     };
   };
 
+  nixpkgs.overlays = [
+    (self: super: { libcec = super.libcec.override { withLibraspberrypi = true; }; })
+  ];
+
   environment.systemPackages = with pkgs; [
-    (libcec.override { withLibraspberrypi = true; })
+    libcec
     libraspberrypi
   ];
 
