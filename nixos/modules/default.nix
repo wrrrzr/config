@@ -15,6 +15,7 @@
     ./wireguard.nix
     ./users.nix
     ./greetd.nix
+    ./tv-alarm.nix
   ];
 
   users.mutableUsers = false;

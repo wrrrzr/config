@@ -6,6 +6,9 @@
   ...
 }:
 
+let
+  rpi-libcec = (pkgs.libcec.override { withLibraspberrypi = true; });
+in
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -28,6 +31,10 @@
       enable = true;
       address = "10.0.0.5";
     };
+    tv-alarm = {
+      enable = true;
+      package = rpi-libcec;
+    };
   };
 
   fileSystems."/" = {
@@ -48,12 +55,8 @@
     };
   };
 
-  nixpkgs.overlays = [
-    (self: super: { libcec = super.libcec.override { withLibraspberrypi = true; }; })
-  ];
-
   environment.systemPackages = with pkgs; [
-    libcec
+    rpi-libcec
     libraspberrypi
   ];
 
