@@ -2,11 +2,11 @@
 
 {
   imports = [
-    ./opts.nix
+    ./diagnostic.nix
     ./editor.nix
     ./hardmode.nix
     ./mappings.nix
-    ./diagnostic.nix
+    ./opts.nix
     ./plugins
   ];
   options.module.nixvim = {

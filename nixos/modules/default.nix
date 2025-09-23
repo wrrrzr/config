@@ -4,18 +4,18 @@
 
 {
   imports = [
+    ./bash.nix
+    ./desktop.nix
+    ./emulate.nix
+    ./greetd.nix
     ./networking.nix
     ./packages.nix
-    ./bash.nix
-    ./waydroid.nix
-    ./emulate.nix
-    ./zram.nix
-    ./desktop.nix
     ./printers.nix
-    ./wireguard.nix
-    ./users.nix
-    ./greetd.nix
     ./tv-alarm.nix
+    ./users.nix
+    ./waydroid.nix
+    ./wireguard.nix
+    ./zram.nix
   ];
 
   users.mutableUsers = false;

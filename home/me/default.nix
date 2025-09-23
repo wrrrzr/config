@@ -2,19 +2,19 @@
 
 {
   imports = [
-    inputs.nixvim.homeModules.nixvim
     ../modules
-    ./packages.nix
     ./bash.nix
-    ./git.nix
-    ./theme.nix
-    ./sway.nix
-    ./kitty.nix
-    ./mpv.nix
-    ./readline.nix
-    ./xdg.nix
-    ./mpd.nix
     ./firefox
+    ./git.nix
+    ./kitty.nix
+    ./mpd.nix
+    ./mpv.nix
+    ./packages.nix
+    ./readline.nix
+    ./sway.nix
+    ./theme.nix
+    ./xdg.nix
+    inputs.nixvim.homeModules.nixvim
   ];
   home.username = "me";
   home.homeDirectory = "/home/me";
