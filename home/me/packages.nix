@@ -53,6 +53,7 @@ let
     progress
     quickemu
     neofetch
+    iamb
   ];
   packages-gui = with pkgs; [
     kitty
