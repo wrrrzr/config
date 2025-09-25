@@ -23,6 +23,7 @@ let
     lua
     luarocks
     go
+    clang-tools
     (python3.withPackages (
       p: with p; [
         flake8

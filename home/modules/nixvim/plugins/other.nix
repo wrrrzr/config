@@ -44,6 +44,7 @@ in
               "isort"
             ];
             nix = [ "nixfmt" ];
+            cpp = [ "clang-format" ];
           };
           format_on_save = {
             timeout_ms = 5000;
