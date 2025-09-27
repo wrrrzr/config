@@ -1,4 +1,6 @@
 {
+  lib,
+  system,
   ...
 }:
 
@@ -18,6 +20,7 @@
     ./zram.nix
   ];
 
+  nixpkgs.hostPlatform = lib.mkDefault system;
   users.mutableUsers = false;
   users.users.root.hashedPasswordFile = "/etc/secret/passwd/root";
   boot.tmp.useTmpfs = true;

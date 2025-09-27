@@ -44,8 +44,6 @@ in
 
   swapDevices = [ ];
 
-  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
-
   networking.wireless.enable = true;
   networking.wireless.networks = {
     "Bruno 5G" = {
