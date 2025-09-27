@@ -19,7 +19,7 @@
       enable = true;
       platforms = [ "aarch64-linux" ];
     };
-    network.enable = true;
+    networking.enable = true;
     wireguard = {
       enable = true;
       address = "10.0.0.2";
@@ -72,8 +72,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-
-  networking.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

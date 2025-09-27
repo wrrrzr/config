@@ -6,13 +6,16 @@
 }:
 
 let
-  cfg = config.module.network;
+  cfg = config.module.networking;
 in
 {
-  options.module.network = {
-    enable = lib.mkEnableOption "Network";
+  options.module.networking = {
+    enable = lib.mkEnableOption "Networking" // {
+      default = true;
+    };
   };
   config = lib.mkIf cfg.enable {
+    networking.useDHCP = lib.mkDefault true;
     networking.hostName = hostname;
     networking.nameservers = [ "8.8.8.8" ];
     services.resolved.enable = true;

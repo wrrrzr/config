@@ -26,7 +26,7 @@ in
       enable = true;
       platforms = [ "x86_64-linux" ];
     };
-    network.enable = true;
+    networking.enable = true;
     wireguard = {
       enable = true;
       address = "10.0.0.5";
@@ -43,8 +43,6 @@ in
   };
 
   swapDevices = [ ];
-
-  networking.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
