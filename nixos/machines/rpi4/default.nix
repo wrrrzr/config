@@ -15,12 +15,6 @@ in
     inputs.nixos-hardware.nixosModules.raspberry-pi-4
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
-
   module = {
     emulate = {
       enable = true;
@@ -36,13 +30,6 @@ in
       package = rpi-libcec;
     };
   };
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";
-    fsType = "ext4";
-  };
-
-  swapDevices = [ ];
 
   networking.wireless.enable = true;
   networking.wireless.networks = {
@@ -90,5 +77,11 @@ in
     };
   };
 
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
+  boot.initrd.availableKernelModules = [ "xhci_pci" ];
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";
+    fsType = "ext4";
+  };
   environment.enableAllTerminfo = true;
 }

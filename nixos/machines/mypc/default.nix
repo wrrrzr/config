@@ -36,30 +36,21 @@
       "--dpi-desync=syndata,multisplit --dpi-desync-split-pos=1"
     ];
   };
-
   services.timesyncd.enable = false;
-
   services.postgresql.enable = true;
-
   services.tlp.enable = true;
-
   programs.adb.enable = true;
-
   programs.nix-ld.enable = true;
-
   hardware.bluetooth.enable = true;
-
   networking.wireless.iwd = {
     enable = true;
     settings.Settings.AutoConnect = true;
   };
-
   networking.firewall = {
     enable = true;
     allowPing = false;
     allowedUDPPorts = [ 30000 ];
   };
-
   networking.interfaces.enp1s0.name = "eth0";
 
   boot.loader.systemd-boot.enable = true;
@@ -69,9 +60,6 @@
     "xhci_pci"
     "rtsx_usb_sdmmc"
   ];
-  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
-
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
