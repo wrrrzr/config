@@ -8,6 +8,7 @@ in
     enable = lib.mkEnableOption "Desktop things";
   };
   config = lib.mkIf cfg.enable {
+    hardware.graphics.enable = true;
     security.rtkit.enable = true;
     security.polkit.enable = true;
     services.pipewire = {
@@ -18,9 +19,7 @@ in
     };
     security.pam.services.swaylock = { };
     programs.dconf.enable = true;
-
     services.libinput.enable = true;
-
     services.xserver = {
       enable = true;
       displayManager.lightdm.enable = false;
