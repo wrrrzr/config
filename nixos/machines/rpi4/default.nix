@@ -31,6 +31,7 @@ in
     };
     tvbox = {
       enable = true;
+      smbshare = true;
       openFirewall = true;
     };
   };
