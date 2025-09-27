@@ -83,7 +83,7 @@ in
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkbZDukqSo/lPT5tHl1cUR4SXs3aUmJ+C7YTQ3ztCf1"
     ];
-    hashedPasswordFile = "/etc/secret/tuxpasswd";
+    hashedPasswordFile = "/etc/secret/passwd/tux";
   };
 
   services.openssh = {

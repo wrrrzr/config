@@ -35,7 +35,7 @@ in
         extraGroups = [
           "wheel"
         ];
-        hashedPasswordFile = "/etc/secret/mepasswd";
+        hashedPasswordFile = "/etc/secret/passwd/me";
       };
     };
   };

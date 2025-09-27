@@ -19,7 +19,7 @@
   ];
 
   users.mutableUsers = false;
-  users.users.root.hashedPasswordFile = "/etc/secret/rootpasswd";
+  users.users.root.hashedPasswordFile = "/etc/secret/passwd/root";
   boot.tmp.useTmpfs = true;
 
   nix.settings.experimental-features = [
