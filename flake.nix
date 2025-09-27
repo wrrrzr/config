@@ -47,7 +47,10 @@
         }:
         inputs.nixpkgs.lib.nixosSystem {
           system = system;
-          specialArgs = { inherit hostname system inputs; };
+          specialArgs = {
+            inherit hostname system inputs;
+            stateVersion = "25.05";
+          };
 
           modules = [
             ./nixos/machines/${hostname}

@@ -19,8 +19,6 @@
   home.username = "me";
   home.homeDirectory = "/home/me";
 
-  home.stateVersion = "24.11";
-
   home.sessionVariables = {
     NIX_SHELL_PRESERVE_PROMPT = 1;
   };
@@ -37,6 +35,4 @@
   module = {
     nixvim.enable = true;
   };
-
-  programs.home-manager.enable = true;
 }

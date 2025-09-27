@@ -1,6 +1,7 @@
 {
   lib,
   system,
+  stateVersion,
   ...
 }:
 
@@ -32,5 +33,5 @@
 
   time.timeZone = "Europe/Moscow";
 
-  system.stateVersion = "24.11";
+  system.stateVersion = stateVersion;
 }

@@ -1,6 +1,7 @@
 {
   system,
   inputs,
+  stateVersion,
   config,
   lib,
   ...
@@ -25,7 +26,7 @@ in
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
-      extraSpecialArgs = { inherit system inputs; };
+      extraSpecialArgs = { inherit system inputs stateVersion; };
     };
 
     home-manager.users = lib.mkIf cfg.users.me.enable { me = ../../home/me; };
