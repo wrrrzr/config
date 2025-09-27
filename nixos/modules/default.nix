@@ -15,6 +15,7 @@
     ./packages.nix
     ./printers.nix
     ./tv-alarm.nix
+    ./tvbox.nix
     ./users.nix
     ./waydroid.nix
     ./wireguard.nix

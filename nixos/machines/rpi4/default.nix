@@ -29,6 +29,10 @@ in
       enable = true;
       package = rpi-libcec;
     };
+    tvbox = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 
   networking.wireless.enable = true;
@@ -36,6 +40,14 @@ in
     "Bruno 5G" = {
       psk = "13031991";
     };
+  };
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -77,6 +89,12 @@ in
     };
   };
 
+  boot.plymouth.enable = true;
+  boot.loader.timeout = 0;
+  boot.kernelParams = [
+    "quiet"
+    "snd_bcm2835.enable_hdmi=1"
+  ];
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
   boot.initrd.availableKernelModules = [ "xhci_pci" ];
   fileSystems."/" = {
