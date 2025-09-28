@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -14,7 +14,6 @@
     ./sway.nix
     ./theme.nix
     ./xdg.nix
-    inputs.nixvim.homeModules.nixvim
   ];
   home.username = "me";
   home.homeDirectory = "/home/me";

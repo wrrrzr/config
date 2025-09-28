@@ -36,16 +36,14 @@ in
   module = {
     networking.enable = true;
     desktop.enable = true;
+    users = {
+      enable = true;
+      users.utopiya.enable = true;
+    };
     wireguard = {
       enable = true;
       address = "10.0.0.7";
     };
-  };
-
-  users.users.utopiya = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    hashedPasswordFile = "/etc/secret/passwd/utopiya";
   };
 
   users.users.tux = {

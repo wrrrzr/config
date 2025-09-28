@@ -20,6 +20,9 @@ in
       me = {
         enable = lib.mkEnableOption "User me";
       };
+      utopiya = {
+        enable = lib.mkEnableOption "User utopiya";
+      };
     };
   };
   config = lib.mkIf cfg.enable {
@@ -29,15 +32,27 @@ in
       extraSpecialArgs = { inherit system inputs stateVersion; };
     };
 
-    home-manager.users = lib.mkIf cfg.users.me.enable { me = ../../home/me; };
-    users.users = lib.mkIf cfg.users.me.enable {
-      me = {
-        isNormalUser = true;
-        extraGroups = [
-          "wheel"
-        ];
-        hashedPasswordFile = "/etc/secret/passwd/me";
+    home-manager.users =
+      { }
+      // lib.optionalAttrs cfg.users.me.enable { me = ../../home/me; }
+      // lib.optionalAttrs cfg.users.utopiya.enable { utopiya = ../../home/utopiya; };
+    users.users =
+      { }
+      // lib.optionalAttrs cfg.users.me.enable {
+        me = {
+          isNormalUser = true;
+          extraGroups = [
+            "wheel"
+          ];
+          hashedPasswordFile = "/etc/secret/passwd/me";
+        };
+      }
+      // lib.optionalAttrs cfg.users.utopiya.enable {
+        utopiya = {
+          isNormalUser = true;
+          extraGroups = [ "wheel" ];
+          hashedPasswordFile = "/etc/secret/passwd/utopiya";
+        };
       };
-    };
   };
 }
