@@ -55,6 +55,9 @@ let
     quickemu
     neofetch
     iamb
+    gettext
+    tree
+    smartmontools
   ];
   packages-gui = with pkgs; [
     kitty

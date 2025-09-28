@@ -12,6 +12,7 @@
   environment.systemPackages = with pkgs; [
     git
     disko
+    kitty
   ];
 
   nix.settings.experimental-features = [
@@ -26,8 +27,6 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIxVzlnNIpKHwyy6Yw5lctgo0JplO0AXtuiDYVzy5A0s"
     ];
   };
-
-  environment.enableAllTerminfo = true;
 
   security.sudo.wheelNeedsPassword = false;
 

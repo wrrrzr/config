@@ -3,26 +3,13 @@
   ...
 }:
 
-let
-  myvim = (
-    pkgs.vim-full.customize {
-      vimrcConfig.customRC = ''
-        set mouse=
-        set number
-        syntax on
-      '';
-    }
-  );
-in
 {
   environment.systemPackages = with pkgs; [
-    myvim
+    vim
+    git
     wget
     htop
-    gettext
-    tree
+    kitty
     lm_sensors
-    smartmontools
-    git
   ];
 }
