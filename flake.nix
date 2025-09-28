@@ -64,6 +64,10 @@
           hostname = "mypc";
           system = "x86_64-linux";
         };
+        neo = makeSystem {
+          hostname = "neo";
+          system = "x86_64-linux";
+        };
         rpi4 = makeSystem {
           hostname = "rpi4";
           system = "aarch64-linux";
