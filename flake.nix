@@ -68,6 +68,10 @@
           hostname = "neo";
           system = "x86_64-linux";
         };
+        ideapad = makeSystem {
+          hostname = "ideapad";
+          system = "x86_64-linux";
+        };
         rpi4 = makeSystem {
           hostname = "rpi4";
           system = "aarch64-linux";
