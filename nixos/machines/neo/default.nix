@@ -10,13 +10,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "nvidia-x11"
-      "nvidia-settings"
-      "nvidia-persistenced"
-    ];
+  nixpkgs.config.allowUnfree = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics.enable = true;
@@ -53,6 +47,11 @@
   };
   services.openssh = {
     enable = true;
+  };
+
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
   };
 
   fileSystems."/" = {
