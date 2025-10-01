@@ -18,10 +18,6 @@ in
     networking.useDHCP = lib.mkDefault true;
     networking.hostName = hostname;
     networking.nameservers = [ "8.8.8.8" ];
-    services.resolved = {
-      enable = true;
-      dnssec = "true";
-      dnsovertls = "true";
-    };
+    services.resolved.enable = true;
   };
 }
