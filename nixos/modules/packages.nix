@@ -18,7 +18,7 @@ in
     environment.systemPackages = with pkgs; [
       git
       htop
-      kitty
+      kitty.terminfo
       lm_sensors
       usbutils
       vim

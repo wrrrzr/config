@@ -12,7 +12,7 @@
   environment.systemPackages = with pkgs; [
     git
     disko
-    kitty
+    kitty.terminfo
   ];
 
   nix.settings.experimental-features = [
