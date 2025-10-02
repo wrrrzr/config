@@ -51,7 +51,6 @@
     allowPing = false;
     allowedUDPPorts = [ 30000 ];
   };
-  networking.interfaces.enp1s0.name = "eth0";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
