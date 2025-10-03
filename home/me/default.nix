@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ../modules
     ./bash.nix
     ./firefox
     ./git.nix

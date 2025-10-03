@@ -9,6 +9,29 @@
 
 let
   cfg = config.module.users;
+  mkHomeManager =
+    username:
+    lib.optionalAttrs cfg.users.${username}.enable {
+      ${username} =
+        { ... }:
+        {
+          imports = [
+            ../../home/${username}
+            ../../home/modules
+          ];
+        };
+    };
+  mkUser =
+    username:
+    lib.optionalAttrs cfg.users.${username}.enable {
+      ${username} = {
+        isNormalUser = true;
+        extraGroups = [
+          "wheel"
+        ];
+        hashedPasswordFile = "/etc/secret/passwd/${username}";
+      };
+    };
 in
 {
   imports = [
@@ -32,27 +55,7 @@ in
       extraSpecialArgs = { inherit system inputs stateVersion; };
     };
 
-    home-manager.users =
-      { }
-      // lib.optionalAttrs cfg.users.me.enable { me = ../../home/me; }
-      // lib.optionalAttrs cfg.users.utopiya.enable { utopiya = ../../home/utopiya; };
-    users.users =
-      { }
-      // lib.optionalAttrs cfg.users.me.enable {
-        me = {
-          isNormalUser = true;
-          extraGroups = [
-            "wheel"
-          ];
-          hashedPasswordFile = "/etc/secret/passwd/me";
-        };
-      }
-      // lib.optionalAttrs cfg.users.utopiya.enable {
-        utopiya = {
-          isNormalUser = true;
-          extraGroups = [ "wheel" ];
-          hashedPasswordFile = "/etc/secret/passwd/utopiya";
-        };
-      };
+    home-manager.users = { } // mkHomeManager "me" // mkHomeManager "utopiya";
+    users.users = { } // mkUser "me" // mkUser "utopiya";
   };
 }

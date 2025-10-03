@@ -1,9 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ../modules
-  ];
   home.username = "utopiya";
   home.homeDirectory = "/home/utopiya";
   programs.firefox.enable = true;
