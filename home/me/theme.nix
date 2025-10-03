@@ -13,5 +13,9 @@
       package = pkgs.dracula-theme;
       name = "Dracula";
     };
+    iconTheme = {
+      package = pkgs.elementary-xfce-icon-theme;
+      name = "elementary-xfce";
+    };
   };
 }
