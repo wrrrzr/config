@@ -28,15 +28,10 @@
       enable = true;
       address = "10.0.0.3";
     };
-  };
-
-  users.users.tux = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkbZDukqSo/lPT5tHl1cUR4SXs3aUmJ+C7YTQ3ztCf1"
-    ];
-    hashedPasswordFile = "/etc/secret/passwd/tux";
+    users = {
+      enable = true;
+      users.tux.enable = true;
+    };
   };
 
   networking.wireless.enable = true;
