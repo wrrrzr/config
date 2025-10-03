@@ -33,5 +33,15 @@
 
   module = {
     nixvim.enable = true;
+    reminders = {
+      enable = true;
+      reminders = [
+        {
+          name = "water";
+          program = "echo drink water";
+          when = "*-*-* *:0/30:00";
+        }
+      ];
+    };
   };
 }
