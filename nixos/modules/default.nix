@@ -19,6 +19,7 @@
     ./users.nix
     ./waydroid.nix
     ./wireguard.nix
+    ./zapret.nix
     ./zram.nix
   ];
 

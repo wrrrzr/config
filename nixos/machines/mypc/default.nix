@@ -24,18 +24,13 @@
       enable = true;
       address = "10.0.0.2";
     };
+    zapret.enable = true;
     users = {
       enable = true;
       users.me.enable = true;
     };
   };
 
-  services.zapret = {
-    enable = true;
-    params = [
-      "--dpi-desync=syndata,multisplit --dpi-desync-split-pos=1"
-    ];
-  };
   services.timesyncd.enable = false;
   services.postgresql.enable = true;
   services.tlp.enable = true;

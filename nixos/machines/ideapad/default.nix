@@ -44,6 +44,7 @@ in
       enable = true;
       address = "10.0.0.7";
     };
+    zapret.enable = true;
   };
 
   users.users.tux = {
