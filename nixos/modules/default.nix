@@ -14,6 +14,7 @@
     ./networking.nix
     ./packages.nix
     ./printers.nix
+    ./transmission.nix
     ./tv-alarm.nix
     ./tvbox.nix
     ./users.nix

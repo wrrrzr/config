@@ -34,6 +34,7 @@ in
       smbshare = true;
       openFirewall = true;
     };
+    transmission.enable = true;
     users = {
       enable = true;
       users.tux.enable = true;
