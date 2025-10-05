@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  mylib,
   ...
 }:
 
@@ -20,7 +21,7 @@ in
     networking.wg-quick.interfaces = {
       wg0 = {
         address = [ cfg.address ];
-        privateKeyFile = "/etc/secret/wireguardkey";
+        privateKey = mylib.readSecret "wireguardkey";
 
         peers = [
           {
