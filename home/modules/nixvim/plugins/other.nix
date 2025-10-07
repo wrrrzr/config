@@ -45,6 +45,7 @@ in
             ];
             nix = [ "nixfmt" ];
             cpp = [ "clang-format" ];
+            rust = [ "rustfmt" ];
           };
           format_on_save = {
             timeout_ms = 5000;
