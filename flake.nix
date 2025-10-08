@@ -35,11 +35,6 @@
       url = "github:astro/nix-openwrt-imagebuilder";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    mysecrets = {
-      url = "path:/secrets";
-      flake = false;
-    };
   };
 
   outputs =
@@ -55,10 +50,6 @@
           specialArgs = {
             inherit hostname system inputs;
             stateVersion = "25.05";
-            mylib = {
-              readSecret =
-                secret: inputs.nixpkgs.lib.removeSuffix "\n" (builtins.readFile "${inputs.mysecrets}/${secret}");
-            };
           };
 
           modules = [

@@ -1,6 +1,5 @@
 {
   lib,
-  mylib,
   system,
   stateVersion,
   ...
@@ -27,7 +26,7 @@
 
   nixpkgs.hostPlatform = lib.mkDefault system;
   users.mutableUsers = false;
-  users.users.root.hashedPassword = mylib.readSecret "passwd/root";
+  users.users.root.hashedPasswordFile = "/etc/secret/passwd/root";
   boot.tmp.useTmpfs = true;
 
   nix.settings.experimental-features = [

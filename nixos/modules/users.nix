@@ -4,7 +4,6 @@
   stateVersion,
   config,
   lib,
-  mylib,
   ...
 }:
 
@@ -33,7 +32,7 @@ let
         openssh.authorizedKeys.keys = lib.mkIf connectable [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkbZDukqSo/lPT5tHl1cUR4SXs3aUmJ+C7YTQ3ztCf1"
         ];
-        hashedPassword = mylib.readSecret "passwd/${username}";
+        hashedPasswordFile = "/etc/secret/passwd/${username}";
       };
     };
   mkConnectableUser = mkUserFunc true;
