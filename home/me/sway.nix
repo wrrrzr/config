@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }:
@@ -7,7 +6,9 @@
 let
   mod = "Mod1";
   resize = "10px";
-  barcmd = pkgs.writeShellScriptBin "barcmd" ''echo $(cat /sys/class/power_supply/BAT1/capacity)"%" "|" $(date "+%a %F %R")'';
+  barcmd = pkgs.writeShellScriptBin "barcmd" ''
+    echo $(cat /sys/class/power_supply/BAT1/capacity)"%" $(cat /sys/class/power_supply/BAT1/status) "|" $(date "+%a %F %R")
+  '';
   mpcswitch = pkgs.writeShellScriptBin "mpcswitch" ''
     ${pkgs.mpc}/bin/mpc $1
     ${pkgs.libnotify}/bin/notify-send -r 1 "Now playing" "$(${pkgs.mpc}/bin/mpc | head -n1)"'';
