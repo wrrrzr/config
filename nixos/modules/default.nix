@@ -12,6 +12,7 @@
     ./emulate.nix
     ./greetd.nix
     ./networking.nix
+    ./openssh.nix
     ./packages.nix
     ./printers.nix
     ./transmission.nix

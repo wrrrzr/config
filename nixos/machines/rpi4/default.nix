@@ -21,6 +21,7 @@ in
       platforms = [ "x86_64-linux" ];
     };
     networking.enable = true;
+    openssh.enable = true;
     wireguard = {
       enable = true;
       address = "10.0.0.5";
@@ -76,14 +77,6 @@ in
       };
     };
     bluetooth.enable = true;
-  };
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-    };
   };
 
   boot.plymouth.enable = true;

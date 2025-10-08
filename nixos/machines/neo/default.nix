@@ -24,6 +24,7 @@
 
   module = {
     networking.enable = true;
+    openssh.enable = true;
     wireguard = {
       enable = true;
       address = "10.0.0.3";
@@ -39,9 +40,6 @@
     "nashahata" = {
       psk = "Berezan(1616)";
     };
-  };
-  services.openssh = {
-    enable = true;
   };
 
   services.ollama = {

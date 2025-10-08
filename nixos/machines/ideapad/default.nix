@@ -35,6 +35,7 @@ in
 
   module = {
     networking.enable = true;
+    openssh.enable = true;
     desktop.enable = true;
     users = {
       enable = true;
@@ -49,9 +50,6 @@ in
   };
 
   networking.networkmanager.enable = true;
-  services.openssh = {
-    enable = true;
-  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/b5a9b64b-3b08-4560-a79a-0f6c4ce50575";
