@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   modulesPath,
   ...
@@ -9,6 +10,8 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
+
+  environment.systemPackages = with pkgs; [ realesrgan-ncnn-vulkan ];
 
   nixpkgs.config.allowUnfree = true;
 
