@@ -33,7 +33,15 @@
 
   services.timesyncd.enable = false;
   services.postgresql.enable = true;
-  services.tlp.enable = true;
+
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    };
+  };
+
   programs.adb.enable = true;
   programs.nix-ld.enable = true;
   hardware.bluetooth.enable = true;
