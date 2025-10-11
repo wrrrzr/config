@@ -29,6 +29,7 @@
   users.mutableUsers = false;
   users.users.root.hashedPasswordFile = "/etc/secret/passwd/root";
   boot.tmp.useTmpfs = true;
+  boot.kernel.sysctl."kernel.sysrq" = 1;
 
   nix.settings.experimental-features = [
     "nix-command"
