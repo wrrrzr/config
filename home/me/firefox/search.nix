@@ -84,37 +84,20 @@
             "@yt"
           ];
         };
-        "Ru to En" = {
+        "Noogle" = {
           urls = [
             {
-              template = "https://translate.google.com";
+              template = "https://noogle.dev/q";
               params = [
                 {
-                  name = "hl";
-                  value = "en";
-                }
-                {
-                  name = "sl";
-                  value = "ru";
-                }
-                {
-                  name = "tl";
-                  value = "en";
-                }
-                {
-                  name = "text";
+                  name = "term";
                   value = "{searchTerms}";
-                }
-                {
-                  name = "op";
-                  value = "translate";
                 }
               ];
             }
           ];
           definedAliases = [
-            "@translate"
-            "@gt"
+            "@noogle"
           ];
         };
       };
