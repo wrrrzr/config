@@ -3,7 +3,6 @@
 {
   imports = [
     ./nixvim
-    ./reminders.nix
   ];
 
   home.stateVersion = stateVersion;
