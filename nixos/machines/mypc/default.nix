@@ -33,6 +33,7 @@
 
   services.timesyncd.enable = false;
   services.postgresql.enable = true;
+  services.atd.enable = true;
 
   services.tlp = {
     enable = true;
