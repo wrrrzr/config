@@ -11,6 +11,7 @@ let
     gnumake
     cmake
     gcc
+    valgrind
     autoconf
     automake
     libtool
