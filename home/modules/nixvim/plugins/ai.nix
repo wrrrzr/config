@@ -1,28 +1,17 @@
 {
-  pkgs,
   config,
   lib,
   ...
 }:
 
 let
-  avante-package = pkgs.vimPlugins.avante-nvim.overrideAttrs {
-    version = "0.0.25";
-    src = pkgs.fetchFromGitHub {
-      owner = "yetone";
-      repo = "avante.nvim";
-      tag = "v0.0.25";
-      sha256 = "lmyooXvQ+Cqv/6iMVlwToJZMFePSWoVzuGVV7jsSOZc=";
-    };
-  };
-  avante-model = "qwen/qwen3-coder";
+  avante-model = "anthropic/claude-sonnet-4.5";
 in
 {
   config = lib.mkIf config.module.nixvim.enable {
     programs.nixvim.plugins = {
       avante = {
         enable = true;
-        package = avante-package;
         settings = {
           provider = "openrouter";
           providers.openrouter = {
