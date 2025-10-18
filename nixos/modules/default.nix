@@ -25,6 +25,11 @@
     ./zram.nix
   ];
 
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
   nixpkgs.hostPlatform = lib.mkDefault system;
   users.mutableUsers = false;
   users.users.root.hashedPasswordFile = "/etc/secret/passwd/root";
