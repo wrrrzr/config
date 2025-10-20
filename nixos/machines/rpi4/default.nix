@@ -44,7 +44,7 @@ in
 
   networking.wireless.enable = true;
   networking.wireless.networks = {
-    "Bruno 5G" = {
+    "Bruno" = {
       psk = "13031991";
     };
   };
