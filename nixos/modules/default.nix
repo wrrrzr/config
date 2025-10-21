@@ -10,7 +10,6 @@
     ./bash.nix
     ./desktop.nix
     ./emulate.nix
-    ./greetd.nix
     ./networking.nix
     ./openssh.nix
     ./packages.nix
