@@ -3,13 +3,13 @@
 {
   programs.git = {
     enable = true;
-    userEmail = "wozrer@proton.me";
-    userName = "wrrrzr";
-    extraConfig = {
-      init.defaultBranch = "master";
-      gpg.format = "ssh";
-      user.signingkey = "~/.ssh/keygithub.pub";
+    settings = {
       commit.gpgsign = true;
+      gpg.format = "ssh";
+      init.defaultBranch = "master";
+      user.email = "wozrer@proton.me";
+      user.name = "wrrrzr";
+      user.signingkey = "~/.ssh/keygithub.pub";
     };
   };
 }
