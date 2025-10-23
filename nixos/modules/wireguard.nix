@@ -17,9 +17,9 @@ in
     };
   };
   config = lib.mkIf cfg.enable {
-    networking.wg-quick.interfaces = {
+    networking.wireguard.interfaces = {
       wg0 = {
-        address = [ cfg.address ];
+        ips = [ cfg.address ];
         privateKeyFile = "/etc/secret/wireguardkey";
 
         peers = [
