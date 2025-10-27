@@ -2,6 +2,7 @@
   config,
   lib,
   modulesPath,
+  pkgs,
   ...
 }:
 
@@ -11,6 +12,14 @@
     ./disks.nix
     ./udev.nix
   ];
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    wlr.enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    config.common.default = "*";
+  };
 
   module = {
     desktop.enable = true;
