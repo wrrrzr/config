@@ -170,4 +170,7 @@ in
     sunset = "20:00";
     sunrise = "06:00";
   };
+  home.shellAliases = {
+    "sway" = "dbus-run-session sway";
+  };
 }
