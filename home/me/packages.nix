@@ -53,7 +53,7 @@ let
     bc
     lolcat
     progress
-    quickemu
+    qemu
     neofetch
     iamb
     gettext
