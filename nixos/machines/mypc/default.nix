@@ -36,6 +36,11 @@
     config.common.default = "*";
   };
 
+  nix.settings.allowed-users = [
+    "@wheel"
+    "@builders"
+  ];
+
   module = {
     desktop.enable = true;
     emulate = {
