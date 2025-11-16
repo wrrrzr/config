@@ -64,13 +64,7 @@
   systemd.targets.postgresql.wantedBy = lib.mkForce [ ];
   services.atd.enable = true;
 
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-    };
-  };
+  services.tlp.enable = true;
 
   programs.adb.enable = true;
   programs.nix-ld.enable = true;
