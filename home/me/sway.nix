@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   ...
 }:
 
@@ -19,6 +20,25 @@ let
     up = "k";
     right = "l";
   };
+
+  workspace-binds = lib.listToAttrs (
+    lib.concatMap (
+      n:
+      let
+        k = toString n;
+      in
+      [
+        {
+          name = "${mod}+${k}";
+          value = "workspace number ${k}";
+        }
+        {
+          name = "${mod}+Shift+${k}";
+          value = "move container to workspace number ${k}";
+        }
+      ]
+    ) (lib.range 1 9)
+  );
 in
 {
   wayland.windowManager.sway = {
@@ -59,14 +79,16 @@ in
       };
       keybindings = {
         "${mod}+Shift+Return" = "exec ${pkgs.kitty}/bin/kitty";
-        "${mod}+Shift+c" = "kill";
         "${mod}+b" = "bar mode toggle";
         "${mod}+p" = "exec ${pkgs.wmenu}/bin/wmenu-run";
         "${mod}+ctrl+l" = "exec ${pkgs.swaylock}/bin/swaylock";
+
+        # Mpd
         "${mod}+m" = "exec ${pkgs.mpc}/bin/mpc toggle";
         "${mod}+ctrl+Right" = "exec ${mpcswitch}/bin/mpcswitch next";
         "${mod}+ctrl+Left" = "exec ${mpcswitch}/bin/mpcswitch prev";
 
+        # Move
         "${mod}+Left" = "focus left";
         "${mod}+Down" = "focus down";
         "${mod}+Up" = "focus up";
@@ -85,10 +107,16 @@ in
         "${mod}+Shift+${vimkeys.up}" = "move up";
         "${mod}+Shift+${vimkeys.right}" = "move right";
 
+        # Sway
+        "${mod}+Shift+c" = "kill";
         "${mod}+Shift+q" = "exec swaymsg exit";
         "${mod}+Shift+e" = "reload";
         "${mod}+f" = "fullscreen";
         "${mod}+r" = "mode resize";
+        "${mod}+Shift+minus" = "move scratchpad";
+        "${mod}+minus" = "scratchpad show";
+
+        # Function keys
         "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
         "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
@@ -96,28 +124,13 @@ in
         "XF86AudioPause" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%+";
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
-        "${mod}+Shift+minus" = "move scratchpad";
-        "${mod}+minus" = "scratchpad show";
+
+        # Apps
         "Print" = "exec ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
-        "${mod}+1" = "workspace number 1";
-        "${mod}+2" = "workspace number 2";
-        "${mod}+3" = "workspace number 3";
-        "${mod}+4" = "workspace number 4";
-        "${mod}+5" = "workspace number 5";
-        "${mod}+6" = "workspace number 6";
-        "${mod}+7" = "workspace number 7";
-        "${mod}+8" = "workspace number 8";
-        "${mod}+9" = "workspace number 9";
-        "${mod}+Shift+1" = "move container to workspace number 1";
-        "${mod}+Shift+2" = "move container to workspace number 2";
-        "${mod}+Shift+3" = "move container to workspace number 3";
-        "${mod}+Shift+4" = "move container to workspace number 4";
-        "${mod}+Shift+5" = "move container to workspace number 5";
-        "${mod}+Shift+6" = "move container to workspace number 6";
-        "${mod}+Shift+7" = "move container to workspace number 7";
-        "${mod}+Shift+8" = "move container to workspace number 8";
-        "${mod}+Shift+9" = "move container to workspace number 9";
-      };
+        "${mod}+Shift+p" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
+        "${mod}+Shift+b" = "exec ${pkgs.blueman}/bin/blueman-manager";
+      }
+      // workspace-binds;
       modes = {
         resize = {
           "Left" = "resize shrink width ${resize}";
