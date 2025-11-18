@@ -49,7 +49,6 @@ let
     senpai
     screen
     libnotify
-    aichat
     bc
     lolcat
     progress
@@ -68,7 +67,6 @@ let
     pavucontrol
     helvum
     obs-studio
-    superTux
     superTuxKart
     nicotine-plus
     dino
