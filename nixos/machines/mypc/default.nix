@@ -26,6 +26,8 @@
       "image/png" = "imv.desktop";
 
       "video/mp4" = "mpv.desktop";
+
+      "application/pdf" = "org.gnome.Evince.desktop";
     };
   };
 
