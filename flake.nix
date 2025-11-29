@@ -64,6 +64,10 @@
           hostname = "mypc";
           system = "x86_64-linux";
         };
+        thinkpadt14s = makeSystem {
+          hostname = "thinkpadt14s";
+          system = "x86_64-linux";
+        };
         neo = makeSystem {
           hostname = "neo";
           system = "x86_64-linux";

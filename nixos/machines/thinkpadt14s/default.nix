@@ -1,0 +1,97 @@
+{
+  config,
+  lib,
+  modulesPath,
+  pkgs,
+  inputs,
+  ...
+}:
+
+{
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s
+    ./disks.nix
+    ./udev.nix
+  ];
+
+  xdg.mime = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
+
+      "image/jpeg" = "imv.desktop";
+      "image/png" = "imv.desktop";
+
+      "video/mp4" = "mpv.desktop";
+
+      "application/pdf" = "org.gnome.Evince.desktop";
+    };
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    config.common.default = "*";
+  };
+
+  nix.settings.allowed-users = [
+    "@wheel"
+    "@builders"
+  ];
+
+  module = {
+    desktop.enable = true;
+    emulate = {
+      enable = true;
+      platforms = [ "aarch64-linux" ];
+    };
+    networking.enable = true;
+    wireguard = {
+      enable = true;
+      address = "10.0.0.9";
+    };
+    zapret.enable = true;
+    users = {
+      enable = true;
+      users.me.enable = true;
+    };
+  };
+
+  services.timesyncd.enable = false;
+  services.postgresql.enable = true;
+  systemd.targets.postgresql.wantedBy = lib.mkForce [ ];
+  services.atd.enable = true;
+
+  services.tlp.enable = true;
+
+  programs.adb.enable = true;
+  programs.nix-ld.enable = true;
+  hardware.bluetooth.enable = true;
+  networking.wireless.iwd = {
+    enable = true;
+    settings.Settings.AutoConnect = true;
+  };
+  networking.firewall = {
+    enable = true;
+    allowPing = false;
+    allowedUDPPorts = [ 30000 ];
+  };
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "nvme"
+    "usb_storage"
+    "sd_mod"
+    "sdhci_pci"
+  ];
+  boot.kernelModules = [ "kvm-intel" ];
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+}
