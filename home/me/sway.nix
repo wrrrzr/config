@@ -8,7 +8,7 @@ let
   mod = "Mod1";
   resize = "10px";
   barcmd = pkgs.writeShellScriptBin "barcmd" ''
-    echo $(cat /sys/class/power_supply/BAT1/capacity)"%" $(cat /sys/class/power_supply/BAT1/status) "|" $(date "+%a %F %R")
+    echo $(acpi | cut -d' ' -f4 | rev | cut -c2- | rev) $(acpi | cut -d' ' -f3 | rev | cut -c2- | rev) "|" $(date "+%a %F %R")
   '';
   mpcswitch = pkgs.writeShellScriptBin "mpcswitch" ''
     ${pkgs.mpc}/bin/mpc $1
