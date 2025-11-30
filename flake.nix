@@ -60,8 +60,8 @@
     in
     {
       nixosConfigurations = {
-        mypc = makeSystem {
-          hostname = "mypc";
+        maibenbenm543 = makeSystem {
+          hostname = "maibenbenm543";
           system = "x86_64-linux";
         };
         thinkpadt14s = makeSystem {
