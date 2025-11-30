@@ -2,7 +2,6 @@
   config,
   lib,
   modulesPath,
-  pkgs,
   ...
 }:
 
@@ -13,38 +12,16 @@
     ./udev.nix
   ];
 
-  xdg.mime = {
-    enable = true;
-    defaultApplications = {
-      "text/html" = "firefox.desktop";
-      "x-scheme-handler/about" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "x-scheme-handler/unknown" = "firefox.desktop";
-
-      "image/jpeg" = "imv.desktop";
-      "image/png" = "imv.desktop";
-
-      "video/mp4" = "mpv.desktop";
-
-      "application/pdf" = "org.gnome.Evince.desktop";
-    };
-  };
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-    config.common.default = "*";
-  };
-
   nix.settings.allowed-users = [
     "@wheel"
     "@builders"
   ];
 
   module = {
-    desktop.enable = true;
+    desktop = {
+      enable = true;
+      sway.enable = true;
+    };
     emulate = {
       enable = true;
       platforms = [ "aarch64-linux" ];
