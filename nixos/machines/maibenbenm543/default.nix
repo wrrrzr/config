@@ -9,7 +9,6 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./disks.nix
-    ./udev.nix
   ];
 
   nix.settings.allowed-users = [
@@ -32,6 +31,10 @@
       address = "10.0.0.2";
     };
     zapret.enable = true;
+    security = {
+      enable = true;
+      disallowCamera = true;
+    };
     users = {
       enable = true;
       users.me.enable = true;

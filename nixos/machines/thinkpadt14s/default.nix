@@ -11,7 +11,6 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s
     ./disks.nix
-    ./udev.nix
   ];
 
   nix.settings.allowed-users = [
@@ -34,6 +33,10 @@
       address = "10.0.0.9";
     };
     zapret.enable = true;
+    security = {
+      enable = true;
+      disallowCamera = true;
+    };
     users = {
       enable = true;
       users.me.enable = true;
