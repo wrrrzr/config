@@ -129,6 +129,7 @@ in
         "Print" = "exec ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
         "${mod}+Shift+p" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
         "${mod}+Shift+b" = "exec ${pkgs.blueman}/bin/blueman-manager";
+        "${mod}+Shift+i" = "exec ${pkgs.iwgtk}/bin/iwgtk";
       }
       // workspace-binds;
       modes = {
