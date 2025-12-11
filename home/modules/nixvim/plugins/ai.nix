@@ -5,7 +5,7 @@
 }:
 
 let
-  avante-model = "anthropic/claude-sonnet-4.5";
+  avante-model = "x-ai/grok-code-fast-1";
 in
 {
   config = lib.mkIf config.module.nixvim.enable {
@@ -22,23 +22,7 @@ in
             extra_request_body.reasoning_effort = "low";
           };
           behaviour = {
-            auto_approve_tool_permissions = [
-              "glob"
-              "fetch"
-              "git_diff"
-              "move_path"
-              "copy_path"
-              "read_file"
-              "create_dir"
-              "rag_search"
-              "web_search"
-              "git_commit"
-              "delete_path"
-              "create_file"
-              "search_keyword"
-              "replace_in_file"
-              "read_file_toplevel_symbols"
-            ];
+            auto_approve_tool_permissions = true;
           };
         };
       };
