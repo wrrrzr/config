@@ -73,6 +73,7 @@ let
     evince
     blueman
     iwgtk
+    openscad
   ];
   packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
 in
