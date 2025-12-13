@@ -2,29 +2,29 @@
 
 let
   packages-dev = with pkgs; [
-    gh
-    jdk17
-    ninja
-    cargo
-    rustc
-    gdb
-    gnumake
-    cmake
-    gcc
-    valgrind
     autoconf
     automake
-    libtool
-    pkg-config
-    nixfmt-rfc-style
-    stylua
     black
+    cargo
+    clang-tools
+    cmake
+    gcc
+    gdb
+    gh
+    gnumake
+    go
     isort
-    tree-sitter
+    jdk17
+    libtool
     lua
     luarocks
-    go
-    clang-tools
+    ninja
+    nixfmt-rfc-style
+    pkg-config
+    rustc
+    stylua
+    tree-sitter
+    valgrind
     (python3.withPackages (
       p: with p; [
         flake8
@@ -33,47 +33,47 @@ let
     ))
   ];
   packages-cli = with pkgs; [
-    file
-    nmap
-    cloc
-    glow
     acpi
-    hollywood
-    ffmpeg-full
     alsa-utils
-    ripgrep
-    wl-clipboard
-    xclip
-    unzip
-    yt-dlp
-    senpai
-    screen
-    libnotify
     bc
+    cloc
+    ffmpeg-full
+    file
+    gettext
+    glow
+    hollywood
+    iamb
+    libnotify
     lolcat
+    neofetch
+    nmap
     progress
     qemu
-    neofetch
-    iamb
-    gettext
-    tree
+    ripgrep
+    screen
+    senpai
     smartmontools
+    tree
+    unzip
+    wl-clipboard
+    xclip
+    yt-dlp
   ];
   packages-gui = with pkgs; [
-    kitty
-    luanti
-    gimp
-    keepassxc
-    pavucontrol
-    helvum
-    obs-studio
-    superTuxKart
-    nicotine-plus
+    blueman
     dino
     evince
-    blueman
+    gimp
+    helvum
     iwgtk
+    keepassxc
+    kitty
+    luanti
+    nicotine-plus
+    obs-studio
     openscad
+    pavucontrol
+    superTuxKart
   ];
   packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
 in
