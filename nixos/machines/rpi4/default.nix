@@ -36,6 +36,7 @@ in
       openFirewall = true;
     };
     transmission.enable = true;
+    avahi.enable = true;
     users = {
       enable = true;
       users.tux.enable = true;

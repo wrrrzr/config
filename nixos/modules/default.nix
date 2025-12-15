@@ -7,6 +7,7 @@
 
 {
   imports = [
+    ./avahi.nix
     ./bash.nix
     ./desktop.nix
     ./emulate.nix
