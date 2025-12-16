@@ -32,7 +32,6 @@ in
     };
     tvbox = {
       enable = true;
-      smbshare = true;
       openFirewall = true;
     };
     transmission.enable = true;
