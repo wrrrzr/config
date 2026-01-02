@@ -16,6 +16,7 @@
     ./packages.nix
     ./printers.nix
     ./security.nix
+    ./sway.nix
     ./transmission.nix
     ./tv-alarm.nix
     ./tvbox.nix
