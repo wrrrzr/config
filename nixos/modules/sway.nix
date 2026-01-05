@@ -43,5 +43,6 @@ in
       ]
     );
     services.tumbler.enable = true;
+    services.blueman.enable = true;
   };
 }
