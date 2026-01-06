@@ -40,6 +40,10 @@ in
       enable = true;
       users.tux.enable = true;
     };
+    hass = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 
   networking.wireless.enable = true;
