@@ -46,13 +46,6 @@ in
     };
   };
 
-  networking.wireless.enable = true;
-  networking.wireless.networks = {
-    "Bruno" = {
-      psk = "13031991";
-    };
-  };
-
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
