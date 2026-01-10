@@ -27,7 +27,7 @@ in
       address = "10.0.0.5";
     };
     tv-alarm = {
-      enable = true;
+      enable = false;
       package = rpi-libcec;
     };
     tvbox = {
