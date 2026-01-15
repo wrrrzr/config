@@ -20,7 +20,6 @@ in
   config = lib.mkIf cfg.enable {
     services.home-assistant = {
       enable = true;
-      openFirewall = cfg.openFirewall;
       extraComponents = [
         "analytics"
         "bluetooth"
@@ -39,10 +38,9 @@ in
         "wyoming"
         "zha"
       ];
-      config = {
-        default_config = { };
-      };
+      config = null;
     };
     services.esphome.enable = true;
+    networking.firewall.allowedTCPPorts = lib.mkIf cfg.openFirewall [ 8123 ];
   };
 }
