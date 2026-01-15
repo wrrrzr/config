@@ -26,14 +26,6 @@ in
       enable = true;
       address = "10.0.0.5";
     };
-    tv-alarm = {
-      enable = false;
-      package = rpi-libcec;
-    };
-    tvbox = {
-      enable = true;
-      openFirewall = true;
-    };
     transmission.enable = true;
     avahi.enable = true;
     users = {
