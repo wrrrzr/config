@@ -8,7 +8,7 @@ let
   mod = "Mod1";
   resize = "10px";
   barcmd = pkgs.writeShellScriptBin "barcmd" ''
-    echo $(acpi | cut -d' ' -f4 | rev | cut -c2- | rev) $(acpi | cut -d' ' -f3 | rev | cut -c2- | rev) "|" $(date "+%a %F %R")
+    echo $(${pkgs.acpi}/bin/acpi | ${pkgs.gawk}/bin/gawk '{print $4 " " $3}' | tr -d ',') "|" $(date "+%a %F %R")
   '';
   mpcswitch = pkgs.writeShellScriptBin "mpcswitch" ''
     ${pkgs.mpc}/bin/mpc $1
