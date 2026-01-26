@@ -1,21 +1,21 @@
-{ ... }:
+{ config, ... }:
 
 let
-  t = "/tmp/me-trash";
+  home = config.home.homeDirectory;
 in
 {
   xdg = {
     enable = true;
     userDirs = {
       enable = true;
-      music = "$HOME/music";
-      download = "$HOME/downloads";
-      videos = t;
-      desktop = t;
-      pictures = t;
-      templates = t;
-      documents = t;
-      publicShare = t;
+      desktop = "${home}";
+      documents = "${home}/save/documents";
+      download = "${home}/downloads";
+      music = "${home}/music";
+      pictures = "${home}/save/images";
+      publicShare = "${home}/save/public";
+      templates = "${home}/save/templates";
+      videos = "${home}/save/videos";
     };
   };
 }
