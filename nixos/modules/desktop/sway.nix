@@ -10,6 +10,7 @@ let
 in
 {
   config = lib.mkIf isEnabled {
+    services.xserver.displayManager.lightdm.enable = false;
     security.pam.services.swaylock = { };
     xdg.mime = {
       enable = true;

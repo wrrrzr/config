@@ -48,6 +48,7 @@ in
       me.enable = lib.mkEnableOption "User me";
       utopiya.enable = lib.mkEnableOption "User utopiya";
       tux.enable = lib.mkEnableOption "User tux";
+      wisdom.enable = lib.mkEnableOption "User wisdom";
     };
   };
   config = lib.mkIf cfg.enable {
@@ -57,7 +58,7 @@ in
       extraSpecialArgs = { inherit system inputs stateVersion; };
     };
 
-    home-manager.users = { } // mkHomeManager "me" // mkHomeManager "utopiya";
-    users.users = { } // mkUser "me" // mkUser "utopiya" // mkConnectableUser "tux";
+    home-manager.users = { } // mkHomeManager "me" // mkHomeManager "utopiya" // mkHomeManager "wisdom";
+    users.users = { } // mkUser "me" // mkUser "utopiya" // mkUser "wisdom" // mkConnectableUser "tux";
   };
 }

@@ -9,7 +9,7 @@
   imports = [
     ./avahi.nix
     ./bash.nix
-    ./desktop.nix
+    ./desktop
     ./emulate.nix
     ./hass.nix
     ./networking.nix
@@ -17,7 +17,6 @@
     ./packages.nix
     ./printers.nix
     ./security.nix
-    ./sway.nix
     ./transmission.nix
     ./tv-alarm.nix
     ./tvbox.nix

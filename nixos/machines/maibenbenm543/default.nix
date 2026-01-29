@@ -19,7 +19,7 @@
   module = {
     desktop = {
       enable = true;
-      sway.enable = true;
+      xfce.enable = true;
     };
     emulate = {
       enable = true;
@@ -35,9 +35,11 @@
       enable = true;
       disallowCamera = true;
     };
+    openssh.enable = true;
     users = {
       enable = true;
-      users.me.enable = true;
+      users.wisdom.enable = true;
+      users.tux.enable = true;
     };
   };
 
