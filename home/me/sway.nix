@@ -181,11 +181,6 @@ in
   services.swaync.enable = true;
   services.batsignal.enable = true;
   services.gnome-keyring.enable = true;
-  services.wlsunset = {
-    enable = true;
-    sunset = "20:00";
-    sunrise = "06:00";
-  };
   home.shellAliases = {
     "sway" = "dbus-run-session sway";
   };
