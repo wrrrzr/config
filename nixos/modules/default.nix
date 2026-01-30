@@ -37,6 +37,7 @@
   users.users.root.hashedPasswordFile = "/etc/secret/passwd/root";
   boot.tmp.useTmpfs = true;
   boot.kernel.sysctl."kernel.sysrq" = 1;
+  services.journald.extraConfig = "SystemMaxUse=100M";
 
   nix.settings.experimental-features = [
     "nix-command"
