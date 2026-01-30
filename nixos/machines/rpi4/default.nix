@@ -26,7 +26,6 @@ in
       enable = true;
       address = "10.0.0.5";
     };
-    transmission.enable = true;
     avahi.enable = true;
     users = {
       enable = true;
