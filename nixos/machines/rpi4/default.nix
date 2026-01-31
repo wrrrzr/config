@@ -67,7 +67,6 @@ in
     bluetooth.enable = true;
   };
 
-  boot.plymouth.enable = true;
   boot.loader.timeout = 0;
   boot.kernelParams = [
     "quiet"

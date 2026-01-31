@@ -40,7 +40,6 @@ in
       ];
       config = null;
     };
-    services.esphome.enable = true;
     networking.firewall.allowedTCPPorts = lib.mkIf cfg.openFirewall [ 8123 ];
   };
 }

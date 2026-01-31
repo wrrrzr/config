@@ -23,6 +23,7 @@ in
     services.xserver.desktopManager.kodi.enable = true;
     services.displayManager.autoLogin.user = "tvbox";
     services.xserver.displayManager.lightdm.greeter.enable = false;
+    boot.plymouth.enable = true;
 
     networking.firewall = lib.mkIf cfg.openFirewall {
       allowedTCPPorts = [ 8080 ];
