@@ -27,12 +27,14 @@
       enable = true;
       platforms = [ "aarch64-linux" ];
     };
-    networking.enable = true;
+    networking = {
+      enable = true;
+      nftables.enable = true;
+    };
     wireguard = {
       enable = true;
       address = "10.0.0.9";
     };
-    zapret.enable = true;
     security = {
       enable = true;
       disallowCamera = true;

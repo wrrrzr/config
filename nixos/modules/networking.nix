@@ -13,11 +13,15 @@ in
     enable = lib.mkEnableOption "Networking" // {
       default = true;
     };
+    nftables.enable = lib.mkEnableOption "Nftables";
   };
   config = lib.mkIf cfg.enable {
-    networking.useDHCP = lib.mkDefault true;
-    networking.hostName = hostname;
-    networking.nameservers = [ "8.8.8.8" ];
+    networking = {
+      hostName = hostname;
+      nameservers = [ "8.8.8.8" ];
+      nftables.enable = cfg.nftables.enable;
+      useDHCP = lib.mkDefault true;
+    };
     services.resolved.enable = true;
   };
 }
