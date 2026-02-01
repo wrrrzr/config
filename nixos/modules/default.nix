@@ -11,7 +11,6 @@
     ./bash.nix
     ./desktop
     ./emulate.nix
-    ./hass.nix
     ./networking.nix
     ./openssh.nix
     ./packages.nix
