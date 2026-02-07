@@ -100,6 +100,22 @@
             "@noogle"
           ];
         };
+        "Absurdopedia" = {
+          urls = [
+            {
+              template = "https://absurdopedia.net/w/index.php";
+              params = [
+                {
+                  name = "search";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+          definedAliases = [
+            "@absurdopedia"
+          ];
+        };
       };
     };
   };
