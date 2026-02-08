@@ -128,7 +128,9 @@ in
         # Apps
         "Print" = "exec ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
         "Mod4+Print" =
-          "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
+          "exec ${pkgs.grim}/bin/grim - |"
+          + "${pkgs.satty}/bin/satty --filename - --output-filename - |"
+          + "${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
         "${mod}+Shift+p" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
         "${mod}+Shift+b" = "exec ${pkgs.blueman}/bin/blueman-manager";
         "${mod}+Shift+i" = "exec ${pkgs.iwgtk}/bin/iwgtk";
@@ -171,6 +173,32 @@ in
     wl-clipboard
     imv
   ];
+  programs.satty = {
+    enable = true;
+    settings = {
+      general = {
+        fullscreen = true;
+        actions-on-enter = [
+          "save-to-file"
+          "exit"
+        ];
+        actions-on-escape = [
+          "save-to-file"
+          "exit"
+        ];
+      };
+      color-palette = {
+        palette = [
+          "#ff0000"
+          "#00ff00"
+          "#0000ff"
+          "#000000"
+          "#ffffff"
+          "#abcdef"
+        ];
+      };
+    };
+  };
   programs.swaylock = {
     enable = true;
     settings = {
