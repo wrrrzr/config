@@ -43,7 +43,6 @@
     };
   };
 
-  services.timesyncd.enable = false;
   services.postgresql.enable = true;
   systemd.targets.postgresql.wantedBy = lib.mkForce [ ];
   services.tlp.enable = true;
