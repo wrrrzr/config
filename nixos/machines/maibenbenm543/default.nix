@@ -39,6 +39,11 @@
     };
   };
 
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "wisdom";
+  };
+
   services.tlp.enable = true;
 
   hardware.bluetooth.enable = true;
