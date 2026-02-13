@@ -5,6 +5,7 @@
     enable = true;
     settings = {
       confirm_os_window_close = -1;
+      paste_actions = "quote-urls-at-prompt,confirm";
     };
     shellIntegration.enableBashIntegration = true;
     enableGitIntegration = true;
