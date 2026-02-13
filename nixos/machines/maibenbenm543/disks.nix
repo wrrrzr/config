@@ -18,41 +18,16 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [
-                  "defaults"
-                  "umask=0077"
-                ];
+                mountOptions = [ "umask=0077" ];
               };
             };
-            luks = {
+            root = {
               size = "100%";
               content = {
-                type = "luks";
-                name = "crypted";
-                content = {
-                  type = "lvm_pv";
-                  vg = "pool";
-                };
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/";
               };
-            };
-          };
-        };
-      };
-    };
-
-    lvm_vg = {
-      pool = {
-        type = "lvm_vg";
-        lvs = {
-          root = {
-            size = "100%";
-            content = {
-              type = "filesystem";
-              format = "btrfs";
-              mountpoint = "/";
-              mountOptions = [
-                "defaults"
-              ];
             };
           };
         };

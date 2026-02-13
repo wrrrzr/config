@@ -31,10 +31,6 @@
       address = "10.0.0.2";
     };
     zapret.enable = true;
-    security = {
-      enable = true;
-      disallowCamera = true;
-    };
     openssh.enable = true;
     users = {
       enable = true;
@@ -43,12 +39,8 @@
     };
   };
 
-  services.postgresql.enable = true;
-  systemd.targets.postgresql.wantedBy = lib.mkForce [ ];
   services.tlp.enable = true;
 
-  programs.adb.enable = true;
-  programs.nix-ld.enable = true;
   hardware.bluetooth.enable = true;
   networking.wireless.iwd = {
     enable = true;
