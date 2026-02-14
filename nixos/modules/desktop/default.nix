@@ -15,6 +15,7 @@ in
 
   options.module.desktop = {
     enable = lib.mkEnableOption "Desktop things";
+    appimageRuntime = lib.mkEnableOption "Appimage runtime";
     sway.enable = lib.mkEnableOption "Sway things";
     xfce.enable = lib.mkEnableOption "Xfce things";
   };
@@ -38,6 +39,11 @@ in
         layout = "us,ru";
         options = "grp:win_space_toggle";
       };
+    };
+
+    programs.appimage = lib.mkIf cfg.appimageRuntime {
+      enable = true;
+      binfmt = true;
     };
   };
 }

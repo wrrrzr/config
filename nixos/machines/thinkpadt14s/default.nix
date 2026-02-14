@@ -21,6 +21,7 @@
   module = {
     desktop = {
       enable = true;
+      appimageRuntime = true;
       sway.enable = true;
     };
     emulate = {
