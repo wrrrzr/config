@@ -1,9 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
+let
+  musicDir = config.xdg.userDirs.music;
+in
 {
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/me/music";
+    musicDirectory = "${musicDir}";
+    playlistDirectory = "${musicDir}/playlists";
     extraConfig = ''
       auto_update "yes"
 
