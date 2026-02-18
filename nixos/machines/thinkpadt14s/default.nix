@@ -3,6 +3,7 @@
   lib,
   modulesPath,
   inputs,
+  pkgs,
   ...
 }:
 
@@ -46,11 +47,12 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [ android-tools ];
+
   services.postgresql.enable = true;
   systemd.targets.postgresql.wantedBy = lib.mkForce [ ];
   services.tlp.enable = true;
 
-  programs.adb.enable = true;
   programs.nix-ld.enable = true;
   hardware.bluetooth.enable = true;
   networking.wireless.iwd = {

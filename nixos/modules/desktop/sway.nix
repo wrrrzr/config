@@ -40,7 +40,7 @@ in
         imv
         mpv
         evince
-        xfce.thunar
+        thunar
       ]
     );
     services.tumbler.enable = true;

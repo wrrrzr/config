@@ -20,7 +20,7 @@ in
       htop
       kitty.terminfo
       lm_sensors
-      nixfmt-rfc-style
+      nixfmt
       usbutils
       vim
       wget

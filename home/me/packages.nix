@@ -19,7 +19,7 @@ let
     lua
     luarocks
     ninja
-    nixfmt-rfc-style
+    nixfmt
     pkg-config
     rustc
     stylua
