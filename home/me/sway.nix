@@ -135,6 +135,7 @@ in
         "${mod}+Shift+b" = "exec ${pkgs.blueman}/bin/blueman-manager";
         "${mod}+Shift+i" = "exec ${pkgs.iwgtk}/bin/iwgtk";
         "${mod}+Shift+f" = "exec ${pkgs.firefox}/bin/firefox";
+        "${mod}+Shift+t" = "exec ${pkgs.wl-clipboard}/bin/wl-paste | ${pkgs.imv}/bin/imv -";
       }
       // workspace-binds;
       modes = {
