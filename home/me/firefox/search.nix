@@ -77,6 +77,24 @@
               }
             ];
           }
+          {
+            template = "https://www.google.com/complete/search";
+            params = [
+              {
+                name = "client";
+                value = "chrome";
+              }
+              {
+                name = "ds";
+                value = "yt";
+              }
+              {
+                name = "q";
+                value = "{searchTerms}";
+              }
+            ];
+            type = "application/x-suggestions+json";
+          }
         ];
         definedAliases = [
           "@youtube"
