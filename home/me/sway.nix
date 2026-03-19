@@ -12,7 +12,14 @@ let
   '';
   mpcswitch = pkgs.writeShellScriptBin "mpcswitch" ''
     ${pkgs.mpc}/bin/mpc $1
-    ${pkgs.libnotify}/bin/notify-send -r 1 "Now playing" "$(${pkgs.mpc}/bin/mpc | head -n1)"'';
+    ${pkgs.libnotify}/bin/notify-send -r 1 "Now playing" "$(${pkgs.mpc}/bin/mpc | head -n1)" -t 500 -u low
+  '';
+  volumeswitch = pkgs.writeShellScriptBin "volumeswitch" ''
+    ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ $1
+    volume=$(${pkgs.pamixer}/bin/pamixer --get-volume)
+    ${pkgs.libnotify}/bin/notify-send -r 1 "Current volume $volume" -a Volume -h int:value:$volume -t 500 -u low
+  '';
+
   wallpaper = ./wallpaper.png;
   vimkeys = {
     left = "h";
@@ -117,8 +124,8 @@ in
         "${mod}+minus" = "scratchpad show";
 
         # Function keys
-        "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
-        "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
+        "XF86AudioRaiseVolume" = "exec ${volumeswitch}/bin/volumeswitch +5%";
+        "XF86AudioLowerVolume" = "exec ${volumeswitch}/bin/volumeswitch -5%";
         "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "XF86AudioPause" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
