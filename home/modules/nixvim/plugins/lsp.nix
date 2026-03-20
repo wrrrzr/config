@@ -27,10 +27,11 @@
           };
           basedpyright.enable = true;
           clangd.enable = true;
-          lua_ls.enable = true;
-          ts_ls.enable = true;
-          nixd.enable = true;
+          cmake.enable = true;
           jsonls.enable = true;
+          lua_ls.enable = true;
+          nixd.enable = true;
+          ts_ls.enable = true;
         };
       };
       fidget.enable = true;
