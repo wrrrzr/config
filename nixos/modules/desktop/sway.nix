@@ -40,9 +40,15 @@ in
         imv
         mpv
         evince
-        thunar
       ]
     );
+    programs.thunar = {
+      enable = true;
+      plugins = with pkgs; [
+        thunar-archive-plugin
+        thunar-media-tags-plugin
+      ];
+    };
     services.tumbler.enable = true;
     services.blueman.enable = true;
   };
