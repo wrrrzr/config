@@ -16,8 +16,6 @@ let
   '';
   volumeswitch = pkgs.writeShellScriptBin "volumeswitch" ''
     ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ $1
-    volume=$(${pkgs.pamixer}/bin/pamixer --get-volume)
-    ${pkgs.libnotify}/bin/notify-send -r 1 "Current volume $volume" -a Volume -h int:value:$volume -t 500 -u low
   '';
 
   wallpaper = ./wallpaper.png;
