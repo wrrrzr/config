@@ -25,6 +25,8 @@ in
       nftables.enable = true;
     };
     openssh.enable = true;
+    screen.enable = true;
+    transmission.enable = true;
     wireguard = {
       enable = true;
       address = "10.0.0.5/32";

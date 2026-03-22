@@ -28,6 +28,7 @@
   module = {
     networking.enable = true;
     openssh.enable = true;
+    screen.enable = true;
     wireguard = {
       enable = true;
       address = "10.0.0.3";

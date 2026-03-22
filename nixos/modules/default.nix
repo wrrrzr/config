@@ -15,6 +15,7 @@
     ./openssh.nix
     ./packages.nix
     ./printers.nix
+    ./screen.nix
     ./security.nix
     ./transmission.nix
     ./tv-alarm.nix
