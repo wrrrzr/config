@@ -48,6 +48,13 @@
     waydroid.enable = true;
   };
 
+  services.syncthing = {
+    enable = true;
+    user = "me";
+    dataDir = "/home/me/.config/syncthing";
+    configDir = "/home/me/.config/syncthing";
+  };
+
   environment.systemPackages = with pkgs; [ android-tools ];
 
   services.postgresql.enable = true;
