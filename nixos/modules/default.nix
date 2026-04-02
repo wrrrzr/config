@@ -18,8 +18,6 @@
     ./screen.nix
     ./security.nix
     ./transmission.nix
-    ./tv-alarm.nix
-    ./tvbox.nix
     ./users.nix
     ./waydroid.nix
     ./wireguard.nix
