@@ -9,7 +9,7 @@
       init.defaultBranch = "master";
       user.email = "wozrer@proton.me";
       user.name = "wrrrzr";
-      user.signingkey = "~/.ssh/keygithub.pub";
+      user.signingkey = "~/.ssh/keys/keygithub.pub";
     };
   };
 }
