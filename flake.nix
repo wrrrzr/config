@@ -30,11 +30,6 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    openwrt-imagebuilder = {
-      url = "github:astro/nix-openwrt-imagebuilder";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -86,14 +81,5 @@
         format = "iso";
         modules = [ ./installer ];
       };
-      packages.x86_64-linux.tplink_archer-c50-v1 =
-        let
-          pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-          profiles = inputs.openwrt-imagebuilder.lib.profiles { inherit pkgs; };
-          config = profiles.identifyProfile "tplink_archer-c50-v1" // {
-            packages = [ "openssh-sftp-server" ];
-          };
-        in
-        inputs.openwrt-imagebuilder.lib.build config;
     };
 }
