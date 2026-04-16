@@ -40,13 +40,12 @@ in
 
   networking = {
     useNetworkd = true;
-    bridges.br0 = {
-      interfaces = [ "end0" ];
-    };
-    interfaces.br0 = {
-      useDHCP = true;
+    wireless = {
+      enable = true;
+      networks."Bruno".psk = "13031991";
     };
   };
+
   users.users.tux = {
     extraGroups = [
       "incus-admin"
