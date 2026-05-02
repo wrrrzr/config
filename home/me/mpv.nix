@@ -12,7 +12,6 @@ in
     config = {
       audio-display = mpv.no;
       deband = mpv.yes;
-      save-position-on-quit = mpv.yes;
     };
   };
 }
