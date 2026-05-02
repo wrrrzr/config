@@ -2,8 +2,8 @@
   ...
 }:
 
-{
-  programs.firefox.profiles.me.search = {
+let
+  search = {
     default = "google";
     force = true;
     engines = {
@@ -26,23 +26,6 @@
         definedAliases = [
           "@nixpkgs"
           "@nix"
-        ];
-      };
-      "Mwmbl" = {
-        urls = [
-          {
-            template = "https://mwmbl.org/";
-            params = [
-              {
-                name = "q";
-                value = "{searchTerms}";
-              }
-            ];
-          }
-        ];
-        definedAliases = [
-          "@mwmbl"
-          "@mw"
         ];
       };
       "Github" = {
@@ -134,5 +117,12 @@
         ];
       };
     };
+  };
+in
+{
+  programs.firefox.profiles = {
+    me.search = search;
+    proxy.search = search;
+    r.search = search;
   };
 }

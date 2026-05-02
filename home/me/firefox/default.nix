@@ -1,20 +1,53 @@
 {
   inputs,
   system,
+  pkgs,
+  lib,
   ...
 }:
 
+let
+  ff = inputs.firefox-addons.packages.${system};
+  mkFirefoxPkg =
+    profile:
+    (pkgs.writeScriptBin "firefox-${profile}" ''
+      ${lib.getExe pkgs.firefox} -P ${profile}
+    '');
+in
 {
   imports = [ ./search.nix ];
 
+  home.packages = [
+    (mkFirefoxPkg "me")
+    (mkFirefoxPkg "proxy")
+    (mkFirefoxPkg "r")
+  ];
+
   programs.firefox = {
     enable = true;
-    profiles.me = {
-      extensions.packages = with inputs.firefox-addons.packages.${system}; [
-        multi-account-containers
-        darkreader
-        vimium
-      ];
+    profiles = {
+      me = {
+        extensions.packages = with ff; [
+          multi-account-containers
+          darkreader
+          vimium
+        ];
+        id = 0;
+      };
+      proxy = {
+        extensions.packages = with ff; [
+          multi-account-containers
+          darkreader
+          vimium
+        ];
+        id = 1;
+      };
+      r = {
+        extensions.packages = with ff; [
+          multi-account-containers
+        ];
+        id = 2;
+      };
     };
     policies = {
       DisableTelemetry = true;
