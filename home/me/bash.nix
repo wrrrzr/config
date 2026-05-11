@@ -7,7 +7,7 @@
       initExtra = ''
         curd() {
             local d=~/mm/daily/$(date '+%Y-%m-%d'.md)
-            [[ -s $d ]] || cp ~/mm/templates/daily.md $d
+            [[ -s $d ]] || ~/save/gendaily > $d
             $EDITOR $d
         }
       '';
