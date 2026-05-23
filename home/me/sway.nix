@@ -26,6 +26,9 @@ let
     right = "l";
   };
 
+  lock = "${pkgs.swaylock}/bin/swaylock -f";
+  display = status: "${pkgs.sway}/bin/swaymsg 'output * power ${status}'";
+
   workspace-binds = lib.listToAttrs (
     lib.concatMap (
       n:
@@ -49,7 +52,11 @@ in
   wayland.windowManager.sway = {
     enable = true;
     xwayland = true;
-    systemd.enable = true;
+    systemd = {
+      enable = true;
+      dbusImplementation = "broker";
+    };
+    wrapperFeatures.gtk = true;
     config = {
       bars = [
         {
@@ -214,9 +221,20 @@ in
     };
   };
   services.swaync.enable = true;
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        timeout = 30;
+        command = lock;
+      }
+      {
+        timeout = 60;
+        command = display "off";
+        resumeCommand = display "on";
+      }
+    ];
+  };
   services.batsignal.enable = true;
   services.gnome-keyring.enable = true;
-  home.shellAliases = {
-    "sway" = "dbus-run-session sway";
-  };
 }
