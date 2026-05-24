@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   config = lib.mkIf config.module.nixvim.enable {
@@ -7,6 +12,7 @@
       defaultEditor = true;
       colorschemes.vscode.enable = true;
       plugins.lz-n.enable = true;
+      nixpkgs.source = inputs.nixpkgs;
     };
   };
 }

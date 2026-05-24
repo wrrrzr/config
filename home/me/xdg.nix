@@ -16,6 +16,7 @@ in
       publicShare = "${home}/save/public";
       templates = "${home}/save/templates";
       videos = "${home}/save/videos";
+      setSessionVariables = true;
     };
   };
 }

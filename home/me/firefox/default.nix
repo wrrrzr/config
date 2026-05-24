@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   system,
   pkgs,
@@ -25,6 +26,7 @@ in
 
   programs.firefox = {
     enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     profiles = {
       me = {
         extensions.packages = with ff; [

@@ -14,7 +14,6 @@ let
     gnumake
     go
     isort
-    jdk17
     libtool
     lua
     luarocks
@@ -37,6 +36,7 @@ let
     alsa-utils
     bc
     cloc
+    fastfetch
     ffmpeg-full
     file
     gettext
@@ -45,7 +45,6 @@ let
     iamb
     libnotify
     lolcat
-    neofetch
     nmap
     progress
     qemu
@@ -64,19 +63,16 @@ let
     dino
     evince
     gimp
-    helvum
     iwgtk
     keepassxc
     kitty
     luanti
     nicotine-plus
     obs-studio
-    openscad
     pavucontrol
-    superTuxKart
+    supertuxkart
   ];
-  packages-fonts = with pkgs; [ nerd-fonts.jetbrains-mono ];
 in
 {
-  home.packages = packages-dev ++ packages-cli ++ packages-gui ++ packages-fonts;
+  home.packages = packages-dev ++ packages-cli ++ packages-gui;
 }

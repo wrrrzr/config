@@ -52,10 +52,7 @@ in
   wayland.windowManager.sway = {
     enable = true;
     xwayland = true;
-    systemd = {
-      enable = true;
-      dbusImplementation = "broker";
-    };
+    systemd.enable = true;
     wrapperFeatures.gtk = true;
     config = {
       bars = [
@@ -237,4 +234,7 @@ in
   };
   services.batsignal.enable = true;
   services.gnome-keyring.enable = true;
+  home.shellAliases = {
+    "sway" = "dbus-run-session sway";
+  };
 }
