@@ -63,7 +63,6 @@ let
     dino
     evince
     gimp
-    iwgtk
     keepassxc
     kitty
     luanti

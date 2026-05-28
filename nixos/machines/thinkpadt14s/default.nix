@@ -57,20 +57,21 @@
 
   environment.systemPackages = with pkgs; [ android-tools ];
 
-  services.postgresql.enable = true;
-  systemd.targets.postgresql.wantedBy = lib.mkForce [ ];
-  services.tlp.enable = true;
+  services.power-profiles-daemon.enable = true;
 
   programs.nix-ld.enable = true;
   hardware.bluetooth.enable = true;
-  networking.wireless.iwd = {
-    enable = true;
-    settings.Settings.AutoConnect = true;
-  };
-  networking.firewall = {
-    enable = true;
-    allowPing = false;
-    allowedUDPPorts = [ 30000 ];
+  networking = {
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+      wifi.backend = "iwd";
+    };
+    firewall = {
+      enable = true;
+      allowPing = false;
+      allowedUDPPorts = [ 30000 ];
+    };
   };
 
   boot.loader.systemd-boot.enable = true;
