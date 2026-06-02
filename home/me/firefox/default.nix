@@ -41,6 +41,7 @@ in
           multi-account-containers
           darkreader
           vimium
+          youtube-shorts-block
         ];
         id = 1;
       };
