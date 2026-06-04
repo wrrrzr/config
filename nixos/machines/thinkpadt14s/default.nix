@@ -57,6 +57,7 @@
     user = "me";
     dataDir = "/home/me/.config/syncthing";
     configDir = "/home/me/.config/syncthing";
+    openDefaultPorts = true;
   };
 
   environment.systemPackages = with pkgs; [ android-tools ];
