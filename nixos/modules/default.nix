@@ -18,6 +18,7 @@
     ./screen.nix
     ./security.nix
     ./transmission.nix
+    ./unfree.nix
     ./users.nix
     ./waydroid.nix
     ./wireguard.nix

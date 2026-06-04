@@ -45,6 +45,10 @@
       enable = true;
       users.me.enable = true;
     };
+    printers = {
+      enable = true;
+      allowUnfreeHplip = true;
+    };
     waydroid.enable = true;
   };
 
