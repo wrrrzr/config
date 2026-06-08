@@ -7,6 +7,7 @@
 
 let
   cfg = config.module.printers;
+  driver = pkgs.hplipWithPlugin;
 in
 {
   options.module.printers = {
@@ -21,8 +22,9 @@ in
   config = lib.mkIf cfg.enable {
     services.printing = {
       enable = true;
-      drivers = with pkgs; [ hplipWithPlugin ];
+      drivers = [ driver ];
     };
+    environment.systemPackages = [ driver ];
     module.unfree = {
       enable = lib.mkIf cfg.allowUnfreeHplip (lib.mkDefault true);
       packages = lib.mkIf cfg.allowUnfreeHplip [ "hplip" ];
