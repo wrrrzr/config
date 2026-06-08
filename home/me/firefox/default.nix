@@ -33,6 +33,7 @@ in
           multi-account-containers
           darkreader
           vimium
+          redirector
         ];
         id = 0;
       };
@@ -48,6 +49,7 @@ in
       r = {
         extensions.packages = with ff; [
           multi-account-containers
+          violentmonkey
         ];
         id = 2;
       };
