@@ -43,6 +43,7 @@
     };
     users = {
       enable = true;
+      networkmanager = true;
       users.me.enable = true;
     };
     printers = {

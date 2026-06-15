@@ -28,7 +28,8 @@ let
         isNormalUser = true;
         extraGroups = [
           "wheel"
-        ];
+        ]
+        ++ lib.optional cfg.networkmanager "networkmanager";
         openssh.authorizedKeys.keys = lib.mkIf connectable [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkbZDukqSo/lPT5tHl1cUR4SXs3aUmJ+C7YTQ3ztCf1"
         ];
@@ -44,6 +45,12 @@ in
   ];
   options.module.users = {
     enable = lib.mkEnableOption "Users configuration";
+    networkmanager = lib.mkOption {
+      type = lib.types.bool;
+      example = true;
+      default = cfg.networking.networkmanager.enable;
+      description = "Add users to networkmanager group";
+    };
     users = {
       me.enable = lib.mkEnableOption "User me";
       utopiya.enable = lib.mkEnableOption "User utopiya";
