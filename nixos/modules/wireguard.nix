@@ -6,7 +6,11 @@
 
 let
   cfg = config.module.wireguard;
-  server-addr = "217.114.2.138";
+  server = {
+    addr = "195.133.201.240";
+    port = 51820;
+    pubkey = "zUzJMvvEAqj8o8jcc4AFsXwqC7iJ2FWu1f8nkB3j5zE=";
+  };
 in
 {
   options.module.wireguard = {
@@ -24,9 +28,9 @@ in
 
         peers = [
           {
-            publicKey = "b7junNwKwlw/0i5GbQ/SXdZKMcwYcMcUGCCnAt1Yyk8=";
-            allowedIPs = [ "10.0.0.0/24" ];
-            endpoint = "${server-addr}:51820";
+            publicKey = server.pubkey;
+            allowedIPs = [ "10.20.30.0/24" ];
+            endpoint = "${server.addr}:${lib.toString server.port}";
             persistentKeepalive = 25;
           }
         ];

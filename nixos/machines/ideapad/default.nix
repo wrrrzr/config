@@ -44,7 +44,7 @@ in
     };
     wireguard = {
       enable = true;
-      address = "10.0.0.7";
+      address = "10.20.30.4";
     };
     zapret.enable = true;
   };

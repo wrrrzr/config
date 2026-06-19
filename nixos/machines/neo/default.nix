@@ -31,7 +31,7 @@
     screen.enable = true;
     wireguard = {
       enable = true;
-      address = "10.0.0.3";
+      address = "10.20.30.3";
     };
     users = {
       enable = true;

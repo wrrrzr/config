@@ -35,7 +35,7 @@
     };
     wireguard = {
       enable = true;
-      address = "10.0.0.9";
+      address = "10.20.30.2";
     };
     security = {
       enable = true;
