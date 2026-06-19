@@ -46,7 +46,6 @@ in
       enable = true;
       address = "10.20.30.4";
     };
-    zapret.enable = true;
   };
 
   networking.networkmanager.enable = true;

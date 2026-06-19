@@ -7,5 +7,6 @@
   home.packages = with pkgs; [
     ayugram-desktop
     dino
+    libreoffice
   ];
 }
