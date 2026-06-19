@@ -48,7 +48,7 @@ in
     networkmanager = lib.mkOption {
       type = lib.types.bool;
       example = true;
-      default = cfg.networking.networkmanager.enable;
+      default = false;
       description = "Add users to networkmanager group";
     };
     users = {
