@@ -29,7 +29,7 @@ in
     transmission.enable = true;
     wireguard = {
       enable = true;
-      address = "10.0.0.5/32";
+      address = "10.20.30.6/32";
     };
     avahi.enable = true;
     users = {
