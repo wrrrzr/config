@@ -127,16 +127,14 @@ in
     };
     raspberry-pi."4" = {
       pwm0.enable = true;
-      fkms-3d.enable = true;
-      bluetooth.enable = true;
       leds = {
         pwr.disable = true;
         act.disable = true;
       };
     };
-    bluetooth.enable = true;
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.timeout = 0;
   boot.kernelParams = [
     "quiet"
