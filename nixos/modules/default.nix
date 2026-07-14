@@ -43,7 +43,13 @@
     "flakes"
   ];
 
-  time.timeZone = "Europe/Moscow";
+  i18n = {
+    defaultLocale = lib.mkDefault "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_TIME = lib.mkDefault "en_GB.UTF-8";
+    };
+  };
+  time.timeZone = lib.mkDefault "Europe/Moscow";
 
   system.stateVersion = stateVersion;
 }
