@@ -64,6 +64,7 @@
   environment.systemPackages = with pkgs; [ android-tools ];
 
   services.power-profiles-daemon.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   programs.nix-ld.enable = true;
   hardware.bluetooth.enable = true;

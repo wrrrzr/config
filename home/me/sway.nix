@@ -231,7 +231,6 @@ in
     ];
   };
   services.batsignal.enable = true;
-  services.gnome-keyring.enable = true;
   home.shellAliases = {
     "sway" = "dbus-run-session sway";
   };
