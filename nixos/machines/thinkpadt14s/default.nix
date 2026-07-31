@@ -64,6 +64,7 @@
   environment.systemPackages = with pkgs; [ android-tools ];
 
   services.tlp.enable = true;
+  services.fwupd.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
   programs.nix-ld.enable = true;
