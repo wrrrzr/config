@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   config = lib.mkIf config.module.nixvim.enable {
@@ -40,6 +45,15 @@
             nix = [ "nixfmt" ];
             cpp = [ "clang-format" ];
             rust = [ "rustfmt" ];
+          };
+          formatters = {
+            autoflake.command = lib.getExe pkgs.autoflake;
+            black.command = lib.getExe pkgs.black;
+            clang-format.command = lib.getExe' pkgs.clang-tools "clang-format";
+            isort.command = lib.getExe pkgs.isort;
+            nixfmt.command = lib.getExe pkgs.nixfmt;
+            rustfmt.command = lib.getExe pkgs.rustfmt;
+            stylua.command = lib.getExe pkgs.stylua;
           };
           format_on_save = {
             timeout_ms = 5000;

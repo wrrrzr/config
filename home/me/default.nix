@@ -27,6 +27,7 @@
     enable = true;
     env.GOPATH = ".go";
   };
+  programs.keepassxc.enable = true;
 
   services.blueman-applet.enable = true;
 

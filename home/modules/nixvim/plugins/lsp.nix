@@ -20,18 +20,25 @@
           "gwa" = "add_workspace_folder";
         };
         servers = {
+          "*" = {
+            config = {
+              root_markers = [
+                ".git"
+              ];
+            };
+          };
           rust_analyzer = {
             enable = true;
             installCargo = true;
             installRustc = true;
           };
+          ts_ls.enable = true;
           basedpyright.enable = true;
           clangd.enable = true;
           cmake.enable = true;
           jsonls.enable = true;
           lua_ls.enable = true;
           nixd.enable = true;
-          ts_ls.enable = true;
         };
       };
       fidget.enable = true;
