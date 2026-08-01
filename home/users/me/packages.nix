@@ -37,6 +37,7 @@
     pavucontrol
     pkg-config
     progress
+    python3
     quickemu
     ripgrep
     rustc
