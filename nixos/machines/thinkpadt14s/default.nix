@@ -50,7 +50,6 @@
       enable = true;
       allowUnfreeHplip = true;
     };
-    waydroid.enable = true;
     unfree.enable = true;
   };
 
