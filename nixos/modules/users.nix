@@ -16,7 +16,7 @@ let
         { ... }:
         {
           imports = [
-            ../../home/${username}
+            ../../home/users/${username}
             ../../home/modules
           ];
         };
