@@ -25,10 +25,7 @@ in
       drivers = [ driver ];
     };
     environment.systemPackages = [ driver ];
-    module.unfree = {
-      enable = lib.mkIf cfg.allowUnfreeHplip (lib.mkDefault true);
-      packages = lib.mkIf cfg.allowUnfreeHplip [ "hplip" ];
-    };
+    module.unfree.packages = lib.mkIf cfg.allowUnfreeHplip [ "hplip" ];
     programs.system-config-printer.enable = true;
   };
 }

@@ -51,6 +51,7 @@
       allowUnfreeHplip = true;
     };
     waydroid.enable = true;
+    unfree.enable = true;
   };
 
   services.syncthing = {
