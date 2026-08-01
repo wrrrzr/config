@@ -5,7 +5,7 @@
 }:
 
 let
-  mod = "Mod1";
+  mod = "Mod4";
   resize = "10px";
   barcmd = pkgs.writeShellScriptBin "barcmd" ''
     echo $(${pkgs.acpi}/bin/acpi | ${pkgs.gawk}/bin/gawk '{print $4 " " $3}' | tr -d ',') "|" $(date "+%a %F %R")
@@ -135,7 +135,7 @@ in
 
         # Apps
         "Print" = "exec ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
-        "Mod4+Print" =
+        "${mod}+Print" =
           "exec ${pkgs.grim}/bin/grim - |"
           + "${pkgs.satty}/bin/satty --filename - --output-filename - |"
           + "${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
