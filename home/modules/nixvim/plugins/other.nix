@@ -64,6 +64,19 @@
         enable = true;
         settings.highlight.enable = true;
       };
+      snacks = {
+        enable = true;
+        settings = {
+          input = {
+            enabled = true;
+            win = {
+              relative = "cursor";
+              row = -3;
+              width = 30;
+            };
+          };
+        };
+      };
       web-devicons.enable = true;
       lualine.enable = true;
       gitsigns.enable = true;
