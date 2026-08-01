@@ -31,7 +31,6 @@ in
       me = {
         extensions.packages = with ff; [
           multi-account-containers
-          darkreader
           vimium
           redirector
         ];
@@ -40,7 +39,6 @@ in
       proxy = {
         extensions.packages = with ff; [
           multi-account-containers
-          darkreader
           vimium
           youtube-shorts-block
         ];

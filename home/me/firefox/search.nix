@@ -3,6 +3,27 @@
 }:
 
 let
+  mkGithubEngine = type: {
+    urls = [
+      {
+        template = "https://github.com/search";
+        params = [
+          {
+            name = "q";
+            value = "{searchTerms}";
+          }
+          {
+            name = "type";
+            value = type;
+          }
+        ];
+      }
+    ];
+    definedAliases = [
+      "@gh${builtins.substring 0 1 type}"
+    ];
+  };
+
   search = {
     default = "google";
     force = true;
@@ -28,27 +49,8 @@ let
           "@nix"
         ];
       };
-      "Github" = {
-        urls = [
-          {
-            template = "https://github.com/search";
-            params = [
-              {
-                name = "q";
-                value = "{searchTerms}";
-              }
-              {
-                name = "type";
-                value = "code";
-              }
-            ];
-          }
-        ];
-        definedAliases = [
-          "@github"
-          "@gh"
-        ];
-      };
+      "Github code" = mkGithubEngine "code";
+      "Github repositories" = mkGithubEngine "repositories";
       "Youtube" = {
         urls = [
           {
