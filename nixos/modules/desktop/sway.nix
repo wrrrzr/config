@@ -7,6 +7,54 @@
 
 let
   isEnabled = (config.module.desktop.enable && config.module.desktop.sway.enable);
+
+  apps = {
+    "imv.desktop" = [
+      "image/apng"
+      "image/avif"
+      "image/bmp"
+      "image/gif"
+      "image/jpeg"
+      "image/png"
+      "image/svg+xml"
+      "image/tiff"
+      "image/vnd.microsoft.icon"
+      "image/webp"
+    ];
+    "firefox.desktop" = [
+      "text/html"
+      "x-scheme-handler/about"
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+      "x-scheme-handler/unknown"
+    ];
+    "mpv.desktop" = [
+      "video/3gpp"
+      "video/3gpp2"
+      "video/mp2t"
+      "video/mp4"
+      "video/mpeg"
+      "video/ogg"
+      "video/webm"
+      "video/x-msvideo"
+    ];
+    "org.gnome.Evince.desktop" = [
+      "application/pdf"
+    ];
+    "thunar.desktop" = [
+      "inode/directory"
+    ];
+  };
+  defaultApplications = builtins.foldl' (
+    acc: app:
+    acc
+    // builtins.listToAttrs (
+      map (mime: {
+        name = mime;
+        value = app;
+      }) apps.${app}
+    )
+  ) { } (builtins.attrNames apps);
 in
 {
   config = lib.mkIf isEnabled {
@@ -14,18 +62,7 @@ in
     security.pam.services.swaylock = { };
     xdg.mime = {
       enable = true;
-      defaultApplications = {
-        "text/html" = "firefox.desktop";
-        "x-scheme-handler/about" = "firefox.desktop";
-        "x-scheme-handler/http" = "firefox.desktop";
-        "x-scheme-handler/https" = "firefox.desktop";
-        "x-scheme-handler/unknown" = "firefox.desktop";
-        "image/jpeg" = "imv.desktop";
-        "image/png" = "imv.desktop";
-        "video/mp4" = "mpv.desktop";
-        "application/pdf" = "org.gnome.Evince.desktop";
-        "inode/directory" = "thunar.desktop";
-      };
+      defaultApplications = defaultApplications;
     };
     xdg.portal = {
       enable = true;
