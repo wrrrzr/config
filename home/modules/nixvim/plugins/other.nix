@@ -82,5 +82,23 @@
       gitsigns.enable = true;
       fugitive.enable = true;
     };
+    programs.nixvim.extraFiles = {
+      "queries/python/injections.scm".text = ''
+        ; extends
+
+        (call
+          function:
+          (attribute object: (identifier) @obj
+            attribute:
+            (identifier)
+            @attr)
+          arguments:
+          (argument_list
+            (string
+              (string_content)
+              @injection.content))
+          (#eq? @attr "execute")
+          (#set! injection.language "sql"))'';
+    };
   };
 }
