@@ -31,9 +31,7 @@
   };
 
   nixpkgs.hostPlatform = lib.mkDefault system;
-  users.mutableUsers = false;
-  users.users.root.hashedPasswordFile = "/etc/secret/passwd/root";
-  boot.tmp.useTmpfs = true;
+  boot.tmp.useTmpfs = lib.mkDefault true;
   boot.kernel.sysctl."kernel.sysrq" = 1;
   services.journald.extraConfig = "SystemMaxUse=100M";
 

@@ -34,6 +34,7 @@ in
     avahi.enable = true;
     users = {
       enable = true;
+      home-manager = true;
       users.tux.enable = true;
     };
   };

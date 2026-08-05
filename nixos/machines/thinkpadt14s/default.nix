@@ -43,6 +43,7 @@
     };
     users = {
       enable = true;
+      home-manager = true;
       networkmanager = true;
       users.me.enable = true;
     };

@@ -35,6 +35,7 @@
     };
     users = {
       enable = true;
+      home-manager = true;
       users.tux.enable = true;
     };
   };

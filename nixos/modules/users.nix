@@ -3,12 +3,14 @@
   inputs,
   stateVersion,
   config,
+  pubkeys,
   lib,
   ...
 }:
 
 let
   cfg = config.module.users;
+  mkPasswdFile = username: "/etc/secret/passwd/${username}";
   mkHomeManager =
     username:
     lib.optionalAttrs cfg.users.${username}.enable {
@@ -30,10 +32,8 @@ let
           "wheel"
         ]
         ++ lib.optional cfg.networkmanager "networkmanager";
-        openssh.authorizedKeys.keys = lib.mkIf connectable [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkbZDukqSo/lPT5tHl1cUR4SXs3aUmJ+C7YTQ3ztCf1"
-        ];
-        hashedPasswordFile = "/etc/secret/passwd/${username}";
+        openssh.authorizedKeys.keys = lib.mkIf connectable [ pubkeys.sshkey ];
+        hashedPasswordFile = mkPasswdFile username;
       };
     };
   mkConnectableUser = mkUserFunc true;
@@ -44,7 +44,10 @@ in
     inputs.home-manager.nixosModules.home-manager
   ];
   options.module.users = {
-    enable = lib.mkEnableOption "Users configuration";
+    enable = lib.mkEnableOption "Users configuration" // {
+      default = true;
+    };
+    home-manager = lib.mkEnableOption "Home manager";
     networkmanager = lib.mkOption {
       type = lib.types.bool;
       example = true;
@@ -59,14 +62,25 @@ in
     };
   };
   config = lib.mkIf cfg.enable {
-    home-manager = {
+    home-manager = lib.mkIf cfg.home-manager {
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "bak";
       extraSpecialArgs = { inherit system inputs stateVersion; };
+      users = { } // mkHomeManager "me" // mkHomeManager "utopiya" // mkHomeManager "wisdom";
     };
 
-    home-manager.users = { } // mkHomeManager "me" // mkHomeManager "utopiya" // mkHomeManager "wisdom";
-    users.users = { } // mkUser "me" // mkUser "utopiya" // mkUser "wisdom" // mkConnectableUser "tux";
+    users = {
+      mutableUsers = false;
+      users =
+        { }
+        // mkUser "me"
+        // mkUser "utopiya"
+        // mkUser "wisdom"
+        // mkConnectableUser "tux"
+        // {
+          root.hashedPasswordFile = mkPasswdFile "root";
+        };
+    };
   };
 }

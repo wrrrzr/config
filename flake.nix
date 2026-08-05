@@ -21,11 +21,6 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,6 +40,10 @@
           specialArgs = {
             inherit hostname system inputs;
             stateVersion = "25.05";
+            pubkeys = {
+              sshkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkbZDukqSo/lPT5tHl1cUR4SXs3aUmJ+C7YTQ3ztCf1";
+              installerkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIxVzlnNIpKHwyy6Yw5lctgo0JplO0AXtuiDYVzy5A0s";
+            };
           };
 
           modules = [
@@ -75,11 +74,10 @@
           hostname = "rpi4";
           system = "aarch64-linux";
         };
-      };
-      packages.x86_64-linux.installer = inputs.nixos-generators.nixosGenerate {
-        system = "x86_64-linux";
-        format = "iso";
-        modules = [ ./installer ];
+        installer = makeSystem {
+          hostname = "installer";
+          system = "x86_64-linux";
+        };
       };
     };
 }

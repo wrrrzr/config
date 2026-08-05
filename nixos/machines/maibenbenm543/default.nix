@@ -34,6 +34,7 @@
     openssh.enable = true;
     users = {
       enable = true;
+      home-manager = true;
       users.wisdom.enable = true;
       users.tux.enable = true;
     };
