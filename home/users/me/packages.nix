@@ -29,6 +29,7 @@
     lua
     luanti
     luarocks
+    mousepad
     nicotine-plus
     ninja
     nixfmt
