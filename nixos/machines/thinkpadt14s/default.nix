@@ -35,7 +35,7 @@
     };
     wireguard = {
       enable = true;
-      address = "10.20.30.2";
+      address = "10.20.30.2/32";
     };
     security = {
       enable = true;
@@ -44,7 +44,6 @@
     users = {
       enable = true;
       home-manager = true;
-      networkmanager = true;
       users.me.enable = true;
     };
     printers = {
@@ -65,16 +64,31 @@
   environment.systemPackages = with pkgs; [ android-tools ];
 
   services.tlp.enable = true;
-  services.fwupd.enable = true;
+  services.fwupd.enable = false;
   services.gnome.gnome-keyring.enable = true;
 
   programs.nix-ld.enable = true;
   hardware.bluetooth.enable = true;
+  systemd.network = {
+    enable = true;
+    networks = {
+      "50-wlan0" = {
+        matchConfig.Name = "wlan0";
+        DHCP = "ipv4";
+        ntp = [ "192.168.0.1" ];
+      };
+    };
+  };
   networking = {
-    networkmanager = {
+    useNetworkd = true;
+    useDHCP = false;
+    wireless.iwd = {
       enable = true;
-      dns = "systemd-resolved";
-      wifi.backend = "iwd";
+      settings = {
+        Settings = {
+          AutoConnect = true;
+        };
+      };
     };
     firewall = {
       enable = true;

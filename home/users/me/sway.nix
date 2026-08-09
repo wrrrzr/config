@@ -142,7 +142,7 @@ in
         "${mod}+Shift+p" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
         "${mod}+Shift+b" = "exec ${pkgs.blueman}/bin/blueman-manager";
         "${mod}+Shift+f" = "exec ${pkgs.firefox}/bin/firefox";
-        "${mod}+Shift+t" = "exec ${pkgs.wl-clipboard}/bin/wl-paste | ${pkgs.imv}/bin/imv -";
+        "${mod}+Shift+i" = "exec ${pkgs.iwgtk}/bin/iwgtk";
       }
       // workspace-binds;
       modes = {
@@ -230,7 +230,6 @@ in
       }
     ];
   };
-  services.batsignal.enable = true;
   home.shellAliases = {
     "sway" = "dbus-run-session sway";
   };
