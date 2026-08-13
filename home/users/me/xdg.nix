@@ -13,7 +13,7 @@ in
       download = "${home}/downloads";
       music = "${home}/music";
       pictures = "${home}/save/images";
-      publicShare = "${home}/save/public";
+      publicShare = "${home}/public";
       templates = "${home}/save/templates";
       videos = "${home}/save/videos";
       setSessionVariables = true;

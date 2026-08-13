@@ -44,6 +44,7 @@
     users = {
       enable = true;
       home-manager = true;
+      extraGroups = [ "samba" ];
       users.me.enable = true;
     };
     printers = {
@@ -53,6 +54,16 @@
     unfree.enable = true;
   };
 
+  services.samba = {
+    enable = true;
+    package = pkgs.samba4Full;
+    openFirewall = true;
+    usershares.enable = true;
+  };
+  services.samba-wsdd = {
+    enable = true;
+    openFirewall = true;
+  };
   services.syncthing = {
     enable = true;
     user = "me";

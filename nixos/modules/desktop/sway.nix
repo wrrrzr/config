@@ -84,6 +84,7 @@ in
       plugins = with pkgs; [
         thunar-archive-plugin
         thunar-media-tags-plugin
+        thunar-shares-plugin
       ];
     };
     services.tumbler.enable = true;

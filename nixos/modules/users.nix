@@ -31,7 +31,7 @@ let
         extraGroups = [
           "wheel"
         ]
-        ++ lib.optional cfg.networkmanager "networkmanager";
+        ++ cfg.extraGroups;
         openssh.authorizedKeys.keys = lib.mkIf connectable [ pubkeys.sshkey ];
         hashedPasswordFile = mkPasswdFile username;
       };
@@ -48,11 +48,11 @@ in
       default = true;
     };
     home-manager = lib.mkEnableOption "Home manager";
-    networkmanager = lib.mkOption {
-      type = lib.types.bool;
-      example = true;
-      default = false;
-      description = "Add users to networkmanager group";
+    extraGroups = lib.mkOption {
+      type = with lib.types; listOf str;
+      default = [ ];
+      example = [ "samba" ];
+      description = "Extra groups for all defined users";
     };
     users = {
       me.enable = lib.mkEnableOption "User me";
