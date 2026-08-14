@@ -51,6 +51,10 @@
       enable = true;
       allowUnfreeHplip = true;
     };
+    packages = {
+      enable = true;
+      fonts = true;
+    };
     unfree.enable = true;
   };
 
