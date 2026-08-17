@@ -29,10 +29,6 @@
     networking.enable = true;
     openssh.enable = true;
     screen.enable = true;
-    wireguard = {
-      enable = true;
-      address = "10.20.30.3";
-    };
     users = {
       enable = true;
       home-manager = true;

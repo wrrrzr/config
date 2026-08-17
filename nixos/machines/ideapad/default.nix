@@ -43,10 +43,6 @@ in
       users.utopiya.enable = true;
       users.tux.enable = true;
     };
-    wireguard = {
-      enable = true;
-      address = "10.20.30.4";
-    };
   };
 
   networking.networkmanager.enable = true;

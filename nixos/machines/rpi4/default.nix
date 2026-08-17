@@ -24,10 +24,6 @@
     openssh.enable = true;
     screen.enable = true;
     transmission.enable = true;
-    wireguard = {
-      enable = true;
-      address = "10.20.30.6/32";
-    };
     avahi.enable = true;
     users = {
       enable = true;

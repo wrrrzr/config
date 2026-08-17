@@ -33,10 +33,6 @@
       enable = true;
       nftables.enable = true;
     };
-    wireguard = {
-      enable = true;
-      address = "10.20.30.2/32";
-    };
     security = {
       enable = true;
       disallowCamera = true;

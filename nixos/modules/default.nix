@@ -21,7 +21,6 @@
     ./transmission.nix
     ./unfree.nix
     ./users.nix
-    ./wireguard.nix
     ./zapret.nix
     ./zram.nix
   ];

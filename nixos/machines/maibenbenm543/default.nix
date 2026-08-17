@@ -26,10 +26,6 @@
       platforms = [ "aarch64-linux" ];
     };
     networking.enable = true;
-    wireguard = {
-      enable = true;
-      address = "10.0.0.2";
-    };
     zapret.enable = true;
     openssh.enable = true;
     users = {
