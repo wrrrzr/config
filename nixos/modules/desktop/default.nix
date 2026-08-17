@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 
@@ -45,5 +46,17 @@ in
       enable = true;
       binfmt = true;
     };
+
+    programs.thunar = {
+      enable = true;
+      plugins = with pkgs; [
+        thunar-archive-plugin
+        thunar-media-tags-plugin
+        thunar-shares-plugin
+        thunar-volman
+      ];
+    };
+    services.tumbler.enable = true;
+    environment.systemPackages = with pkgs; [ mpv ];
   };
 }
