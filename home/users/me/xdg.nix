@@ -11,7 +11,7 @@ in
       desktop = "${home}";
       documents = "${home}/save/documents";
       download = "${home}/downloads";
-      music = "${home}/music";
+      music = "${home}/public/Music";
       pictures = "${home}/save/images";
       publicShare = "${home}/public";
       templates = "${home}/save/templates";
