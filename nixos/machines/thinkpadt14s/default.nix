@@ -55,19 +55,13 @@
       enable = true;
       fonts = true;
     };
+    samba = {
+      enable = true;
+      allowUsers = true;
+    };
     unfree.enable = true;
   };
 
-  services.samba = {
-    enable = true;
-    package = pkgs.samba4Full;
-    openFirewall = true;
-    usershares.enable = true;
-  };
-  services.samba-wsdd = {
-    enable = true;
-    openFirewall = true;
-  };
   services.syncthing = {
     enable = true;
     user = "me";
