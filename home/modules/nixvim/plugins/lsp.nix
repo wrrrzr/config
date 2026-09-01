@@ -2,23 +2,55 @@
 
 {
   config = lib.mkIf config.module.nixvim.enable {
-    programs.nixvim.plugins = {
+    programs.nixvim = {
       lsp = {
-        enable = true;
-        inlayHints = true;
-        keymaps.lspBuf = {
-          "K" = "hover";
-          "gD" = "declaration";
-          "gd" = "definition";
-          "gr" = "references";
-          "gI" = "implementation";
-          "gy" = "type_definition";
-          "gca" = "code_action";
-          "gcr" = "rename";
-          "gwl" = "list_workspace_folders";
-          "gwr" = "remove_workspace_folder";
-          "gwa" = "add_workspace_folder";
-        };
+        inlayHints.enable = true;
+        keymaps = [
+          {
+            key = "K";
+            lspBufAction = "hover";
+          }
+          {
+            key = "gD";
+            lspBufAction = "declaration";
+          }
+          {
+            key = "gd";
+            lspBufAction = "definition";
+          }
+          {
+            key = "gr";
+            lspBufAction = "references";
+          }
+          {
+            key = "gI";
+            lspBufAction = "implementation";
+          }
+          {
+            key = "gy";
+            lspBufAction = "type_definition";
+          }
+          {
+            key = "gca";
+            lspBufAction = "code_action";
+          }
+          {
+            key = "gcr";
+            lspBufAction = "rename";
+          }
+          {
+            key = "gwl";
+            lspBufAction = "list_workspace_folders";
+          }
+          {
+            key = "gwr";
+            lspBufAction = "remove_workspace_folder";
+          }
+          {
+            key = "gwa";
+            lspBufAction = "add_workspace_folder";
+          }
+        ];
         servers = {
           "*" = {
             config = {
@@ -27,11 +59,7 @@
               ];
             };
           };
-          rust_analyzer = {
-            enable = true;
-            installCargo = true;
-            installRustc = true;
-          };
+          rust_analyzer.enable = true;
           ts_ls.enable = true;
           basedpyright.enable = true;
           clangd.enable = true;
@@ -41,7 +69,7 @@
           nixd.enable = true;
         };
       };
-      fidget.enable = true;
+      plugins.fidget.enable = true;
     };
   };
 }

@@ -40,20 +40,11 @@
     users = {
       enable = true;
       home-manager = true;
-      extraGroups = [ "samba" ];
       users.me.enable = true;
-    };
-    printers = {
-      enable = true;
-      allowUnfreeHplip = true;
     };
     packages = {
       enable = true;
       fonts = true;
-    };
-    samba = {
-      enable = true;
-      allowUsers = true;
     };
     unfree.enable = true;
   };
