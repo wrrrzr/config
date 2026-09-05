@@ -77,7 +77,6 @@
   };
   networking = {
     useNetworkd = true;
-    useDHCP = false;
     wireless.iwd = {
       enable = true;
       settings = {
