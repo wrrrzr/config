@@ -7,9 +7,6 @@
 let
   mod = "Mod4";
   resize = "10px";
-  barcmd = pkgs.writeShellScriptBin "barcmd" ''
-    echo $(${pkgs.acpi}/bin/acpi | ${pkgs.gawk}/bin/gawk '{print $4 " " $3}' | tr -d ',') "|" $(date "+%a %F %R")
-  '';
   mpcswitch = pkgs.writeShellScriptBin "mpcswitch" ''
     ${pkgs.mpc}/bin/mpc $1
     ${pkgs.libnotify}/bin/notify-send -r 1 "Now playing" "$(${pkgs.mpc}/bin/mpc | head -n1)" -t 500 -u low
@@ -62,7 +59,7 @@ in
             statusline = "#ffffff";
             background = "#323232";
           };
-          statusCommand = "while ${barcmd}/bin/barcmd; do sleep 1; done";
+          statusCommand = "${lib.getExe pkgs.i3status-rust} ~/.config/i3status-rust/config-default.toml";
         }
       ];
       input = {
@@ -216,19 +213,38 @@ in
     };
   };
   services.swaync.enable = true;
-  services.swayidle = {
+  programs.i3status-rust = {
     enable = true;
-    timeouts = [
-      {
-        timeout = 30;
-        command = lock;
-      }
-      {
-        timeout = 60;
-        command = display "off";
-        resumeCommand = display "on";
-      }
-    ];
+    bars.default = {
+      blocks = [
+        {
+          block = "sound";
+        }
+        {
+          block = "net";
+          format = " $icon {$signal_strength $ssid|Wired connection} via $device ";
+        }
+        {
+          block = "battery";
+          format = " $icon $percentage ";
+        }
+        {
+          block = "keyboard_layout";
+          driver = "sway";
+          format = " $layout ";
+        }
+        {
+          block = "time";
+          format = " $timestamp.datetime(f:'%a %F %H:%M:%S') ";
+          interval = 1;
+        }
+      ];
+      settings = {
+        theme = {
+          theme = "native";
+        };
+      };
+    };
   };
   home.shellAliases = {
     "sway" = "dbus-run-session sway";
