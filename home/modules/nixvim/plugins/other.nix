@@ -67,6 +67,10 @@
       snacks = {
         enable = true;
         settings = {
+          picker = {
+            enaled = true;
+            ui_select = true;
+          };
           input = {
             enabled = true;
             win = {

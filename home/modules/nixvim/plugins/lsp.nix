@@ -59,14 +59,51 @@
               ];
             };
           };
-          rust_analyzer.enable = true;
-          ts_ls.enable = true;
-          basedpyright.enable = true;
-          clangd.enable = true;
-          cmake.enable = true;
-          jsonls.enable = true;
-          lua_ls.enable = true;
-          nixd.enable = true;
+          basedpyright = {
+            enable = true;
+            config = {
+              cmd = [
+                "basedpyright-langserver"
+                "--stdio"
+              ];
+              filetypes = [
+                "python"
+              ];
+              root_markers = [
+                "pyproject.toml"
+              ];
+            };
+          };
+          clangd = {
+            enable = true;
+            config = {
+              cmd = [
+                "clangd"
+                "--background-index"
+              ];
+              filetypes = [
+                "c"
+                "cpp"
+              ];
+              root_markers = [
+                "compile_commands.json"
+              ];
+            };
+          };
+          nixd = {
+            enable = true;
+            config = {
+              cmd = [
+                "nixd"
+              ];
+              filetypes = [
+                "nix"
+              ];
+              root_markers = [
+                "flake.nix"
+              ];
+            };
+          };
         };
       };
       plugins.fidget.enable = true;
