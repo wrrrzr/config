@@ -3,7 +3,7 @@
   inputs,
   stateVersion,
   config,
-  pubkeys,
+  consts,
   lib,
   ...
 }:
@@ -32,7 +32,7 @@ let
           "wheel"
         ]
         ++ cfg.extraGroups;
-        openssh.authorizedKeys.keys = lib.mkIf connectable [ pubkeys.sshkey ];
+        openssh.authorizedKeys.keys = lib.mkIf connectable [ consts.pubkeys.sshkey ];
         hashedPasswordFile = mkPasswdFile username;
       };
     };
@@ -66,7 +66,14 @@ in
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "bak";
-      extraSpecialArgs = { inherit system inputs stateVersion; };
+      extraSpecialArgs = {
+        inherit
+          system
+          inputs
+          stateVersion
+          consts
+          ;
+      };
       users = { } // mkHomeManager "me" // mkHomeManager "utopiya" // mkHomeManager "wisdom";
     };
 

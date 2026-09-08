@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  consts,
   ...
 }:
 
@@ -36,10 +37,8 @@ in
     services.libinput.enable = true;
     services.xserver = {
       enable = true;
-      xkb = {
-        layout = "us,ru";
-        options = "grp:win_space_toggle";
-      };
+      exportConfiguration = true;
+      inherit (consts) xkb;
     };
 
     programs.appimage = lib.mkIf cfg.appimageRuntime {

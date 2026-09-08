@@ -58,6 +58,15 @@ let
 in
 {
   config = lib.mkIf isEnabled {
+    services.greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
+          user = "greeter";
+        };
+      };
+    };
     services.xserver.displayManager.lightdm.enable = false;
     security.pam.services.swaylock = { };
     xdg.mime = {

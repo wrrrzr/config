@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  consts,
   ...
 }:
 
@@ -14,6 +15,7 @@ let
   volumeswitch = pkgs.writeShellScriptBin "volumeswitch" ''
     ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ $1
   '';
+  minutes = a: a * 60;
 
   wallpaper = ./wallpaper.png;
   vimkeys = {
@@ -64,8 +66,8 @@ in
       ];
       input = {
         "type:keyboard" = {
-          xkb_layout = "us,ru";
-          xkb_options = "grp:win_space_toggle";
+          xkb_layout = consts.xkb.layout;
+          xkb_options = consts.xkb.options;
           repeat_delay = "500";
           repeat_rate = "30";
         };
@@ -213,6 +215,21 @@ in
     };
   };
   services.swaync.enable = true;
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        timeout = minutes 2;
+        command = lock;
+      }
+      {
+        timeout = minutes 5;
+        command = display "off";
+        resumeCommand = display "on";
+      }
+    ];
+  };
+  services.polkit-gnome.enable = true;
   programs.i3status-rust = {
     enable = true;
     bars.default = {
@@ -227,6 +244,10 @@ in
         {
           block = "battery";
           format = " $icon $percentage ";
+        }
+        {
+          block = "backlight";
+          device = "intel_backlight";
         }
         {
           block = "keyboard_layout";
@@ -246,7 +267,8 @@ in
       };
     };
   };
-  home.shellAliases = {
-    "sway" = "dbus-run-session sway";
+  systemd.user.services.wayland-pipewire-idle-inhibit = {
+    Install.WantedBy = [ "graphical-session.target" ];
+    Service.ExecStart = lib.getExe pkgs.wayland-pipewire-idle-inhibit;
   };
 }

@@ -1,6 +1,6 @@
 {
   pkgs,
-  pubkeys,
+  consts,
   lib,
   ...
 }:
@@ -14,7 +14,7 @@
     installer = {
       isNormalUser = true;
       extraGroups = [ "wheel" ];
-      openssh.authorizedKeys.keys = [ pubkeys.installerkey ];
+      openssh.authorizedKeys.keys = [ consts.pubkeys.installerkey ];
     };
   };
   security.sudo.wheelNeedsPassword = false;

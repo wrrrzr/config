@@ -43,9 +43,15 @@
           specialArgs = {
             inherit hostname system inputs;
             stateVersion = "25.05";
-            pubkeys = {
-              sshkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkbZDukqSo/lPT5tHl1cUR4SXs3aUmJ+C7YTQ3ztCf1";
-              installerkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIxVzlnNIpKHwyy6Yw5lctgo0JplO0AXtuiDYVzy5A0s";
+            consts = {
+              pubkeys = {
+                sshkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkbZDukqSo/lPT5tHl1cUR4SXs3aUmJ+C7YTQ3ztCf1";
+                installerkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIxVzlnNIpKHwyy6Yw5lctgo0JplO0AXtuiDYVzy5A0s";
+              };
+              xkb = {
+                layout = "us,ru";
+                options = "grp:win_space_toggle";
+              };
             };
           };
 
