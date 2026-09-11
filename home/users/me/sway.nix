@@ -215,20 +215,6 @@ in
     };
   };
   services.swaync.enable = true;
-  services.swayidle = {
-    enable = true;
-    timeouts = [
-      {
-        timeout = minutes 2;
-        command = lock;
-      }
-      {
-        timeout = minutes 5;
-        command = display "off";
-        resumeCommand = display "on";
-      }
-    ];
-  };
   services.polkit-gnome.enable = true;
   programs.i3status-rust = {
     enable = true;
@@ -266,9 +252,5 @@ in
         };
       };
     };
-  };
-  systemd.user.services.wayland-pipewire-idle-inhibit = {
-    Install.WantedBy = [ "graphical-session.target" ];
-    Service.ExecStart = lib.getExe pkgs.wayland-pipewire-idle-inhibit;
   };
 }
