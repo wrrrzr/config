@@ -15,7 +15,6 @@ let
   volumeswitch = pkgs.writeShellScriptBin "volumeswitch" ''
     ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ $1
   '';
-  minutes = a: a * 60;
 
   wallpaper = ./wallpaper.png;
   vimkeys = {
@@ -24,9 +23,6 @@ let
     up = "k";
     right = "l";
   };
-
-  lock = "${pkgs.swaylock}/bin/swaylock -f";
-  display = status: "${pkgs.sway}/bin/swaymsg 'output * power ${status}'";
 
   workspace-binds = lib.listToAttrs (
     lib.concatMap (
@@ -185,7 +181,9 @@ in
     enable = true;
     settings = {
       general = {
+        disable-notifications = true;
         fullscreen = true;
+        initial-tool = "crop";
         actions-on-enter = [
           "save-to-file"
           "exit"
