@@ -90,6 +90,13 @@
               ];
             };
           };
+          rust_analyzer = {
+            enable = true;
+            config = {
+              cmd = [ "rust-analyzer" ];
+              filetypes = [ "rust" ];
+            };
+          };
           nixd = {
             enable = true;
             config = {
