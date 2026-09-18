@@ -7,7 +7,6 @@
     autoconf
     automake
     blueman
-    cargo
     clang-tools
     cloc
     cmake
@@ -41,7 +40,6 @@
     python3
     quickemu
     ripgrep
-    rustc
     smartmontools
     sqlitestudio
     supertuxkart
