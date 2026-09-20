@@ -45,6 +45,7 @@
             nix = [ "nixfmt" ];
             cpp = [ "clang-format" ];
             rust = [ "rustfmt" ];
+            markdown = [ "prettier" ];
           };
           formatters = {
             autoflake.command = lib.getExe pkgs.autoflake;
@@ -54,6 +55,7 @@
             nixfmt.command = lib.getExe pkgs.nixfmt;
             rustfmt.command = lib.getExe pkgs.rustfmt;
             stylua.command = lib.getExe pkgs.stylua;
+            prettier.command = lib.getExe pkgs.prettier;
           };
           format_on_save = {
             timeout_ms = 5000;
