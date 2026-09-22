@@ -53,23 +53,24 @@ in
       };
     };
     policies = {
-      DisableTelemetry = true;
+      AppAutoUpdate = false;
+      BackgroundAppUpdate = false;
+      DisableAccounts = true;
+      DisableFirefoxAccounts = true;
       DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DisplayBookmarksToolbar = "never";
+      DisplayMenuBar = "default-off";
+      DontCheckDefaultBrowser = true;
       EnableTrackingProtection = {
         Value = true;
         Locked = true;
         Cryptomining = true;
         Fingerprinting = true;
       };
-      DisablePocket = true;
-      DisableFirefoxAccounts = true;
-      DisableAccounts = true;
-      DisableFirefoxScreenshots = true;
       OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";
-      DontCheckDefaultBrowser = true;
-      DisplayBookmarksToolbar = "never";
-      DisplayMenuBar = "default-off";
       SearchBar = "unified";
     };
   };
