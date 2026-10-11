@@ -213,6 +213,15 @@ in
     };
   };
   services.swaync.enable = true;
+  services.batsignal = {
+    enable = true;
+    extraArgs = [
+      "-w"
+      "30"
+      "-c"
+      "5"
+    ];
+  };
   services.polkit-gnome.enable = true;
   programs.i3status-rust = {
     enable = true;
