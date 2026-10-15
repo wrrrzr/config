@@ -20,6 +20,7 @@
     gimp
     glow
     gnumake
+    inkscape
     keepassxc
     kitty
     libnotify
