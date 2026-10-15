@@ -45,6 +45,7 @@
     packages = {
       enable = true;
       fonts = true;
+      packages = with pkgs; [ iperf3 ];
     };
     unfree.enable = true;
   };
